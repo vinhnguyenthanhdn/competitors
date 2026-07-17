@@ -2,10 +2,1411 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Test Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Báo cáo thị trường &amp; đối thủ cạnh tranh — Ello Da Nang</title>
+<meta name="description" content="Báo cáo phân tích thị trường và 6 đối thủ cạnh tranh mảng đặt hướng dẫn viên tại Đà Nẵng, định hướng marketing cho Ello Da Nang.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+  :root{
+    --bg-1:#eaf5ff;
+    --bg-2:#f7fbff;
+    --bg-3:#fdf6ee;
+    --surface:#ffffff;
+    --border:#dfe9f2;
+    --text:#132234;
+    --text-muted:#54687c;
+    --text-faint:#8093a4;
+
+    --orange:#F37120;
+    --orange-dark:#c9560f;
+    --orange-soft:#ffe7d6;
+    --orange-soft-2:#fff1e6;
+
+    --pink:#e8477b;
+    --pink-soft:#fde3ea;
+    --teal:#12a49a;
+    --teal-soft:#d9f3f0;
+    --green:#3ca866;
+    --green-soft:#e0f4e6;
+    --purple:#8567d6;
+    --purple-soft:#ece5fb;
+    --slate:#66788c;
+    --slate-soft:#eaeef2;
+    --blue:#3d7fc4;
+    --blue-soft:#e0edf9;
+
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --shadow-card:0 1px 2px rgba(19,34,52,.04), 0 10px 28px -14px rgba(19,34,52,.16);
+    --shadow-soft:0 1px 2px rgba(19,34,52,.03), 0 4px 14px -8px rgba(19,34,52,.10);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:90px;}
+  body{
+    margin:0;
+    font-family:'Be Vietnam Pro', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 700px at 15% -10%, #f2f9ff 0%, transparent 60%),
+      radial-gradient(1000px 600px at 100% 0%, #fff3e8 0%, transparent 55%),
+      linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 40%, #f4f8fb 100%);
+    line-height:1.7;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;}
+  a{color:inherit;}
+  .icon{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .icon-solid{fill:currentColor;stroke:none;}
+
+  ::selection{background:var(--orange-soft);color:var(--orange-dark);}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:2.5px solid var(--orange); outline-offset:2px; border-radius:6px;
+  }
+
+  /* ============ Top bar ============ */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px;
+    padding:14px clamp(20px,3vw,48px);
+    max-width:1720px; margin:0 auto;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    border-bottom:1px solid var(--border);
+  }
+  .topbar-outer{position:sticky; top:0; z-index:40; background:rgba(255,255,255,.78); backdrop-filter:blur(14px) saturate(160%); -webkit-backdrop-filter:blur(14px) saturate(160%); border-bottom:1px solid var(--border);}
+  .topbar-outer .topbar{position:static; background:none; backdrop-filter:none; -webkit-backdrop-filter:none; border-bottom:none;}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.01em; font-size:1.05rem; cursor:pointer;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:10px;
+    background:linear-gradient(140deg,var(--orange),#ff9a52);
+    display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.1rem;
+    box-shadow:0 6px 14px -6px rgba(243,113,32,.55);
+  }
+  .brand small{display:block;font-weight:500;color:var(--text-muted);font-size:.72rem;letter-spacing:0;}
+  .topbar-meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--text-muted);}
+  .pill{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:6px 12px;border-radius:999px;background:var(--surface);
+    border:1px solid var(--border); font-size:.78rem; font-weight:600; color:var(--text-muted);
+    box-shadow:var(--shadow-soft);
+  }
+  .menu-btn{
+    display:none; align-items:center; justify-content:center;
+    width:40px;height:40px;border-radius:10px;border:1px solid var(--border);
+    background:var(--surface); cursor:pointer; color:var(--text);
+  }
+
+  /* ============ Layout ============ */
+  .shell{
+    max-width:1720px; margin:0 auto; padding:28px clamp(20px,3vw,48px) 80px;
+    display:grid; grid-template-columns:272px minmax(0,1fr); gap:40px;
+    align-items:start;
+  }
+  @media (min-width:1600px){
+    .shell{grid-template-columns:300px minmax(0,1fr); gap:48px;}
+  }
+  .toc{
+    position:sticky; top:88px;
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    padding:18px 16px; box-shadow:var(--shadow-card);
+    max-height:calc(100vh - 110px); overflow-y:auto;
+  }
+  .toc h4{margin:2px 6px 10px; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--text-faint); font-weight:700;}
+  .toc-group{margin-bottom:14px;}
+  .toc a{
+    display:flex; align-items:center; gap:8px;
+    padding:8px 10px; border-radius:9px; font-size:.87rem; font-weight:600; color:var(--text-muted);
+    text-decoration:none; transition:background .15s ease, color .15s ease; cursor:pointer;
+  }
+  .toc a .dot{width:7px;height:7px;border-radius:50%;background:var(--slate);flex:none;}
+  .toc a:hover{background:var(--bg-1); color:var(--text);}
+  .toc a.active{background:var(--orange-soft-2); color:var(--orange-dark);}
+  .toc a.active .dot{background:var(--orange);}
+  .toc-sub{margin-left:6px; padding-left:10px; border-left:2px solid var(--border);}
+  .toc-sub a{font-size:.82rem; font-weight:500; padding:6px 10px;}
+
+  main{min-width:0;}
+  section{scroll-margin-top:90px; margin-bottom:52px;}
+  .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:18px; flex-wrap:wrap;}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:.76rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--orange-dark); background:var(--orange-soft-2); border:1px solid var(--orange-soft); padding:5px 12px; border-radius:999px; margin-bottom:10px;}
+  h1{font-size:clamp(1.9rem,3.4vw,2.7rem); line-height:1.15; letter-spacing:-.02em; margin:0 0 12px; font-weight:800;}
+  h2{font-size:clamp(1.4rem,2.2vw,1.7rem); letter-spacing:-.015em; margin:0; font-weight:800;}
+  h3{font-size:1.08rem; margin:0 0 6px; font-weight:700;}
+  p{margin:0 0 12px; color:var(--text);}
+  .lede{font-size:1.05rem; color:var(--text-muted); max-width:78ch;}
+  .muted{color:var(--text-muted);}
+  .small{font-size:.85rem;}
+
+  /* ============ Hero ============ */
+  .hero{
+    background:linear-gradient(155deg, #ffffff 0%, #eef8ff 55%, #fff2e5 130%);
+    border:1px solid var(--border); border-radius:28px; padding:36px 32px;
+    box-shadow:var(--shadow-card); position:relative; overflow:hidden;
+  }
+  .hero::after{
+    content:""; position:absolute; right:-90px; top:-90px; width:280px; height:280px; border-radius:50%;
+    background:radial-gradient(circle, rgba(243,113,32,.16), transparent 70%);
+  }
+  .hero-links{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .hero-links a{
+    font-size:.8rem; font-weight:600; color:var(--text-muted); background:var(--surface);
+    border:1px solid var(--border); padding:6px 12px; border-radius:999px; text-decoration:none;
+    transition:all .15s ease; cursor:pointer;
+  }
+  .hero-links a:hover{border-color:var(--orange); color:var(--orange-dark); background:var(--orange-soft-2);}
+
+  /* ============ Stat grid ============ */
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:24px;}
+  .stat-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:18px 18px 16px; box-shadow:var(--shadow-soft); position:relative; overflow:hidden;
+  }
+  .stat-card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--accent,var(--orange));}
+  .stat-card .icon-wrap{
+    width:34px;height:34px;border-radius:10px; display:flex; align-items:center; justify-content:center;
+    background:var(--accent-soft,var(--orange-soft)); color:var(--accent-dark,var(--orange-dark)); margin-bottom:12px;
+  }
+  .stat-num{font-size:1.7rem; font-weight:800; letter-spacing:-.02em; line-height:1.1;}
+  .stat-label{font-size:.82rem; font-weight:700; color:var(--text); margin-top:4px;}
+  .stat-sub{font-size:.78rem; color:var(--text-muted); margin-top:4px;}
+
+  /* ============ Card / panel ============ */
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:26px; box-shadow:var(--shadow-card);}
+  .card + .card{margin-top:18px;}
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+
+  ul.bullets{margin:0; padding:0; list-style:none;}
+  ul.bullets li{position:relative; padding-left:22px; margin-bottom:10px; color:var(--text);}
+  ul.bullets li::before{content:""; position:absolute; left:0; top:9px; width:7px; height:7px; border-radius:50%; background:var(--orange);}
+
+  /* ============ Table ============ */
+  .table-wrap{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); box-shadow:var(--shadow-soft);}
+  table{border-collapse:collapse; width:100%; min-width:640px; font-size:.9rem; background:var(--surface);}
+  thead th{
+    text-align:left; font-size:.72rem; letter-spacing:.05em; text-transform:uppercase; color:var(--text-muted);
+    background:var(--bg-1); padding:12px 16px; border-bottom:1px solid var(--border); white-space:nowrap;
+  }
+  tbody td{padding:13px 16px; border-bottom:1px solid var(--border); vertical-align:top; color:var(--text);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#fbfdff;}
+  td.num, th.num{text-align:right; font-variant-numeric:tabular-nums;}
+  .row-name{font-weight:700; white-space:nowrap;}
+
+  .tag{display:inline-flex; align-items:center; gap:6px; font-size:.72rem; font-weight:700; padding:4px 10px; border-radius:999px; white-space:nowrap;}
+  .tag .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  /* competitor accent utility classes */
+  .c-ongvove{--accent:#66788c; --accent-soft:#eaeef2; --accent-dark:#3f4d5c;}
+  .c-klook{--accent:#12a49a; --accent-soft:#d9f3f0; --accent-dark:#0a655f;}
+  .c-tbl{--accent:#8567d6; --accent-soft:#ece5fb; --accent-dark:#5a419e;}
+  .c-withlocals{--accent:#e8477b; --accent-soft:#fde3ea; --accent-dark:#a52e57;}
+  .c-guruwalk{--accent:#3ca866; --accent-soft:#e0f4e6; --accent-dark:#276b40;}
+  .c-oneguide{--accent:#3d7fc4; --accent-soft:#e0edf9; --accent-dark:#255d97;}
+  .c-ello{--accent:#F37120; --accent-soft:#ffe7d6; --accent-dark:#c9560f;}
+
+  .tag.c-ongvove{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-klook{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-tbl{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-withlocals{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-guruwalk{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-oneguide{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-ello{background:var(--accent-soft); color:var(--accent-dark);}
+
+  /* ============ Bar chart ============ */
+  .barchart{display:flex; flex-direction:column; gap:14px; padding:6px 4px;}
+  .bar-row{display:grid; grid-template-columns:150px 1fr 128px; align-items:center; gap:14px;}
+  .bar-label{font-size:.86rem; font-weight:700; text-align:right;}
+  .bar-track{background:var(--bg-1); border-radius:999px; height:14px; overflow:hidden; border:1px solid var(--border);}
+  .bar-fill{height:100%; border-radius:999px; background:linear-gradient(90deg, var(--accent), var(--accent)); position:relative;}
+  .bar-value{font-size:.8rem; color:var(--text-muted); font-weight:600; font-variant-numeric:tabular-nums;}
+  .bar-value strong{color:var(--text); font-weight:700;}
+
+  /* ============ Competitor detail block ============ */
+  .competitor{
+    background:var(--surface); border:1px solid var(--border); border-radius:24px;
+    box-shadow:var(--shadow-card); overflow:hidden; margin-bottom:28px;
+  }
+  .competitor-head{
+    padding:24px 28px; display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg, var(--accent-soft) 0%, transparent 100%);
+  }
+  .competitor-head h3{font-size:1.35rem; margin-bottom:4px;}
+  .competitor-num{
+    width:38px;height:38px;border-radius:11px;background:var(--accent); color:#fff; font-weight:800;
+    display:flex; align-items:center; justify-content:center; font-size:1rem; flex:none;
+  }
+  .competitor-body{padding:26px 28px;}
+  .competitor-body h4{font-size:.95rem; font-weight:700; margin:0 0 12px; display:flex; align-items:center; gap:8px;}
+  .competitor-body h4 .icon{color:var(--accent);}
+
+  .quickstats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:22px;}
+  .qs-item{background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:12px 14px;}
+  .qs-item .qs-label{font-size:.72rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.04em; font-weight:700; margin-bottom:4px;}
+  .qs-item .qs-value{font-size:1.05rem; font-weight:800; letter-spacing:-.01em;}
+
+  .flow{display:flex; flex-wrap:wrap; align-items:center; gap:0; margin-bottom:22px;}
+  .flow-step{
+    background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:10px 14px;
+    font-size:.83rem; font-weight:600; color:var(--text);
+  }
+  .flow-arrow{color:var(--accent); margin:0 8px; flex:none;}
+
+  .verdict-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:22px;}
+  .verdict-box{border-radius:14px; padding:16px 18px; border:1px solid var(--border);}
+  .verdict-box.good{background:var(--green-soft);}
+  .verdict-box.bad{background:#fdeeee;}
+  .verdict-box h5{display:flex; align-items:center; gap:8px; font-size:.88rem; font-weight:800; margin:0 0 10px;}
+  .verdict-box.good h5{color:#1f7a45;}
+  .verdict-box.bad h5{color:#b83b3b;}
+  .verdict-box ul{margin:0; padding:0; list-style:none;}
+  .verdict-box li{display:flex; gap:8px; align-items:flex-start; margin-bottom:9px; font-size:.87rem; line-height:1.6;}
+  .verdict-box li:last-child{margin-bottom:0;}
+  .verdict-box li .icon{margin-top:3px; flex:none;}
+  .verdict-box.good li .icon{color:#28965a;}
+  .verdict-box.bad li .icon{color:#d34848;}
+
+  .note-box{
+    margin-top:18px; background:var(--bg-2); border:1px dashed var(--border); border-radius:12px;
+    padding:12px 16px; font-size:.85rem; color:var(--text-muted); display:flex; gap:10px; align-items:flex-start;
+  }
+  .note-box .icon{color:var(--text-faint); margin-top:2px;}
+
+  /* ============ Gap cards ============ */
+  .gap-list{display:flex; flex-direction:column; gap:14px;}
+  .gap-item{display:flex; gap:16px; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:18px 20px; box-shadow:var(--shadow-soft);}
+  .gap-num{
+    width:36px;height:36px;border-radius:10px;background:var(--orange-soft); color:var(--orange-dark); font-weight:800;
+    display:flex; align-items:center; justify-content:center; flex:none; font-size:.95rem;
+  }
+  .gap-item h4{margin:0 0 4px; font-size:.98rem; font-weight:700;}
+  .gap-item p{margin:0; color:var(--text-muted); font-size:.9rem;}
+
+  /* ============ Insight / segment ============ */
+  .insight-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .insight-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:20px; box-shadow:var(--shadow-soft);
+    position:relative;
+  }
+  .insight-card .big-num{font-size:2.1rem; font-weight:800; color:var(--orange); letter-spacing:-.03em; margin-bottom:6px;}
+  .insight-card p{font-size:.88rem; color:var(--text-muted); margin:0;}
+  .insight-card h4{font-size:.95rem; margin-bottom:6px;}
+
+  .segment-cell strong{display:block; margin-bottom:2px;}
+
+  .channel-list{display:flex; flex-direction:column; gap:12px;}
+  .channel-item{display:flex; gap:14px; padding:16px 18px; background:var(--surface); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow-soft);}
+  .channel-item .icon-wrap{
+    width:36px;height:36px;border-radius:10px;background:var(--orange-soft); color:var(--orange-dark);
+    display:flex;align-items:center;justify-content:center; flex:none;
+  }
+  .channel-item h4{margin:0 0 4px; font-size:.94rem;}
+  .channel-item p{margin:0; font-size:.87rem; color:var(--text-muted);}
+
+  .vs-chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
+  .vs-chip{display:flex; gap:8px; align-items:center; background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:9px 14px; font-size:.85rem;}
+  .vs-chip b{color:var(--orange-dark);}
+
+  .avoid-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .avoid-card{background:#fdeeee; border:1px solid #f7d3d3; border-radius:16px; padding:18px; box-shadow:var(--shadow-soft);}
+  .avoid-card .icon{color:#c94141; margin-bottom:8px;}
+  .avoid-card h4{font-size:.92rem; color:#8f2f2f; margin-bottom:6px;}
+  .avoid-card p{font-size:.86rem; color:#7a3d3d; margin:0;}
+
+  footer{
+    margin-top:20px; padding:26px 28px; border-radius:var(--radius-lg); background:var(--surface);
+    border:1px solid var(--border); color:var(--text-muted); font-size:.82rem; box-shadow:var(--shadow-soft);
+  }
+
+  /* ============ Visual charts: donut / radar / pictogram / timeline / matrix ============ */
+  .viz-grid{display:grid; grid-template-columns:220px 1fr; gap:28px; align-items:center;}
+  .donut-wrap{display:flex; flex-direction:column; align-items:center; gap:10px;}
+  .donut-center-label{font-size:1.5rem; font-weight:800; letter-spacing:-.02em;}
+  .donut-sub-label{font-size:.76rem; color:var(--text-muted); text-align:center; max-width:180px;}
+  .donut-legend{display:flex; gap:14px; font-size:.78rem; color:var(--text-muted); margin-top:4px;}
+  .donut-legend span{display:inline-flex; align-items:center; gap:6px;}
+  .donut-legend i{width:9px;height:9px;border-radius:50%; display:inline-block;}
+
+  .chart-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:26px; box-shadow:var(--shadow-card); margin-top:18px;}
+  .chart-card-head{margin-bottom:18px;}
+  .chart-card-head h3{margin-bottom:4px;}
+
+  .radar-flex{display:flex; gap:28px; align-items:center; flex-wrap:wrap;}
+  .radar-legend{display:flex; flex-direction:column; gap:10px; min-width:200px;}
+  .radar-legend .item{display:flex; align-items:center; gap:10px; font-size:.86rem; font-weight:600;}
+  .radar-legend .swatch{width:14px;height:14px;border-radius:4px; flex:none;}
+  .radar-legend .swatch.ello{background:var(--orange);}
+  .radar-legend .swatch.avg{background:var(--slate); opacity:.55;}
+  .radar-legend p{margin:2px 0 0; font-size:.78rem; color:var(--text-muted); font-weight:400;}
+
+  .pictogram{display:flex; flex-direction:column; gap:16px;}
+  .picto-row{display:grid; grid-template-columns:150px 1fr; gap:16px; align-items:center;}
+  .picto-label{font-size:.86rem; font-weight:700; text-align:right;}
+  .picto-icons{display:flex; flex-wrap:wrap; gap:5px; align-items:center;}
+  .picto-icons svg{width:18px;height:18px;}
+  .picto-count{margin-left:8px; font-size:.82rem; font-weight:700; color:var(--text-muted);}
+  .picto-row.ello-target .picto-label{color:var(--orange-dark);}
+
+  .timeline{display:flex; flex-direction:column; gap:0; margin:6px 0 4px;}
+  .tl-item{display:grid; grid-template-columns:120px 24px 1fr; gap:14px;}
+  .tl-date{font-size:.8rem; font-weight:700; color:var(--text-muted); text-align:right; padding-top:2px;}
+  .tl-rail{display:flex; flex-direction:column; align-items:center;}
+  .tl-dot{width:12px;height:12px;border-radius:50%; background:var(--accent); border:3px solid var(--accent-soft); flex:none; margin-top:3px;}
+  .tl-line{flex:1; width:2px; background:var(--border); margin-top:2px;}
+  .tl-item:last-child .tl-line{display:none;}
+  .tl-content{padding-bottom:20px;}
+  .tl-content h5{margin:0 0 4px; font-size:.9rem; font-weight:700;}
+  .tl-content p{margin:0; font-size:.84rem; color:var(--text-muted);}
+  .tl-item.dim .tl-dot{background:var(--slate); opacity:.5;}
+  .tl-item.warn .tl-dot{background:#d34848;}
+
+  .matrix-wrap{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); box-shadow:var(--shadow-soft);}
+  table.matrix{border-collapse:collapse; width:100%; min-width:760px; background:var(--surface); font-size:.86rem;}
+  table.matrix th, table.matrix td{border-bottom:1px solid var(--border); padding:12px 14px; text-align:center;}
+  table.matrix thead th{background:var(--bg-1); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; color:var(--text-muted);}
+  table.matrix th:first-child, table.matrix td:first-child{text-align:left; font-weight:700;}
+  table.matrix td.yes{color:#1f7a45;}
+  table.matrix td.no{color:#c94141;}
+  table.matrix td.mid{color:#b5860f;}
+  table.matrix th.ello-col, table.matrix td.ello-col{background:var(--orange-soft-2);}
+  table.matrix tbody tr:last-child td{border-bottom:none;}
+  table.matrix .icon{width:18px;height:18px;}
+
+  @media (max-width:640px){
+    .viz-grid{grid-template-columns:1fr;}
+    .picto-row{grid-template-columns:1fr; text-align:left;}
+    .picto-label{text-align:left;}
+    .tl-item{grid-template-columns:88px 20px 1fr; gap:8px;}
+  }
+
+  /* ============ Mobile ============ */
+  @media (max-width: 1023px){
+    .shell{grid-template-columns:1fr;}
+    .toc{
+      position:fixed; inset:0 auto 0 0; left:-100%; top:0; height:100vh; width:82%; max-width:320px;
+      z-index:60; border-radius:0; max-height:none; transition:left .25s ease; box-shadow:0 0 40px rgba(0,0,0,.25);
+    }
+    .toc.open{left:0;}
+    .menu-btn{display:flex;}
+    .scrim{display:none; position:fixed; inset:0; background:rgba(10,20,30,.42); z-index:55;}
+    .scrim.open{display:block;}
+    .stat-grid{grid-template-columns:repeat(2,1fr);}
+    .grid-2, .grid-3, .insight-grid, .avoid-grid, .verdict-grid{grid-template-columns:1fr;}
+    .bar-row{grid-template-columns:96px 1fr 88px; gap:8px;}
+    .bar-label{font-size:.78rem;}
+    .topbar-meta .pill:nth-child(2){display:none;}
+  }
+  @media (max-width:640px){
+    .stat-grid{grid-template-columns:1fr 1fr;}
+    .hero{padding:26px 20px;}
+    .competitor-head, .competitor-body{padding:20px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{scroll-behavior:auto !important; transition:none !important;}
+  }
+</style>
 </head>
 <body>
-  <h1>Hello from competitors repo</h1>
-  <p>Test GitHub Pages deployment.</p>
+
+<!-- ============ SVG ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M11 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.4-5-3.4s-5 1.4-5 3.2S9.2 9.5 12 10s5 1.5 5 3.3-2.2 3.2-5 3.2-5-1.5-5-3.4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-13h-7l1-7Z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.8 8.4A8.6 8.6 0 0 1 8 19l-5 1 1.4-4.2A8.4 8.4 0 1 1 21 11.5Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M4 4h13l3 3v13H4Z"/><path d="M9 9h7M9 13h7M9 17h4"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ Top bar ============ -->
+<div class="topbar-outer">
+  <div class="topbar">
+    <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <span class="brand-mark">E</span>
+      <span>Ello Da Nang<small>Báo cáo thị trường &amp; đối thủ cạnh tranh</small></span>
+    </div>
+    <div class="topbar-meta">
+      <span class="pill"><svg class="icon" width="14" height="14"><use href="#i-calendar"/></svg>Cập nhật 17/07/2026</span>
+      <span class="pill"><svg class="icon" width="14" height="14"><use href="#i-map"/></svg>Thị trường: Đà Nẵng</span>
+      <button class="menu-btn" id="menuBtn" aria-label="Mở mục lục" aria-expanded="false" aria-controls="tocNav">
+        <svg class="icon" width="20" height="20"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="scrim" id="scrim"></div>
+
+<div class="shell">
+  <!-- ============ Sidebar TOC ============ -->
+  <nav class="toc" id="tocNav" aria-label="Mục lục">
+    <h4>Mục lục</h4>
+    <div class="toc-group">
+      <a href="#tong-quan" data-nav><span class="dot"></span>Bối cảnh thị trường</a>
+      <a href="#ban-do" data-nav><span class="dot"></span>Bản đồ đối thủ</a>
+    </div>
+    <div class="toc-group">
+      <h4>Phân tích chi tiết</h4>
+      <a href="#ongvove" data-nav><span class="dot"></span>Ong Vò Vẽ Travel</a>
+      <a href="#klook" data-nav><span class="dot"></span>Klook</a>
+      <a href="#toursbylocals" data-nav><span class="dot"></span>ToursByLocals</a>
+      <a href="#withlocals" data-nav><span class="dot"></span>WithLocals</a>
+      <a href="#guruwalk" data-nav><span class="dot"></span>GuruWalk</a>
+      <a href="#oneguide" data-nav><span class="dot"></span>OneGuide (VietISO)</a>
+    </div>
+    <div class="toc-group">
+      <a href="#khoang-trong" data-nav><span class="dot"></span>Khoảng trống thị trường</a>
+      <a href="#dinh-huong" data-nav><span class="dot"></span>Định hướng marketing</a>
+      <a href="#nguon" data-nav><span class="dot"></span>Nguồn dữ liệu</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============ HERO / SECTION 1 ============ -->
+    <section id="tong-quan">
+      <div class="hero">
+        <span class="eyebrow"><svg class="icon" width="13" height="13"><use href="#i-map"/></svg>Mảng đặt hướng dẫn viên (HDV) tại Đà Nẵng</span>
+        <h1>Báo cáo thị trường &amp; đối thủ cạnh tranh</h1>
+        <p class="lede">Ngày lập 16/07/2026 · cập nhật số liệu xác minh trực tiếp 17/07/2026. Tổng hợp bối cảnh thị trường, 6 nền tảng đang khai thác mảng đặt/thuê HDV tại Đà Nẵng, khoảng trống thị trường và định hướng marketing kéo khách du lịch vào Ello.</p>
+        <div class="hero-links">
+          <a href="#ban-do">Bản đồ đối thủ</a>
+          <a href="#khoang-trong">Khoảng trống thị trường</a>
+          <a href="#dinh-huong">Định hướng marketing</a>
+          <a href="#nguon">Nguồn dữ liệu</a>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="icon-wrap"><svg class="icon" width="18" height="18"><use href="#i-dollar"/></svg></div>
+            <div class="stat-num">2,87 tỷ $</div>
+            <div class="stat-label">Quy mô du lịch trực tuyến VN (2025)</div>
+            <div class="stat-sub">Dự báo 4,69 tỷ $ vào 2031 · CAGR ~8,55%</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon-wrap"><svg class="icon" width="18" height="18"><use href="#i-users"/></svg></div>
+            <div class="stat-num">6.768.175</div>
+            <div class="stat-label">Khách quốc tế Q1/2026</div>
+            <div class="stat-sub">Tăng 14,4% so với cùng kỳ 2025</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon-wrap"><svg class="icon" width="18" height="18"><use href="#i-trend"/></svg></div>
+            <div class="stat-num">+193%</div>
+            <div class="stat-label">Booking Klook tại Việt Nam</div>
+            <div class="stat-sub">So với 2024 · mạnh tại HN, TP.HCM, Đà Nẵng</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon-wrap"><svg class="icon" width="18" height="18"><use href="#i-search"/></svg></div>
+            <div class="stat-num">~4.956</div>
+            <div class="stat-label">Tin tuyển dụng HDV (T6/2026)</div>
+            <div class="stat-sub">Doanh nghiệp tham gia sàn việc làm +30% so 2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <div class="section-head"><h2>1. Bối cảnh thị trường chung</h2></div>
+        <div class="viz-grid">
+          <div class="donut-wrap">
+            <svg width="180" height="180" viewBox="0 0 180 180" role="img" aria-label="Quy mô thị trường du lịch trực tuyến Việt Nam tăng từ 2,87 tỷ đô năm 2025 lên 4,69 tỷ đô năm 2031">
+              <circle cx="90" cy="90" r="72" fill="none" stroke="var(--bg-1)" stroke-width="20"/>
+              <circle cx="90" cy="90" r="72" fill="none" stroke="url(#donutGrad)" stroke-width="20"
+                stroke-linecap="round" stroke-dasharray="452.4" stroke-dashoffset="166"
+                transform="rotate(-90 90 90)"/>
+              <defs>
+                <linearGradient id="donutGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#F37120"/>
+                  <stop offset="100%" stop-color="#ff9a52"/>
+                </linearGradient>
+              </defs>
+              <text x="90" y="84" text-anchor="middle" font-size="22" font-weight="800" fill="var(--text)">+63%</text>
+              <text x="90" y="104" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">2025 → 2031</text>
+            </svg>
+            <div class="donut-legend">
+              <span><i style="background:#F37120"></i>2025: 2,87 tỷ $</span>
+            </div>
+            <div class="donut-legend">
+              <span><i style="background:var(--bg-1);border:2px solid #F37120"></i>2031 (dự báo): 4,69 tỷ $</span>
+            </div>
+            <div class="donut-sub-label">CAGR ~8,55%/năm — theo Mordor Intelligence</div>
+          </div>
+          <ul class="bullets">
+            <li><strong>Booking.com, Agoda, Traveloka</strong> chiếm khoảng <strong>80% thị phần</strong> OTA chung. Mobile chiếm <strong>72,77%</strong> giao dịch, ví điện tử chiếm <strong>46,12%</strong> giá trị thanh toán.</li>
+            <li><strong>Xu hướng du lịch tự túc</strong> (không mua tour trọn gói) đang tăng ở nhóm gia đình, nhóm bạn trẻ, khách đi riêng lẻ — đây là nhóm khách hàng mục tiêu chính cho mô hình thuê HDV theo giờ/ngày thay vì tour đóng gói.</li>
+            <li><strong>Nguồn cung HDV</strong> đang thiếu hụt cục bộ — số doanh nghiệp tham gia các sàn giao dịch việc làm du lịch tăng ~30% so với 2025.</li>
+            <li><strong>Định hướng chính sách:</strong> dự án nền tảng quốc gia <strong>"Visit Vietnam"</strong> (super app du lịch) dự kiến ra mắt public khoảng Q2/2026, tích hợp xác thực danh tính qua blockchain và công cụ lên lịch trình.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 2: OVERVIEW ============ -->
+    <section id="ban-do">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><svg class="icon" width="13" height="13"><use href="#i-target"/></svg>Section 2</span>
+          <h2>Bản đồ đối thủ tại Đà Nẵng</h2>
+        </div>
+      </div>
+      <p class="lede">6 nền tảng đang khai thác mảng đặt/thuê HDV tại Đà Nẵng, cộng 2 nền tảng ghi nhận thêm chưa phân tích sâu (GoWithGuide, ShowAround).</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nền tảng</th><th>Mô hình</th><th>Phạm vi</th><th>Quy mô cung tại Đà Nẵng</th><th>Giá tham khảo</th><th>Đặc điểm nổi bật</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-name"><span class="tag c-ongvove"><span class="dot"></span>Ong Vò Vẽ</span></td>
+              <td>OTA marketplace, đặt HDV theo giờ/ngày, xác nhận thủ công</td>
+              <td>Toàn quốc VN + quốc tế</td>
+              <td>57 HDV toàn hệ thống, <strong>chỉ 2 tại Đà Nẵng</strong>; 0/57 có booking</td>
+              <td>400.000–800.000đ/ngày</td>
+              <td>SEO dày (2.094 trang địa điểm) nhưng traffic thật thấp; mảng HDV gần như "ngủ đông"</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag c-klook"><span class="dot"></span>Klook</span></td>
+              <td>OTA đóng gói (mua trước 1 SKU cố định), guide do DMC gán</td>
+              <td>Toàn cầu, Đà Nẵng là 1 SKU</td>
+              <td>Không lộ diện HDV cụ thể trước khi đặt</td>
+              <td>₫975k (4h) / ₫1.312.500 (8h) mỗi HDV</td>
+              <td>3 gói 4h/8h/12h, 6 ngôn ngữ, xác nhận tức thời + hủy miễn phí 24h; 12 review, 5.0/5, 100+ đã đặt</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag c-tbl"><span class="dot"></span>ToursByLocals</span></td>
+              <td>Marketplace, duyệt hồ sơ + nhắn tin trực tiếp với từng HDV</td>
+              <td>Toàn cầu</td>
+              <td>117 kết quả tour, ~12 HDV bản địa Đà Nẵng</td>
+              <td>$114–320+/tour</td>
+              <td>Rating hầu hết 5.0/HDV, cá nhân hóa cao nhưng quy trình thủ công</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag c-withlocals"><span class="dot"></span>WithLocals</span></td>
+              <td>Marketplace "net price + markup", host tự định giá</td>
+              <td>250+ điểm đến toàn cầu</td>
+              <td>8 experience tại Đà Nẵng (không có landing page riêng — 404)</td>
+              <td>€34–82/người + markup ~32% + phí ~10%</td>
+              <td>Cơ chế phí phức tạp, giá cuối cao hơn phần host nhận; review dày 155–238/experience</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag c-guruwalk"><span class="dot"></span>GuruWalk</span></td>
+              <td>Free walking tour, trả tip tùy tâm sau tour</td>
+              <td>Toàn cầu</td>
+              <td>5 tour đi bộ tại Đà Nẵng (91 ở VN, 951 ở châu Á)</td>
+              <td>Tip 100.000–300.000đ/người (2–2,5h)</td>
+              <td>Rating Đà Nẵng 4,74/5 (731 review); chỉ phục vụ tour đi bộ ngắn, không phải thuê HDV riêng cả ngày</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag c-oneguide"><span class="dot"></span>OneGuide</span></td>
+              <td>Nền tảng B2B miễn phí kết nối HDV ⟷ doanh nghiệp lữ hành</td>
+              <td>Toàn quốc</td>
+              <td>&gt;30.000 HDV, &gt;2.600 doanh nghiệp lữ hành</td>
+              <td>Miễn phí</td>
+              <td>Thuộc iTourism (ngành/nhà nước hậu thuẫn) — khác phân khúc (B2B)</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag" style="background:var(--slate-soft);color:var(--slate)"><span class="dot"></span>GoWithGuide / ShowAround</span></td>
+              <td>Marketplace HDV cá nhân, tương tự ToursByLocals/WithLocals</td>
+              <td>Toàn cầu, có trang riêng cho Đà Nẵng</td>
+              <td>Chưa xác định</td>
+              <td>Chưa xác định</td>
+              <td>Ghi nhận thêm, chưa phân tích sâu — cần theo dõi</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <div class="section-head"><h2 style="font-size:1.2rem;">2b. Web traffic các nền tảng (đo trực tiếp 17/07/2026)</h2></div>
+        <p class="muted small">Nguồn: Ahrefs Traffic Checker (organic search/tháng) + SimilarWeb.</p>
+
+        <div class="barchart" role="img" aria-label="So sánh organic traffic hàng tháng giữa các nền tảng">
+          <div class="bar-row">
+            <span class="bar-label">GuruWalk</span>
+            <div class="bar-track"><div class="bar-fill c-guruwalk" style="width:100%"></div></div>
+            <span class="bar-value"><strong>372.700</strong>/th</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">ToursByLocals</span>
+            <div class="bar-track"><div class="bar-fill c-tbl" style="width:12.4%"></div></div>
+            <span class="bar-value"><strong>46.100</strong>/th</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">WithLocals</span>
+            <div class="bar-track"><div class="bar-fill c-withlocals" style="width:6.9%"></div></div>
+            <span class="bar-value"><strong>25.600</strong>/th</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Ong Vò Vẽ</span>
+            <div class="bar-track"><div class="bar-fill c-ongvove" style="width:0.7%"></div></div>
+            <span class="bar-value"><strong>2.500</strong>/th</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Klook (SKU HDV)</span>
+            <div class="bar-track"><div class="bar-fill c-klook" style="width:0.4%"></div></div>
+            <span class="bar-value"><strong>0</strong>/th</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">OneGuide</span>
+            <div class="bar-track"><div class="bar-fill c-oneguide" style="width:0.4%"></div></div>
+            <span class="bar-value"><strong>0</strong>/th</span>
+          </div>
+        </div>
+
+        <div class="table-wrap" style="margin-top:20px;">
+          <table>
+            <thead>
+              <tr><th>Nền tảng</th><th class="num">Organic traffic/tháng</th><th class="num">Traffic value</th><th>Ghi chú</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="row-name">GuruWalk</td><td class="num">~372.700</td><td class="num">$146.700</td><td>Lớn nhất; mạnh SEO "free tour [city]", chủ yếu Tây Ban Nha/Âu</td></tr>
+              <tr><td class="row-name">ToursByLocals</td><td class="num">~46.100</td><td class="num">$32.200</td><td>Giá trị SEO cao (intent thương mại), khách Mỹ 56%, phần lớn branded</td></tr>
+              <tr><td class="row-name">WithLocals</td><td class="num">~25.600</td><td class="num">$15.700</td><td>Đang tăng trưởng, spread Âu-Mỹ, branded là chính</td></tr>
+              <tr><td class="row-name">Ong Vò Vẽ</td><td class="num">~2.500</td><td class="num">$111</td><td>2.094 trang SEO nhưng hiệu suất thấp; top keyword resort/rạp phim/quán ăn, không phải "thuê HDV"</td></tr>
+              <tr><td class="row-name">Klook (SKU HDV)</td><td class="num">0</td><td class="num">$0</td><td>Nền tảng mẹ klook.com 37,1 triệu visit/tháng; SKU sống nhờ traffic nội bộ</td></tr>
+              <tr><td class="row-name">OneGuide</td><td class="num">0</td><td class="num">$0</td><td>App B2B, truy cập trực tiếp/đăng nhập — 0 organic không phản ánh quy mô sử dụng thật</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note-box">
+          <svg class="icon" width="16" height="16"><use href="#i-info"/></svg>
+          <span><strong>Đọc nhanh:</strong> các đối thủ đúng phân khúc (ToursByLocals, WithLocals) có traffic vừa phải và <strong>chủ yếu là khách phương Tây đã biết thương hiệu</strong>, không phải khách tìm HDV Đà Nẵng qua Google — đây là tệp khác với khách mục tiêu của Ello. GuruWalk traffic khổng lồ nhưng khác phân khúc. Ong Vò Vẽ tuy nội dung SEO dày nhưng traffic thật rất thấp.</span>
+        </div>
+      </div>
+
+      <!-- Feature comparison matrix -->
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <h3>2c. Ma trận tính năng — Ello vs 6 đối thủ</h3>
+          <p class="muted small">So khớp nhanh 5 tính năng cốt lõi quyết định trải nghiệm đặt HDV.</p>
+        </div>
+        <div class="matrix-wrap">
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th>Tính năng</th>
+                <th>Ong Vò Vẽ</th><th>Klook</th><th>ToursByLocals</th><th>WithLocals</th><th>GuruWalk</th><th>OneGuide</th>
+                <th class="ello-col">Ello</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chọn đúng HDV cụ thể</td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="mid">1 phần</td>
+                <td class="no">—</td>
+                <td class="ello-col yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+              </tr>
+              <tr>
+                <td>Matching tức thời (real-time)</td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no">—</td>
+                <td class="ello-col yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+              </tr>
+              <tr>
+                <td>Giá minh bạch ngay trên listing</td>
+                <td class="mid">1 phần</td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="no">—</td>
+                <td class="ello-col yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+              </tr>
+              <tr>
+                <td>Trang/SEO điểm đến Đà Nẵng riêng</td>
+                <td class="mid">1 phần</td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="mid">1 phần</td>
+                <td class="no">—</td>
+                <td class="ello-col yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+              </tr>
+              <tr>
+                <td>Xác nhận tức thời + hủy linh hoạt</td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="mid">1 phần</td>
+                <td class="mid">1 phần</td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="no">—</td>
+                <td class="ello-col mid">Đang thiết kế</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Radar chart 5 dimensions -->
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <h3>2d. Ma trận cạnh tranh 5 chiều</h3>
+          <p class="muted small">Ello so với mức trung bình nhóm đối thủ đã khảo sát (thang điểm định tính 0–5, dựa trên phân tích ở trên).</p>
+        </div>
+        <div class="radar-flex">
+          <svg width="260" height="260" viewBox="0 0 260 260" role="img" aria-label="Radar chart so sánh Ello và trung bình đối thủ trên 5 tiêu chí">
+            <polygon points="130,30 225.11,99.10 188.78,210.90 71.22,210.90 34.89,99.10" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <polygon points="130,50 206.08,105.28 177.02,194.72 82.98,194.72 53.92,105.28" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <polygon points="130,70 187.06,111.46 165.27,178.54 94.73,178.54 72.94,111.46" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <polygon points="130,90 168.04,117.64 153.51,162.36 106.49,162.36 91.96,117.64" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <polygon points="130,110 149.02,123.82 141.76,146.18 118.24,146.18 110.98,123.82" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <line x1="130" y1="130" x2="130" y2="30" stroke="var(--border)"/>
+            <line x1="130" y1="130" x2="225.11" y2="99.10" stroke="var(--border)"/>
+            <line x1="130" y1="130" x2="188.78" y2="210.90" stroke="var(--border)"/>
+            <line x1="130" y1="130" x2="71.22" y2="210.90" stroke="var(--border)"/>
+            <line x1="130" y1="130" x2="34.89" y2="99.10" stroke="var(--border)"/>
+
+            <polygon points="130,110 187.06,111.46 159.39,170.45 118.24,146.18 91.96,117.64" fill="var(--slate)" fill-opacity="0.16" stroke="var(--slate)" stroke-width="2" stroke-dasharray="4 3"/>
+            <polygon points="130,30 206.08,105.28 177.02,194.72 82.98,194.72 53.92,105.28" fill="var(--orange)" fill-opacity="0.20" stroke="var(--orange)" stroke-width="2.5"/>
+
+            <text x="130" y="18" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">Matching tức thời</text>
+            <text x="234" y="93" text-anchor="start" font-size="10.5" font-weight="700" fill="var(--text)">Cá nhân hóa</text>
+            <text x="192" y="230" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">Giá minh bạch</text>
+            <text x="68" y="230" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">SEO Đà Nẵng</text>
+            <text x="26" y="93" text-anchor="end" font-size="10.5" font-weight="700" fill="var(--text)">Mật độ cung</text>
+          </svg>
+          <div class="radar-legend">
+            <div class="item"><span class="swatch ello"></span>Ello (định hướng sản phẩm)</div>
+            <div class="item"><span class="swatch avg"></span>Trung bình 6 đối thủ</div>
+            <p>Ello dẫn trước rõ nhất ở matching tức thời và SEO/nội dung riêng cho Đà Nẵng — đúng 2 khoảng trống lớn nhất quan sát được từ đối thủ.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 3: DETAIL ============ -->
+    <div class="section-head" style="margin-bottom:8px;">
+      <div>
+        <span class="eyebrow"><svg class="icon" width="13" height="13"><use href="#i-note"/></svg>Section 3</span>
+        <h2>Phân tích chi tiết từng đối thủ</h2>
+      </div>
+    </div>
+
+    <!-- ---- 3.1 Ong Vo Ve ---- -->
+    <section id="ongvove" class="competitor c-ongvove">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">01</span>
+          <div>
+            <h3>Ong Vò Vẽ Travel</h3>
+            <span class="muted small">ongvove.com · OTA marketplace + "local expert"</span>
+          </div>
+        </div>
+        <span class="tag c-ongvove"><span class="dot"></span>OTA marketplace — xác nhận thủ công</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">HDV toàn hệ thống</div><div class="qs-value">57</div></div>
+          <div class="qs-item"><div class="qs-label">HDV tại Đà Nẵng</div><div class="qs-value">2</div></div>
+          <div class="qs-item"><div class="qs-label">Booking phát sinh</div><div class="qs-value">0/57</div></div>
+          <div class="qs-item"><div class="qs-label">HDV đã verify</div><div class="qs-value">3/57</div></div>
+          <div class="qs-item"><div class="qs-label">Trang SEO địa điểm</div><div class="qs-value">2.094</div></div>
+          <div class="qs-item"><div class="qs-label">Giá tham khảo/ngày</div><div class="qs-value">400k–800k đ</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-bolt"/></svg>Quy trình đặt</h4>
+        <div class="flow">
+          <span class="flow-step">Chọn thời gian/gói/số người</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Chọn HDV</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Điền thông tin + thanh toán</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Chờ HDV xác nhận (thủ công)</span><span class="flow-arrow">→</span>
+          <span class="flow-step">HDV liên hệ chốt lịch trình</span>
+        </div>
+        <p class="muted small">Vận hành bởi Công ty TNHH Thùy Dương; không chỉ bán HDV mà còn dàn trải sang homestay, sự kiện giải trí. 57/57 HDV chưa cấu hình hoa hồng/payment gateway — hạ tầng ăn chia &amp; nhận tiền chưa được thiết lập.</p>
+
+        <h4 style="margin-top:18px;"><svg class="icon" width="16" height="16"><use href="#i-calendar"/></svg>Timeline đăng ký HDV — "liquidity trap" điển hình</h4>
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-date">7/2023</span>
+            <div class="tl-rail"><span class="tl-dot"></span><span class="tl-line"></span></div>
+            <div class="tl-content"><h5>Seed 33 HDV lúc launch</h5><p>Batch đăng ký lớn nhất trong toàn bộ lịch sử nền tảng.</p></div>
+          </div>
+          <div class="tl-item dim">
+            <span class="tl-date">8/2023–3/2024</span>
+            <div class="tl-rail"><span class="tl-dot"></span><span class="tl-line"></span></div>
+            <div class="tl-content"><h5>Đăng ký nhỏ giọt (~13 HDV)</h5><p>Tốc độ tăng trưởng chậm dần rõ rệt.</p></div>
+          </div>
+          <div class="tl-item warn">
+            <span class="tl-date">Giữa 2024 → 2025</span>
+            <div class="tl-rail"><span class="tl-dot"></span><span class="tl-line"></span></div>
+            <div class="tl-content"><h5>Im ắng gần như hoàn toàn</h5><p>0/57 HDV có booking trong toàn bộ giai đoạn — dấu hiệu "liquidity trap": HDV không có khách nên rời bỏ nền tảng.</p></div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-date">1/2026</span>
+            <div class="tl-rail"><span class="tl-dot"></span></div>
+            <div class="tl-content"><h5>9 HDV mới</h5><p>Nỗ lực hồi sinh mảng HDV, nhưng chưa có tín hiệu booking đi kèm.</p></div>
+          </div>
+        </div>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Ello nên học</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Ý tưởng programmatic SEO long-tail ("thuê HDV tiếng Trung tại Hội An") — nhưng làm ít trang, đúng intent thay vì rải content lặt vặt.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Đa dạng nguồn cung để giữ traffic quay lại (tour + hotel + event + HDV).</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Đa kênh acquisition: Ads + SEO + social, không phụ thuộc 1 kênh.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-x"/></svg>Cần tránh</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Dàn trải địa lý khi cung chưa đủ — 18/26 tỉnh trong dropdown có 0 HDV.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Seed HDV rồi bỏ đói: 33 HDV seed 2023, 0 booking → marketplace đóng băng.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>HDV không verify/không review → thiếu tín hiệu tin cậy cho khách.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- 3.2 Klook ---- -->
+    <section id="klook" class="competitor c-klook">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">02</span>
+          <div>
+            <h3>Klook — Tour Guide Service in Da Nang</h3>
+            <span class="muted small">activity 164106 · 1 SKU đóng gói, guide do DMC gán</span>
+          </div>
+        </div>
+        <span class="tag c-klook"><span class="dot"></span>OTA đóng gói — HDV vô danh</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">Gói thời lượng</div><div class="qs-value">4h / 8h / 12h</div></div>
+          <div class="qs-item"><div class="qs-label">Ngôn ngữ HDV</div><div class="qs-value">6 ngôn ngữ</div></div>
+          <div class="qs-item"><div class="qs-label">Giá gói 4h (EN)</div><div class="qs-value">₫975.000</div></div>
+          <div class="qs-item"><div class="qs-label">Giá gói 8h (EN)</div><div class="qs-value">₫1.312.500</div></div>
+          <div class="qs-item"><div class="qs-label">Rating</div><div class="qs-value">5.0/5 · 12 review</div></div>
+          <div class="qs-item"><div class="qs-label">Đã đặt</div><div class="qs-value">100+</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-bolt"/></svg>Quy trình đặt</h4>
+        <div class="flow">
+          <span class="flow-step">Chọn ngày + gói + ngôn ngữ</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Mua trước, xác nhận tức thời</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Đơn chuyển cho DMC (MyProGuide VN)</span><span class="flow-arrow">→</span>
+          <span class="flow-step">DMC tự gán HDV theo lịch</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Khách nhận thông tin HDV gần ngày tour</span>
+        </div>
+        <p class="muted small">Hủy miễn phí nếu hủy ≥24h trước giờ bắt đầu; phụ phí ngày lễ 200.000đ/người trả tại chỗ. Đáng chú ý: dù DMC gán HDV vô danh, <strong>toàn bộ 12 review đều nêu đích danh tên HDV</strong> (Quang Trịnh, Toàn, Anh, Bao...) — khách vẫn khao khát quan hệ cá nhân với HDV. Trang SKU có 0 organic traffic — 100+ booking đến hoàn toàn từ traffic nội bộ Klook (37,1 triệu visit/tháng của nền tảng mẹ).</p>
+
+        <h4 style="margin-top:8px;"><svg class="icon" width="16" height="16"><use href="#i-target"/></svg>So sánh trực diện với Ello</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th></th><th>Klook "Tour Guide Service"</th><th>Ello</th></tr></thead>
+            <tbody>
+              <tr><td class="row-name">Chọn HDV cụ thể</td><td>❌ DMC tự gán</td><td>✅ Xem hồ sơ + Smart Matching</td></tr>
+              <tr><td class="row-name">Matching theo nhu cầu</td><td>❌ Không có</td><td>✅ Đang xây làm lợi thế cốt lõi</td></tr>
+              <tr><td class="row-name">HDV nhận tiền trực tiếp</td><td>Qua trung gian DMC</td><td>Ello kiểm soát trực tiếp quan hệ HDV</td></tr>
+              <tr><td class="row-name">Cá nhân hóa lịch trình</td><td>Gói cố định 4h/8h/12h</td><td>Cao (đặt theo giờ/ngày, tùy biến)</td></tr>
+              <tr><td class="row-name">Độ tin cậy hồ sơ HDV</td><td>Vô danh trước khi đặt</td><td>Có xác minh + hợp đồng trước khi active</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Ello nên học</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Đơn giản hóa rủi ro lần đầu: mua trước – bên chịu trách nhiệm – xác nhận tức thời – hủy miễn phí 24h.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Đóng gói theo thời lượng cụ thể (4h/8h/12h) thay vì bán "giờ công" trần trụi.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Chuẩn hóa điểm chạm khách quan tâm: kể chuyện văn hóa, chụp ảnh, gợi ý ăn uống.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-x"/></svg>Cần tránh</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Đừng biến HDV thành "tài nguyên vô danh" — đây là lợi thế tự nhiên Ello đang có, phải giữ và truyền thông mạnh.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Đừng suy diễn "thị trường nhỏ" chỉ từ số review một SKU — cần đối chiếu thêm các đối thủ khác.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- 3.3 ToursByLocals ---- -->
+    <section id="toursbylocals" class="competitor c-tbl">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">03</span>
+          <div>
+            <h3>ToursByLocals</h3>
+            <span class="muted small">Marketplace HDV cá nhân toàn cầu · Canada, ~2008</span>
+          </div>
+        </div>
+        <span class="tag c-tbl"><span class="dot"></span>Marketplace — nhắn tin thủ công</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">Kết quả tour Đà Nẵng</div><div class="qs-value">117</div></div>
+          <div class="qs-item"><div class="qs-label">HDV bản địa Đà Nẵng</div><div class="qs-value">~12</div></div>
+          <div class="qs-item"><div class="qs-label">Khoảng giá</div><div class="qs-value">$114–320+/tour</div></div>
+          <div class="qs-item"><div class="qs-label">Thời lượng</div><div class="qs-value">3h → full day</div></div>
+          <div class="qs-item"><div class="qs-label">Rating</div><div class="qs-value">Hầu hết 5.0</div></div>
+          <div class="qs-item"><div class="qs-label">Traffic organic</div><div class="qs-value">~46.100/th</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-chat"/></svg>Quy trình đặt</h4>
+        <div class="flow">
+          <span class="flow-step">Duyệt hồ sơ HDV (ảnh, review, tour mẫu)</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Nhắn tin trực tiếp tùy chỉnh</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Thống nhất, đặt tour private (giá/tour)</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Đi tour với đúng HDV đã chọn</span>
+        </div>
+        <p class="muted small">HDV bản địa gồm Eric N., Peter D., Vinh N., Nhan N., Hoa V., Jenny T., Tri N., Hai N., Tony H., Phuong N., Loi N., Lewis C. (phần còn lại là HDV mở rộng từ Huế/Hội An/Hà Nội). Traffic ~46.100 organic/tháng, phần lớn <strong>branded + khách Mỹ (56%)</strong> — tệp khách phương Tây đã biết thương hiệu, không phải khách Việt/Á tìm HDV Đà Nẵng qua Google.</p>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Ello nên học</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Hồ sơ HDV giàu thông tin + review theo từng HDV là tài sản niềm tin cốt lõi.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Giá minh bạch theo tour ngay trên listing, không bắt khách thương lượng mù.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Đầu tư dài hạn cho brand search tại Đà Nẵng, không chỉ quảng cáo.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-x"/></svg>Cần tránh</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Cá nhân hóa thủ công qua nhắn tin — chậm, tốn công cả 2 phía. Lấp khoảng trống bằng matching tức thời.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Độ phủ HDV mỏng tại 1 điểm đến (~12 HDV) dù toàn cầu lâu năm — cơ hội để Ello vượt về mật độ cung.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- 3.4 WithLocals ---- -->
+    <section id="withlocals" class="competitor c-withlocals">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">04</span>
+          <div>
+            <h3>WithLocals</h3>
+            <span class="muted small">Marketplace trải nghiệm bản địa · Hà Lan</span>
+          </div>
+        </div>
+        <span class="tag c-withlocals"><span class="dot"></span>Experience đóng gói — "net price + markup"</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">Experience tại Đà Nẵng</div><div class="qs-value">8</div></div>
+          <div class="qs-item"><div class="qs-label">Giá / người</div><div class="qs-value">€34,56–82,07</div></div>
+          <div class="qs-item"><div class="qs-label">Thời lượng</div><div class="qs-value">2,5–10h</div></div>
+          <div class="qs-item"><div class="qs-label">Markup + phí</div><div class="qs-value">~32% + ~10%</div></div>
+          <div class="qs-item"><div class="qs-label">Review/experience</div><div class="qs-value">155–238</div></div>
+          <div class="qs-item"><div class="qs-label">Trang Đà Nẵng riêng</div><div class="qs-value">404 (không có)</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-chat"/></svg>Quy trình đặt</h4>
+        <div class="flow">
+          <span class="flow-step">Duyệt experience (gắn host cụ thể + review)</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Đặt theo giá per person (đã gồm markup)</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Đi cùng host đã chọn</span>
+        </div>
+        <p class="muted small">Chủ đề mạnh nhất là <strong>food tour</strong> ("10 Tastings", "Culinary Kickstart"), city highlights, day trip tùy biến. Host định danh (Hung, Huu...). Cơ chế giá net price + markup khiến giá cuối cao hơn đáng kể phần host nhận. Không có landing page điểm đến Đà Nẵng riêng (URL trả 404) → nền tảng đa điểm đến không đầu tư SEO sâu cho từng thành phố.</p>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Ello nên học</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Đóng gói theo chủ đề rõ ràng (food tour, city highlights, day trip) — food tour rất hợp Đà Nẵng/Hội An.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Review dày theo host/experience (150–240) là bằng chứng xã hội mạnh.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Host định danh + chân dung cá nhân tạo kết nối cảm xúc — chuẩn hóa storytelling hồ sơ HDV.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-x"/></svg>Cần tránh</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Cơ chế giá markup phức tạp (net + ~32% + ~10%) — dư địa để Ello cạnh tranh bằng giá minh bạch, HDV nhận phần lớn hơn.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Bỏ bê SEO điểm đến (404 cho Đà Nẵng) — Ello focus 1 thành phố có thể phủ SEO tốt hơn hẳn.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- 3.5 GuruWalk ---- -->
+    <section id="guruwalk" class="competitor c-guruwalk">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">05</span>
+          <div>
+            <h3>GuruWalk</h3>
+            <span class="muted small">Free walking tour lớn nhất thế giới · Tây Ban Nha</span>
+          </div>
+        </div>
+        <span class="tag c-guruwalk"><span class="dot"></span>Free tour + tip — phân khúc khác</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">Tour tại Đà Nẵng</div><div class="qs-value">5</div></div>
+          <div class="qs-item"><div class="qs-label">Tour tại Việt Nam</div><div class="qs-value">91</div></div>
+          <div class="qs-item"><div class="qs-label">Rating Đà Nẵng</div><div class="qs-value">4,74/5 (731)</div></div>
+          <div class="qs-item"><div class="qs-label">Thời lượng</div><div class="qs-value">2–2,5h</div></div>
+          <div class="qs-item"><div class="qs-label">Giá</div><div class="qs-value">Miễn phí + tip</div></div>
+          <div class="qs-item"><div class="qs-label">Traffic organic</div><div class="qs-value">~372.700/th</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-bolt"/></svg>Quy trình tham gia</h4>
+        <div class="flow">
+          <span class="flow-step">Chọn free tour + ngày (lịch guru mở)</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Tham gia tour đi bộ nhóm (đăng ký miễn phí)</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Trả tip tùy tâm sau tour</span>
+        </div>
+        <p class="muted small">Traffic khổng lồ (~372.700 organic/tháng, $146.700 giá trị) nhưng tập trung <strong>Tây Ban Nha 45%</strong>, nhờ programmatic SEO "free tour [thành phố]" — mạnh nhất châu Âu, Đà Nẵng/Việt Nam chỉ là nhánh nhỏ. Không phải thuê HDV riêng cả ngày — là tour nhóm đi bộ ngắn, miễn phí, tip sau; không có matching thuật toán.</p>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Ello nên học</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Programmatic SEO "free tour [city]" cực hiệu quả — áp dụng mẫu slug theo intent "thuê HDV [khu vực/ngôn ngữ] tại Đà Nẵng".</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Free tour là phễu đầu vào rẻ — cân nhắc sản phẩm "dùng thử/tour ngắn" để hút khách lần đầu.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Hồ sơ + review cá nhân của guru vẫn là trung tâm — củng cố hướng Ello đang đi.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-x"/></svg>Cần tránh</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Đừng coi GuruWalk là đối thủ trực tiếp — khác phân khúc; đừng học nhầm mô hình "miễn phí + tip" làm loãng giá trị HDV.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Phụ thuộc tip khiến thu nhập HDV bấp bênh — Ello giữ mô hình thu nhập rõ ràng để giữ chân cung.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- 3.6 OneGuide ---- -->
+    <section id="oneguide" class="competitor c-oneguide">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">06</span>
+          <div>
+            <h3>OneGuide (VietISO)</h3>
+            <span class="muted small">oneguide.com.vn · thuộc nền tảng iTourism</span>
+          </div>
+        </div>
+        <span class="tag c-oneguide"><span class="dot"></span>B2B — không cạnh tranh trực tiếp</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">HDV kết nối</div><div class="qs-value">&gt;30.000</div></div>
+          <div class="qs-item"><div class="qs-label">Doanh nghiệp lữ hành</div><div class="qs-value">&gt;2.600</div></div>
+          <div class="qs-item"><div class="qs-label">Chi phí HDV</div><div class="qs-value">Miễn phí</div></div>
+          <div class="qs-item"><div class="qs-label">Traffic organic</div><div class="qs-value">0</div></div>
+          <div class="qs-item"><div class="qs-label">Hậu thuẫn</div><div class="qs-value">Ngành/nhà nước</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-users"/></svg>Mô hình</h4>
+        <div class="flow">
+          <span class="flow-step">HDV tạo hồ sơ (miễn phí)</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Ứng tuyển dẫn tour</span><span class="flow-arrow">⟷</span>
+          <span class="flow-step">Doanh nghiệp lữ hành đăng nhu cầu, tìm & chọn HDV</span>
+        </div>
+        <p class="muted small">Khác nhóm đối thủ B2C ở trên — kết nối trực tiếp HDV với <strong>doanh nghiệp lữ hành</strong>, không phải khách du lịch cá nhân. Do VietISO vận hành, một cấu phần của iTourism (Nền tảng Chuyển đổi số Du lịch Việt Nam). 0 organic traffic đúng bản chất công cụ B2B — người dùng truy cập trực tiếp qua app/đăng nhập, con số này không phản ánh quy mô sử dụng thật.</p>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Điểm tích cực / nên tận dụng</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>HDV Việt Nam đã quen dùng nền tảng số miễn phí quy mô lớn → rào cản "HDV không chịu dùng app" gần như không tồn tại.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Nguồn cung HDV khổng lồ, có chính danh (gắn iTourism) — tham khảo chuẩn xác minh chất lượng để tạo niềm tin.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Không đối đầu trực tiếp (B2B vs B2C) — có thể coi HDV trên OneGuide là tệp nguồn để tuyển.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-alert"/></svg>Rủi ro cần lưu ý</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Cạnh tranh sự chú ý &amp; thời gian của HDV — Ello phải chứng minh mang lại khách/thu nhập thực để HDV ưu tiên.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Nếu iTourism/OneGuide mở rộng sang B2C (kết nối thẳng khách lẻ) sẽ trở thành đối thủ trực tiếp — cần theo dõi.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 4: GAPS ============ -->
+    <section id="khoang-trong">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><svg class="icon" width="13" height="13"><use href="#i-target"/></svg>Section 4</span>
+          <h2>Khoảng trống thị trường quan sát được</h2>
+        </div>
+      </div>
+      <div class="gap-list">
+        <div class="gap-item">
+          <span class="gap-num">1</span>
+          <div>
+            <h4>Không nền tảng nào có matching tức thời (real-time)</h4>
+            <p>Ong Vò Vẽ dùng xác nhận thủ công, ToursByLocals/WithLocals dùng nhắn tin thương lượng, Klook bán gói cố định không cho chọn HDV. Đây là khoảng trống về trải nghiệm sản phẩm.</p>
+          </div>
+        </div>
+        <div class="gap-item">
+          <span class="gap-num">2</span>
+          <div>
+            <h4>Không nền tảng nào chuyên biệt hóa 100% cho một thành phố</h4>
+            <p>Tất cả là marketplace đa điểm đến, Đà Nẵng chỉ là 1 trang/danh mục con. Độ phủ cung thực tế khá mỏng (ToursByLocals ~12, WithLocals 8, GuruWalk 5, Ong Vò Vẽ 2) và <strong>không nền tảng nào đầu tư SEO điểm đến Đà Nẵng riêng</strong> (WithLocals trả 404) — khoảng trống lớn để Ello chiếm lĩnh định vị "chuyên gia HDV Đà Nẵng".</p>
+          </div>
+        </div>
+        <div class="gap-item">
+          <span class="gap-num">3</span>
+          <div>
+            <h4>Cơ chế giá phức tạp/tốn phí của một số nền tảng quốc tế</h4>
+            <p>WithLocals cộng dồn markup + phí booking, tạo dư địa cạnh tranh về giá minh bạch hơn cho Ello.</p>
+          </div>
+        </div>
+        <div class="gap-item">
+          <span class="gap-num">4</span>
+          <div>
+            <h4>Nhóm nền tảng B2B (OneGuide) cho thấy mức sẵn sàng số hóa cao</h4>
+            <p>HDV tại Việt Nam đã quen với ít nhất một kênh số hóa miễn phí quy mô lớn — rào cản dùng app không phải vấn đề, nhưng cạnh tranh sự chú ý/thời gian của HDV là có thật.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pictogram: HDV density -->
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <h3>Mật độ HDV bản địa tại Đà Nẵng theo nền tảng</h3>
+          <p class="muted small">Mỗi biểu tượng ≈ 1 HDV bản địa đang hoạt động tại Đà Nẵng — trực quan hóa khoảng trống #2.</p>
+        </div>
+        <div class="pictogram">
+          <div class="picto-row">
+            <span class="picto-label">Ong Vò Vẽ</span>
+            <div class="picto-icons" style="color:var(--slate)">
+              <svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg>
+              <span class="picto-count">2 HDV</span>
+            </div>
+          </div>
+          <div class="picto-row">
+            <span class="picto-label">GuruWalk</span>
+            <div class="picto-icons" style="color:var(--green)">
+              <svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg>
+              <span class="picto-count">5 tour</span>
+            </div>
+          </div>
+          <div class="picto-row">
+            <span class="picto-label">WithLocals</span>
+            <div class="picto-icons" style="color:var(--pink)">
+              <svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg>
+              <span class="picto-count">8 experience</span>
+            </div>
+          </div>
+          <div class="picto-row">
+            <span class="picto-label">ToursByLocals</span>
+            <div class="picto-icons" style="color:var(--purple)">
+              <svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg>
+              <span class="picto-count">~12 HDV</span>
+            </div>
+          </div>
+          <div class="picto-row ello-target">
+            <span class="picto-label">Ello (mục tiêu)</span>
+            <div class="picto-icons" style="color:var(--orange)">
+              <svg class="icon" style="stroke-dasharray:2 2"><use href="#i-target"/></svg>
+              <span class="picto-count">Dẫn đầu mật độ &amp; đa dạng HDV tại chỗ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 5: MARKETING DIRECTION ============ -->
+    <section id="dinh-huong">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><svg class="icon" width="13" height="13"><use href="#i-bolt"/></svg>Section 5</span>
+          <h2>Định hướng marketing kéo khách du lịch Đà Nẵng vào Ello</h2>
+        </div>
+      </div>
+      <p class="lede">Bối cảnh: Ello đã hoàn tất tuyển HDV nòng cốt, giai đoạn tới marketing lấy khách du lịch đến Đà Nẵng vào hệ thống. Phần này rút định hướng trực tiếp từ phân tích đối thủ, chỉ focus thị trường Đà Nẵng.</p>
+
+      <h3 style="margin:22px 0 12px;">5.1 Ba insight từ đối thủ định hình chiến lược</h3>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="big-num">01</div>
+          <h4>Kênh "tìm HDV Đà Nẵng qua Google" gần như bỏ trống</h4>
+          <p>Không đối thủ nào xây trang/SEO điểm đến Đà Nẵng riêng (WithLocals còn trả 404). Traffic của các marketplace HDV chủ yếu là branded + khách phương Tây đã biết thương hiệu. Ai chiếm được lớp SEO/nội dung điểm đến Đà Nẵng sẽ hứng gần như toàn bộ intent này.</p>
+        </div>
+        <div class="insight-card">
+          <div class="big-num">02</div>
+          <h4>Cung HDV bản địa Đà Nẵng của đối thủ rất mỏng</h4>
+          <p>ToursByLocals ~12, WithLocals 8, GuruWalk 5, Ong Vò Vẽ 2. Ello sau khi tuyển HDV nòng cốt có thể dẫn đầu về mật độ &amp; độ đa dạng HDV tại chỗ — điểm bán hàng có thể truyền thông ngay.</p>
+        </div>
+        <div class="insight-card">
+          <div class="big-num">03</div>
+          <h4>Khách nhớ HDV theo tên, không theo nền tảng</h4>
+          <p>Review Klook/ToursByLocals/WithLocals đều xoay quanh cá nhân HDV (kể chuyện văn hóa, chụp ảnh, gợi ý ăn uống). Marketing nên đẩy chân dung HDV thật làm nhân vật trung tâm.</p>
+        </div>
+      </div>
+
+      <h3 style="margin:30px 0 12px;">5.2 Phân khúc khách mục tiêu tại Đà Nẵng (ưu tiên)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Nhóm</th><th>Vì sao ưu tiên</th><th>Kênh tiếp cận</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="segment-cell"><strong>Khách nội địa tự túc</strong>gia đình, nhóm bạn trẻ</td>
+              <td>Xu hướng du lịch tự túc đang tăng; đối thủ quốc tế bỏ ngỏ khách Việt; dễ dùng tiếng Việt, thanh toán nội địa</td>
+              <td>Facebook/TikTok/Zalo, KOL du lịch Việt, SEO tiếng Việt</td>
+            </tr>
+            <tr>
+              <td class="segment-cell"><strong>Khách quốc tế châu Á</strong>Hàn, Nhật, Trung, Đài</td>
+              <td>Klook cho thấy nhu cầu HDV đa ngôn ngữ tại Đà Nẵng; nguồn khách lớn của Đà Nẵng</td>
+              <td>SEO/nội dung đa ngôn ngữ, hợp tác khách sạn/lưu trú</td>
+            </tr>
+            <tr>
+              <td class="segment-cell"><strong>Khách phương Tây tự lên lịch trình</strong></td>
+              <td>Đang bị ToursByLocals/WithLocals phục vụ nhưng giá cao &amp; cung mỏng</td>
+              <td>SEO tiếng Anh "Da Nang private guide", review platform</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin:30px 0 12px;">5.3 Định hướng kênh &amp; thông điệp</h3>
+      <div class="channel-list">
+        <div class="channel-item">
+          <div class="icon-wrap"><svg class="icon" width="18" height="18"><use href="#i-search"/></svg></div>
+          <div>
+            <h4>SEO/nội dung điểm đến Đà Nẵng (ưu tiên #1)</h4>
+            <p>Xây cụm trang theo intent "thuê hướng dẫn viên [ngôn ngữ] tại Đà Nẵng / Hội An / Bà Nà", chủ đề tour (food tour, văn hóa, chụp ảnh). Khoảng trống rõ nhất, traffic organic bền, chi phí thấp. Học cách làm của GuruWalk (programmatic "free tour [city]") nhưng đúng intent "thuê HDV".</p>
+          </div>
+        </div>
+        <div class="channel-item">
+          <div class="icon-wrap"><svg class="icon" width="18" height="18"><use href="#i-shield"/></svg></div>
+          <div>
+            <h4>Định vị chống lại điểm yếu đối thủ</h4>
+            <p>Thông điệp khác biệt hóa trực diện theo từng đối thủ:</p>
+            <div class="vs-chips">
+              <span class="vs-chip">vs <b>Klook</b> — chọn đúng HDV bạn muốn + matching tức thời</span>
+              <span class="vs-chip">vs <b>WithLocals</b> — giá minh bạch, HDV nhận phần lớn</span>
+              <span class="vs-chip">vs <b>ToursByLocals</b> — đặt nhanh, không cần nhắn tin thương lượng</span>
+            </div>
+          </div>
+        </div>
+        <div class="channel-item">
+          <div class="icon-wrap"><svg class="icon" width="18" height="18"><use href="#i-users"/></svg></div>
+          <div>
+            <h4>Nội dung lấy HDV làm nhân vật</h4>
+            <p>Series chân dung HDV Đà Nẵng (câu chuyện, chuyên môn, review khách) trên TikTok/Facebook — tận dụng đúng thứ khách thực sự quan tâm.</p>
+          </div>
+        </div>
+        <div class="channel-item">
+          <div class="icon-wrap"><svg class="icon" width="18" height="18"><use href="#i-bolt"/></svg></div>
+          <div>
+            <h4>Sản phẩm phễu (tham khảo GuruWalk)</h4>
+            <p>Cân nhắc tour ngắn/trải nghiệm thử giá thấp để hạ rào cản lần đầu, rồi chuyển đổi sang thuê HDV theo giờ/ngày.</p>
+          </div>
+        </div>
+        <div class="channel-item">
+          <div class="icon-wrap"><svg class="icon" width="18" height="18"><use href="#i-map"/></svg></div>
+          <div>
+            <h4>Hợp tác cung ⟷ cầu tại Đà Nẵng</h4>
+            <p>Khách sạn, homestay, quán ăn, điểm tham quan làm kênh giới thiệu khách tại chỗ — đối thủ quốc tế không có mạng lưới địa phương này.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin:30px 0 12px;">5.4 Cần tránh (bài học từ đối thủ)</h3>
+      <div class="avoid-grid">
+        <div class="avoid-card">
+          <svg class="icon" width="20" height="20"><use href="#i-alert"/></svg>
+          <h4>Đừng dàn trải địa lý khi cung chưa đủ</h4>
+          <p>Bài học Ong Vò Vẽ: dropdown nhiều tỉnh nhưng phần lớn 0 HDV — giữ focus 100% Đà Nẵng.</p>
+        </div>
+        <div class="avoid-card">
+          <svg class="icon" width="20" height="20"><use href="#i-alert"/></svg>
+          <h4>Đừng để HDV "bị bỏ đói" sau khi tuyển</h4>
+          <p>Ong Vò Vẽ seed 33 HDV, 0 booking → đóng băng. Marketing kéo khách phải đủ nhanh để HDV nòng cốt có thu nhập, nếu không sẽ mất cung.</p>
+        </div>
+        <div class="avoid-card">
+          <svg class="icon" width="20" height="20"><use href="#i-alert"/></svg>
+          <h4>Đừng cạnh tranh bằng "miễn phí/tip"</h4>
+          <p>Kiểu GuruWalk làm loãng giá trị HDV — giữ định vị cá nhân hóa, chất lượng.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER / SOURCES ============ -->
+    <footer id="nguon">
+      <p style="margin-bottom:8px;"><strong style="color:var(--text);">Nguồn dữ liệu:</strong> đọc trực tiếp từ ongvove.com, klook.com (activity 164106), toursbylocals.com, withlocals.com, guruwalk.com, oneguide.com.vn (16–17/07/2026, qua trình duyệt thật); traffic từ Ahrefs Traffic Checker + SimilarWeb (17/07/2026); bối cảnh thị trường từ Mordor Intelligence, traveldailynews.asia.</p>
+      <p style="margin:0;">Xem file phân tích gốc từng đối thủ trong thư mục <code>ello-competitor-analysis/</code>. Báo cáo tổng hợp bởi Ello Da Nang · Cập nhật 17/07/2026.</p>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn');
+  var toc=document.getElementById('tocNav');
+  var scrim=document.getElementById('scrim');
+
+  function closeMenu(){
+    toc.classList.remove('open'); scrim.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded','false');
+  }
+  function openMenu(){
+    toc.classList.add('open'); scrim.classList.add('open');
+    menuBtn.setAttribute('aria-expanded','true');
+  }
+  menuBtn.addEventListener('click', function(){
+    toc.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  scrim.addEventListener('click', closeMenu);
+  toc.querySelectorAll('a[data-nav]').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+
+  // scrollspy
+  var links=Array.prototype.slice.call(document.querySelectorAll('a[data-nav]'));
+  var sections=links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      var id='#'+entry.target.id;
+      var link=links.find(function(a){ return a.getAttribute('href')===id; });
+      if(!link) return;
+      if(entry.isIntersecting){
+        links.forEach(function(a){ a.classList.remove('active'); });
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin:'-15% 0px -70% 0px', threshold:0 });
+
+  sections.forEach(function(s){ observer.observe(s); });
+})();
+</script>
 </body>
 </html>
