@@ -23,14 +23,16 @@
     --orange-soft:#ffe7d6;
     --orange-soft-2:#fff1e6;
 
-    --pink:#e8477b;
-    --pink-soft:#fde3ea;
-    --teal:#12a49a;
-    --teal-soft:#d9f3f0;
+    --pink:#E84068;
+    --pink-soft:#fbdde4;
+    --yellow:#F8D060;
+    --yellow-soft:#fdf3d6;
+    --teal:#00D0A0;
+    --teal-soft:#d2f7ec;
     --green:#3ca866;
     --green-soft:#e0f4e6;
-    --purple:#8567d6;
-    --purple-soft:#ece5fb;
+    --purple:#9050D8;
+    --purple-soft:#eee1fb;
     --slate:#66788c;
     --slate-soft:#eaeef2;
     --blue:#3d7fc4;
@@ -205,16 +207,16 @@
 
   /* competitor accent utility classes */
   .c-ongvove{--accent:#66788c; --accent-soft:#eaeef2; --accent-dark:#3f4d5c;}
-  .c-klook{--accent:#12a49a; --accent-soft:#d9f3f0; --accent-dark:#0a655f;}
-  .c-tbl{--accent:#8567d6; --accent-soft:#ece5fb; --accent-dark:#5a419e;}
-  .c-withlocals{--accent:#e8477b; --accent-soft:#fde3ea; --accent-dark:#a52e57;}
+  .c-klook{--accent:#00D0A0; --accent-soft:#d2f7ec; --accent-dark:#0a7a5f;}
+  .c-tbl{--accent:#9050D8; --accent-soft:#eee1fb; --accent-dark:#6a2fae;}
+  .c-withlocals{--accent:#E84068; --accent-soft:#fbdde4; --accent-dark:#a5133f;}
   .c-guruwalk{--accent:#3ca866; --accent-soft:#e0f4e6; --accent-dark:#276b40;}
   .c-oneguide{--accent:#3d7fc4; --accent-soft:#e0edf9; --accent-dark:#255d97;}
   .c-ello{--accent:#F37120; --accent-soft:#ffe7d6; --accent-dark:#c9560f;}
   .c-tubudd{--accent:#c2185b; --accent-soft:#fbe0ea; --accent-dark:#8a0f40;}
   .c-gyg{--accent:#3a5fcd; --accent-soft:#e2e8fb; --accent-dark:#28409c;}
   .c-viator{--accent:#2e8b57; --accent-soft:#e0f2e7; --accent-dark:#1f6740;}
-  .c-showaround{--accent:#d4a017; --accent-soft:#fbf1d8; --accent-dark:#9c7610;}
+  .c-showaround{--accent:#F8D060; --accent-soft:#fdf3d6; --accent-dark:#8a660a;}
   .c-gwg{--accent:#8d6e63; --accent-soft:#ece5e2; --accent-dark:#5f4a42;}
   .c-airbnb{--accent:#ff5a5f; --accent-soft:#ffe4e5; --accent-dark:#c53337;}
 
@@ -399,7 +401,7 @@
   .tl-item.warn .tl-dot{background:#d34848;}
 
   .matrix-wrap{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); box-shadow:var(--shadow-soft);}
-  table.matrix{border-collapse:collapse; width:100%; min-width:760px; background:var(--surface); font-size:.86rem;}
+  table.matrix{border-collapse:collapse; width:100%; min-width:1480px; background:var(--surface); font-size:.86rem;}
   table.matrix th, table.matrix td{border-bottom:1px solid var(--border); padding:12px 14px; text-align:center;}
   table.matrix thead th{background:var(--bg-1); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; color:var(--text-muted);}
   table.matrix th:first-child, table.matrix td:first-child{text-align:left; font-weight:700;}
@@ -504,6 +506,12 @@
       <a href="#withlocals" data-nav><span class="dot"></span>WithLocals</a>
       <a href="#guruwalk" data-nav><span class="dot"></span>GuruWalk</a>
       <a href="#oneguide" data-nav><span class="dot"></span>OneGuide (VietISO)</a>
+      <a href="#tubudd" data-nav><span class="dot"></span>Tubudd</a>
+      <a href="#getyourguide" data-nav><span class="dot"></span>GetYourGuide</a>
+      <a href="#viator" data-nav><span class="dot"></span>Viator</a>
+      <a href="#showaround" data-nav><span class="dot"></span>ShowAround</a>
+      <a href="#gowithguide" data-nav><span class="dot"></span>GoWithGuide</a>
+      <a href="#airbnb" data-nav><span class="dot"></span>Airbnb Experiences</a>
     </div>
     <div class="toc-group">
       <a href="#khoang-trong" data-nav><span class="dot"></span>Khoảng trống thị trường</a>
@@ -721,8 +729,8 @@
       </div>
 
       <div class="card" style="margin-top:20px;">
-        <div class="section-head"><h2 style="font-size:1.2rem;">2b. Web traffic các nền tảng (đo trực tiếp 17/07/2026)</h2></div>
-        <p class="muted small">Nguồn: Ahrefs Traffic Checker (organic search/tháng) + SimilarWeb.</p>
+        <div class="section-head"><h2 style="font-size:1.2rem;">2b. Web traffic các nền tảng</h2></div>
+        <p class="muted small">Nguồn: Ahrefs Traffic Checker (organic search/tháng, đo 17/7/2026) + SimilarWeb/Semrush (18/7/2026). Chỉ so sánh trực tiếp các nền tảng có organic traffic đo được ở cấp trang/SKU HDV cụ thể.</p>
 
         <div class="barchart" role="img" aria-label="So sánh organic traffic hàng tháng giữa các nền tảng">
           <div class="bar-row">
@@ -769,6 +777,9 @@
               <tr><td class="row-name">Ong Vò Vẽ</td><td class="num">~2.500</td><td class="num">$111</td><td>2.094 trang SEO nhưng hiệu suất thấp; top keyword resort/rạp phim/quán ăn, không phải "thuê HDV"</td></tr>
               <tr><td class="row-name">Klook (SKU HDV)</td><td class="num">0</td><td class="num">$0</td><td>Nền tảng mẹ klook.com 37,1 triệu visit/tháng; SKU sống nhờ traffic nội bộ</td></tr>
               <tr><td class="row-name">OneGuide</td><td class="num">0</td><td class="num">$0</td><td>App B2B, truy cập trực tiếp/đăng nhập — 0 organic không phản ánh quy mô sử dụng thật</td></tr>
+              <tr><td class="row-name">Tubudd</td><td class="num">Chưa xác định</td><td class="num">—</td><td>Không tìm được số liệu Ahrefs/SimilarWeb công khai cho tubudd.com — nhiều khả năng traffic đến từ app/kênh nội bộ hơn organic search</td></tr>
+              <tr><td class="row-name">ShowAround</td><td class="num">Chưa xác định</td><td class="num">—</td><td>Trang render JavaScript, chưa đo được organic riêng; xác nhận trực tiếp 74 guide tại Đà Nẵng qua trình duyệt thật</td></tr>
+              <tr><td class="row-name">GoWithGuide</td><td class="num">Chưa xác định</td><td class="num">—</td><td>Công ty nhỏ (11–50 nhân sự), chưa tìm được số liệu Ahrefs/SimilarWeb công khai</td></tr>
             </tbody>
           </table>
         </div>
@@ -777,18 +788,39 @@
           <svg class="icon" width="16" height="16"><use href="#i-info"/></svg>
           <span><strong>Đọc nhanh:</strong> các đối thủ đúng phân khúc (ToursByLocals, WithLocals) có traffic vừa phải và <strong>chủ yếu là khách phương Tây đã biết thương hiệu</strong>, không phải khách tìm HDV Đà Nẵng qua Google — đây là tệp khác với khách mục tiêu của Ello. GuruWalk traffic khổng lồ nhưng khác phân khúc. Ong Vò Vẽ tuy nội dung SEO dày nhưng traffic thật rất thấp.</span>
         </div>
+      </div>
 
+      <div class="card" style="margin-top:20px;">
+        <div class="section-head"><h2 style="font-size:1.2rem;">2b-2. Quy mô traffic tổng thể — GetYourGuide, Viator, Klook</h2></div>
+        <p class="muted small">3 nền tảng này chặn công cụ đo organic tự động ở cấp trang/SKU riêng cho Đà Nẵng (Cloudflare/DataDome — đã thử cả trình duyệt thật, vẫn bị chặn), nên chỉ có số liệu <strong>tổng lượt truy cập toàn nền tảng/tháng</strong> — không cùng đơn vị đo với bảng organic ở trên, chỉ dùng để tham chiếu quy mô nguồn lực.</p>
+        <div class="barchart" role="img" aria-label="So sánh tổng lượt truy cập hàng tháng của GetYourGuide, Klook, Viator">
+          <div class="bar-row">
+            <span class="bar-label">GetYourGuide</span>
+            <div class="bar-track"><div class="bar-fill c-gyg" style="width:100%"></div></div>
+            <span class="bar-value"><strong>54,44tr</strong>/th</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Klook (toàn nền tảng)</span>
+            <div class="bar-track"><div class="bar-fill c-klook" style="width:68.1%"></div></div>
+            <span class="bar-value"><strong>37,1tr</strong>/th</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Viator</span>
+            <div class="bar-track"><div class="bar-fill c-viator" style="width:36.1%"></div></div>
+            <span class="bar-value"><strong>19,66tr</strong>/th</span>
+          </div>
+        </div>
         <div class="note-box">
           <svg class="icon" width="16" height="16"><use href="#i-info"/></svg>
-          <span><strong>Quy mô nguồn lực tổng thể (không cùng đơn vị đo với bảng organic ở trên, chỉ tham chiếu):</strong> GetYourGuide <strong>54,4 triệu</strong> lượt truy cập/tháng (Semrush, toàn nền tảng) — lớn hơn cả klook.com; Viator <strong>19,66 triệu</strong> lượt truy cập/tháng, trong đó <strong>41,5%</strong> đến từ quảng cáo trả phí. GetYourGuide/Viator chặn công cụ đo organic tự động ở cấp trang Đà Nẵng nên chưa tách được traffic organic riêng cho HDV/private-tour tại đây.</span>
+          <span>GetYourGuide (Semrush, 6/2026) lớn hơn cả klook.com — 25,48% traffic đến từ Google organic. Viator (Semrush, 4/2026) có <strong>41,5%</strong> traffic đến từ quảng cáo trả phí, cho thấy họ chi ngân sách đáng kể để giữ vị trí trên kết quả tìm kiếm trả phí cho từ khóa tour/guide.</span>
         </div>
       </div>
 
       <!-- Feature comparison matrix -->
       <div class="chart-card">
         <div class="chart-card-head">
-          <h3>2c. Ma trận tính năng — Ello vs 6 đối thủ</h3>
-          <p class="muted small">So khớp nhanh 5 tính năng cốt lõi quyết định trải nghiệm đặt HDV.</p>
+          <h3>2c. Ma trận tính năng — Ello vs 12 đối thủ</h3>
+          <p class="muted small">So khớp nhanh 5 tính năng cốt lõi quyết định trải nghiệm đặt HDV. Kéo ngang để xem đầy đủ.</p>
         </div>
         <div class="matrix-wrap">
           <table class="matrix">
@@ -796,6 +828,7 @@
               <tr>
                 <th>Tính năng</th>
                 <th>Ong Vò Vẽ</th><th>Klook</th><th>ToursByLocals</th><th>WithLocals</th><th>GuruWalk</th><th>OneGuide</th>
+                <th>Tubudd</th><th>GetYourGuide</th><th>Viator</th><th>ShowAround</th><th>GoWithGuide</th><th>Airbnb Exp.</th>
                 <th class="ello-col">Ello</th>
               </tr>
             </thead>
@@ -808,6 +841,12 @@
                 <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
                 <td class="mid">1 phần</td>
                 <td class="no">—</td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="mid">1 phần</td>
                 <td class="ello-col yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
               </tr>
               <tr>
@@ -818,7 +857,13 @@
                 <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
                 <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
                 <td class="no">—</td>
-                <td class="ello-col yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="ello-col mid">Đang R&amp;D (roadmap)</td>
               </tr>
               <tr>
                 <td>Giá minh bạch ngay trên listing</td>
@@ -828,6 +873,12 @@
                 <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
                 <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
                 <td class="no">—</td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="mid">1 phần</td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
                 <td class="ello-col yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
               </tr>
               <tr>
@@ -838,7 +889,13 @@
                 <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
                 <td class="mid">1 phần</td>
                 <td class="no">—</td>
-                <td class="ello-col yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="mid">1 phần</td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="ello-col mid">Đang định hướng (chưa triển khai)</td>
               </tr>
               <tr>
                 <td>Xác nhận tức thời + hủy linh hoạt</td>
@@ -848,6 +905,12 @@
                 <td class="mid">1 phần</td>
                 <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
                 <td class="no">—</td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
+                <td class="no"><svg class="icon icon-solid"><use href="#i-x"/></svg></td>
+                <td class="mid">1 phần</td>
+                <td class="yes"><svg class="icon icon-solid"><use href="#i-check"/></svg></td>
                 <td class="ello-col mid">Đang thiết kế</td>
               </tr>
             </tbody>
@@ -873,8 +936,8 @@
             <line x1="190" y1="112" x2="121.5" y2="89.8" stroke="var(--border)"/>
             <text x="190" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">Xác nhận nhanh</text>
             <text x="266" y="93" text-anchor="start" font-size="12" font-weight="700" fill="var(--text)">Chọn đích danh HDV</text>
-            <text x="232.3" y="192" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">Vetting nghiêm ngặt</text>
-            <text x="147.7" y="192" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">Mật độ cung ĐN</text>
+            <text x="238" y="192" text-anchor="start" font-size="12" font-weight="700" fill="var(--text)">Vetting nghiêm ngặt</text>
+            <text x="142" y="192" text-anchor="end" font-size="12" font-weight="700" fill="var(--text)">Mật độ cung ĐN</text>
             <text x="114" y="93" text-anchor="end" font-size="12" font-weight="700" fill="var(--text)">Quy mô nguồn lực</text>
           </svg>
           <div class="radar-key-note">
@@ -1238,6 +1301,287 @@
       </div>
     </section>
 
+    <!-- ---- 3.7 Tubudd ---- -->
+    <section id="tubudd" class="competitor c-tubudd">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">07</span>
+          <div>
+            <h3>Tubudd</h3>
+            <span class="muted small">tubudd.com · Marketplace "buddy" bản địa, Việt Nam</span>
+          </div>
+        </div>
+        <span class="tag c-tubudd"><span class="dot"></span>Cùng thuật ngữ "Smart Matching"</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">Vận hành tại VN từ</div><div class="qs-value">2018</div></div>
+          <div class="qs-item"><div class="qs-label">Buddy tại Đà Nẵng</div><div class="qs-value">9</div></div>
+          <div class="qs-item"><div class="qs-label">Giá / giờ</div><div class="qs-value">$5–12,5</div></div>
+          <div class="qs-item"><div class="qs-label">Gọi vốn</div><div class="qs-value">TheVentures (KR) + VSV Capital</div></div>
+          <div class="qs-item"><div class="qs-label">TripAdvisor</div><div class="qs-value">4,8/5 (26 review)</div></div>
+          <div class="qs-item"><div class="qs-label">Mobile app</div><div class="qs-value">Có (ít review)</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-bolt"/></svg>Quy trình đặt</h4>
+        <div class="flow">
+          <span class="flow-step">Chọn địa điểm + ngày + ngôn ngữ + loại buddy</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Xem hồ sơ, chọn buddy → "create booking"</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Thanh toán trong 1 giờ</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Không xác nhận tức thời — chờ buddy chủ động liên hệ lại</span>
+        </div>
+        <p class="muted small">3 nhánh dịch vụ: Local Buddy (hướng dẫn cá nhân hóa), Health Buddy (y tế/làm đẹp), Business Assistant (giấy tờ, visa/fast-track sân bay). Định vị bằng cụm <strong>"Smart Matching"</strong> — thuật toán phân loại buddy theo chuyên môn để ghép với khách, cùng thuật ngữ Ello dùng mô tả lợi thế cốt lõi. App Store chỉ 2 rating dù vận hành nhiều năm, cho thấy phần lớn giao dịch có thể qua web/Messenger/hotline hơn là qua app.</p>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Ello nên học</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Đa dạng hóa dịch vụ quanh 1 mạng lưới buddy (du lịch, y tế, hành chính) để tăng tần suất sử dụng.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Đã gọi vốn và vận hành nhiều năm — mô hình pay-per-hour + browse hồ sơ đã được thị trường Việt Nam chấp nhận.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-x"/></svg>Cần tránh</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Đừng dùng cụm "Smart Matching" như tuyên bố độc quyền — Tubudd đã dùng từ 2018. Ello cần định vị cụ thể hơn (xác nhận tức thời thật, không chỉ browse rồi chờ phản hồi như Tubudd).</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Đừng pha loãng định vị "hướng dẫn viên du lịch" bằng quá nhiều dịch vụ không liên quan như Tubudd đang làm.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- 3.8 GetYourGuide ---- -->
+    <section id="getyourguide" class="competitor c-gyg">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">08</span>
+          <div>
+            <h3>GetYourGuide</h3>
+            <span class="muted small">getyourguide.com · OTA toàn cầu, category "Private Tours" riêng cho ĐN</span>
+          </div>
+        </div>
+        <span class="tag c-gyg"><span class="dot"></span>OTA đóng gói — HDV do supplier gán</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">Traffic toàn nền tảng</div><div class="qs-value">54,4 triệu/th</div></div>
+          <div class="qs-item"><div class="qs-label">Sản phẩm private tour ĐN</div><div class="qs-value">~9+</div></div>
+          <div class="qs-item"><div class="qs-label">Nguồn traffic organic</div><div class="qs-value">25,48%</div></div>
+          <div class="qs-item"><div class="qs-label">Mobile app</div><div class="qs-value">Có (26tr lượt tải)</div></div>
+          <div class="qs-item"><div class="qs-label">Đối thủ của GYG</div><div class="qs-value">Viator, Klook, TripAdvisor</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-bolt"/></svg>Cách HDV nhận tour</h4>
+        <div class="flow">
+          <span class="flow-step">Khách mua sản phẩm đóng gói theo chủ đề</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Supplier/operator tự gán HDV qua Supplier Portal</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Khách thấy tên/ảnh/SĐT HDV trong khung 1h trước–sau tour</span>
+        </div>
+        <p class="muted small">GetYourGuide đầu tư hẳn category "Private Tours" riêng cho Đà Nẵng (nhiều sản phẩm, không chỉ 1 SKU như Klook) và có SEO destination-page mạnh. Không vet HDV cá nhân — chỉ yêu cầu supplier có đăng ký kinh doanh hợp pháp + bảo hiểm; "Local Guide" chỉ là nhãn marketing, không phải chứng chỉ. Dựa vào review/response rate/booking volume làm proxy chất lượng thay vì verify trực tiếp guide.</p>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Ello nên học</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Đầu tư 1 trang/category riêng cho từng điểm đến thay vì gộp chung — mô hình destination-page rất mạnh cho SEO.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-x"/></svg>Cần tránh</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Đừng cạnh tranh SEO ở từ khóa rộng "Da Nang tours" — sân chơi đã có GetYourGuide/Viator/TripAdvisor/Klook, chỉ từ khóa hẹp "thuê HDV riêng" mới còn khoảng trống.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Đừng học theo mô hình HDV vô danh do supplier tự gán — đây chính là điểm yếu Ello đang có lợi thế tự nhiên để khai thác.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- 3.9 Viator ---- -->
+    <section id="viator" class="competitor c-viator">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">09</span>
+          <div>
+            <h3>Viator (TripAdvisor)</h3>
+            <span class="muted small">viator.com · OTA toàn cầu, vận hành qua hệ thống Supplier/Operator</span>
+          </div>
+        </div>
+        <span class="tag c-viator"><span class="dot"></span>Chi mạnh paid ads</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">Traffic</div><div class="qs-value">19,66 triệu/th</div></div>
+          <div class="qs-item"><div class="qs-label">Nguồn traffic Paid Search</div><div class="qs-value">41,5%</div></div>
+          <div class="qs-item"><div class="qs-label">Global rank</div><div class="qs-value">#1.889</div></div>
+          <div class="qs-item"><div class="qs-label">Review sản phẩm ĐN tiêu biểu</div><div class="qs-value">129 review</div></div>
+          <div class="qs-item"><div class="qs-label">Mobile app</div><div class="qs-value">Có</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-bolt"/></svg>Cách HDV nhận tour</h4>
+        <div class="flow">
+          <span class="flow-step">Vận hành qua hệ thống Supplier/Operator</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Supplier tự staff nhân sự, tự chịu trách nhiệm tuân thủ luật + nộp bảo hiểm PLI</span>
+        </div>
+        <p class="muted small">Sản phẩm tại ĐN: "Explore Hoi An and Da Nang by private tour with local guide" (129 review), nhiều listing "Private Drivers"/"Private Car with Driver" theo 4h/8h/12h/full-day. Thuộc hệ sinh thái TripAdvisor, thừa hưởng lượng review/trust lớn. Không vet HDV cá nhân trực tiếp, tương tự GetYourGuide/Klook.</p>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Ello nên học</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Tận dụng hệ sinh thái review/trust sẵn có (với Ello là word-of-mouth + review nội bộ) để giảm chi phí acquisition dài hạn.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-alert"/></svg>Cần lưu ý</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Nếu Ello chạy quảng cáo tìm kiếm cho "thuê HDV Đà Nẵng"/"Da Nang private guide", nhiều khả năng sẽ cạnh tranh giá thầu trực tiếp với Viator — cần dự trù ngân sách CPC cao hơn kỳ vọng.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- 3.10 ShowAround ---- -->
+    <section id="showaround" class="competitor c-showaround">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">10</span>
+          <div>
+            <h3>ShowAround</h3>
+            <span class="muted small">showaround.com · Marketplace HDV cá nhân, nhắn tin trực tiếp</span>
+          </div>
+        </div>
+        <span class="tag c-showaround"><span class="dot"></span>74 guide tại ĐN — độ phủ lớn nhất nhóm</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">Guide tại Đà Nẵng</div><div class="qs-value">74 (đếm trực tiếp)</div></div>
+          <div class="qs-item"><div class="qs-label">Quy mô toàn cầu</div><div class="qs-value">60.000+ local / 8.000+ TP</div></div>
+          <div class="qs-item"><div class="qs-label">Giá tham khảo</div><div class="qs-value">€5–24/giờ</div></div>
+          <div class="qs-item"><div class="qs-label">Guide tiêu biểu</div><div class="qs-value">Phanh (€24/h, 11 review)</div></div>
+          <div class="qs-item"><div class="qs-label">Mobile app</div><div class="qs-value">Có (iOS + Android)</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-chat"/></svg>Cách HDV nhận tour</h4>
+        <div class="flow">
+          <span class="flow-step">Khách chọn guide cụ thể</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Guide nhận thông báo qua Messenger/SMS</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Guide tự quyết định nhận, thỏa thuận trực tiếp</span>
+        </div>
+        <p class="muted small">Đếm trực tiếp qua trình duyệt thật: trang Đà Nẵng hiển thị <strong>74 local guide</strong> — nhiều hơn hẳn mọi marketplace HDV cá nhân khác đã khảo sát (ToursByLocals ~12, GoWithGuide 8, WithLocals 8, Tubudd 9). Trang chủ còn hiển thị booking gần đây theo thời gian thực (vd "Caliboys đặt với Phanh") tạo tín hiệu xã hội mạnh. Tuy nhiên rào cản gia nhập thấp — "không cần là người chuyên nghiệp" — nhiều guide có 0–2 review, quản lý chất lượng hoàn toàn qua rating chứ không vet năng lực đầu vào.</p>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Ello nên học</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Hiển thị booking gần đây công khai theo thời gian thực — tín hiệu xã hội đơn giản nhưng hiệu quả, dễ áp dụng.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Độ phủ 74 guide cho thấy rào cản gia nhập thấp có thể tạo mật độ cung lớn nhanh chóng — Ello có thể cân nhắc mức vetting "vừa đủ" để không làm chậm tốc độ tuyển HDV.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-x"/></svg>Cần tránh</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Đừng đánh đổi hoàn toàn chất lượng lấy số lượng — nhiều guide 0 review trên ShowAround khiến trải nghiệm không đồng đều, đi ngược lợi thế "đã xác minh trước khi active" của Ello.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- 3.11 GoWithGuide ---- -->
+    <section id="gowithguide" class="competitor c-gwg">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">11</span>
+          <div>
+            <h3>GoWithGuide</h3>
+            <span class="muted small">gowithguide.com · Marketplace HDV cá nhân, thành lập 2013 tại Tokyo</span>
+          </div>
+        </div>
+        <span class="tag c-gwg"><span class="dot"></span>Guide phỏng vấn sàng lọc</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">Guide tại Đà Nẵng</div><div class="qs-value">8</div></div>
+          <div class="qs-item"><div class="qs-label">Thành lập</div><div class="qs-value">2013, Tokyo</div></div>
+          <div class="qs-item"><div class="qs-label">Nhân sự công ty</div><div class="qs-value">11–50</div></div>
+          <div class="qs-item"><div class="qs-label">Giá</div><div class="qs-value">$29–39 → $80–249+</div></div>
+          <div class="qs-item"><div class="qs-label">Mobile app</div><div class="qs-value">Không (chỉ web)</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-chat"/></svg>Cách HDV nhận tour</h4>
+        <div class="flow">
+          <span class="flow-step">Khách nhắn tin trực tiếp cho guide</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Guide trao đổi rồi gửi báo giá chính thức</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Accept/decline trong 24 giờ</span>
+        </div>
+        <p class="muted small">Mô hình gần tương đồng ToursByLocals cả về cách đặt lẫn cách vetting: 1 vòng phỏng vấn online (trong 3 ngày làm việc sau khi nộp hồ sơ), kiểm tra license nếu luật địa phương yêu cầu — nhưng không có background/reference check công khai như ToursByLocals (2 vòng phỏng vấn + background check + bảo hiểm $3 triệu). Rào cản đầu vào nhẹ hơn.</p>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Ello nên học</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Quy trình phỏng vấn ngắn gọn (3 ngày làm việc) — cân bằng giữa tốc độ onboard và chất lượng, phù hợp giai đoạn đầu.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-x"/></svg>Cần tránh</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Không có app riêng, chỉ vận hành qua web — hạn chế trải nghiệm di động, là cơ hội để Ello làm tốt hơn nếu tập trung vào app.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- 3.12 Airbnb Experiences ---- -->
+    <section id="airbnb" class="competitor c-airbnb">
+      <div class="competitor-head">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <span class="competitor-num">12</span>
+          <div>
+            <h3>Airbnb Experiences</h3>
+            <span class="muted small">airbnb.com · Experience đóng gói theo chủ đề, lịch tự phục vụ</span>
+          </div>
+        </div>
+        <span class="tag c-airbnb"><span class="dot"></span>Vetting nghiêm ngặt nhất toàn ngành</span>
+      </div>
+      <div class="competitor-body">
+        <div class="quickstats">
+          <div class="qs-item"><div class="qs-label">Kinh nghiệm tối thiểu</div><div class="qs-value">5 năm</div></div>
+          <div class="qs-item"><div class="qs-label">Phí nền tảng</div><div class="qs-value">20%</div></div>
+          <div class="qs-item"><div class="qs-label">Tiêu chuẩn duyệt</div><div class="qs-value">3 pillar: chuyên môn, độc đáo, tương tác</div></div>
+          <div class="qs-item"><div class="qs-label">Mobile app</div><div class="qs-value">Có (app Airbnb chung)</div></div>
+        </div>
+
+        <h4><svg class="icon" width="16" height="16"><use href="#i-calendar"/></svg>Cách host nhận booking</h4>
+        <div class="flow">
+          <span class="flow-step">Host tự đặt lịch (calendar) cho slot chuẩn</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Khách đặt slot có sẵn = xác nhận luôn</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Riêng ngày giờ tùy chỉnh: host tự duyệt/từ chối</span>
+        </div>
+        <p class="muted small">Không phải "thuê HDV theo giờ" thuần túy mà là experience đóng gói theo chủ đề (đi bộ phố đèn lồng, trek thác nước, ngắm chim Sơn Trà...). Vetting nghiêm ngặt nhất trong toàn bộ 12 nền tảng khảo sát: tối thiểu 5 năm kinh nghiệm hoặc chứng chỉ nghề/di sản gia đình/được truyền thông đưa tin; xác minh danh tính bắt buộc + có thể yêu cầu lý lịch tư pháp; bắt buộc giấy phép + bảo hiểm hợp lệ; phải chạy 1 buổi trial booking được đội ngũ Airbnb chấm điểm theo checklist trước khi công khai listing.</p>
+
+        <div class="verdict-grid">
+          <div class="verdict-box good">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-check"/></svg>Ello nên học</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-check"/></svg>Tiêu chuẩn vetting 3 pillar (chuyên môn/độc đáo/tương tác) + trial booking chấm điểm trước khi công khai — chuẩn tham chiếu tốt nếu Ello muốn nâng chuẩn xác minh HDV.</li>
+            </ul>
+          </div>
+          <div class="verdict-box bad">
+            <h5><svg class="icon" width="16" height="16"><use href="#i-x"/></svg>Cần tránh</h5>
+            <ul>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Đừng copy nguyên vẹn mô hình lịch đóng gói cố định — đây là lợi thế linh hoạt (thuê HDV theo giờ/ngày tùy biến) mà Ello đang giữ so với Airbnb Experiences.</li>
+              <li><svg class="icon icon-solid" width="15" height="15"><use href="#i-x"/></svg>Vetting quá nặng có thể làm chậm tốc độ onboard HDV — cần cân bằng giữa nghiêm ngặt và tốc độ, không nên áp dụng y hệt quy trình nhiều bước của Airbnb khi Ello còn ở giai đoạn đầu.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ SECTION 4: GAPS ============ -->
     <section id="khoang-trong">
       <div class="section-head">
@@ -1258,7 +1602,7 @@
           <span class="gap-num">2</span>
           <div>
             <h4>Không nền tảng nào chuyên biệt hóa 100% cho một thành phố</h4>
-            <p>Tất cả là marketplace đa điểm đến, Đà Nẵng chỉ là 1 trang/danh mục con. Độ phủ cung thực tế khá mỏng (ToursByLocals ~12, WithLocals 8, GuruWalk 5, Ong Vò Vẽ 2) và <strong>không nền tảng nào đầu tư SEO điểm đến Đà Nẵng riêng</strong> (WithLocals trả 404) — khoảng trống lớn để Ello chiếm lĩnh định vị "chuyên gia HDV Đà Nẵng".</p>
+            <p>Tất cả là marketplace đa điểm đến, Đà Nẵng chỉ là 1 trang/danh mục con. Độ phủ cung phần lớn khá mỏng (GoWithGuide 8, WithLocals 8, Tubudd 9, ToursByLocals ~12, GuruWalk 5, Ong Vò Vẽ 2) — <strong>ngoại lệ là ShowAround với 74 guide</strong>, độ phủ lớn hơn hẳn phần còn lại nhưng đi kèm rào cản gia nhập thấp. Ở tầng từ khóa hẹp "thuê HDV riêng", chưa nền tảng nào đầu tư SEO điểm đến Đà Nẵng chuyên sâu (WithLocals còn trả 404) — dù GetYourGuide/Viator/Klook đã chiếm lớp từ khóa rộng "Da Nang tours" — đây vẫn là khoảng trống để Ello chiếm lĩnh định vị "chuyên gia HDV Đà Nẵng".</p>
           </div>
         </div>
         <div class="gap-item">
@@ -1306,10 +1650,31 @@
             </div>
           </div>
           <div class="picto-row">
+            <span class="picto-label">GoWithGuide</span>
+            <div class="picto-icons" style="color:var(--c-gwg,#8d6e63)">
+              <svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg>
+              <span class="picto-count">8 guide</span>
+            </div>
+          </div>
+          <div class="picto-row">
+            <span class="picto-label">Tubudd</span>
+            <div class="picto-icons" style="color:var(--c-tubudd,#c2185b)">
+              <svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg>
+              <span class="picto-count">9 buddy</span>
+            </div>
+          </div>
+          <div class="picto-row">
             <span class="picto-label">ToursByLocals</span>
             <div class="picto-icons" style="color:var(--purple)">
               <svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg>
               <span class="picto-count">~12 HDV</span>
+            </div>
+          </div>
+          <div class="picto-row">
+            <span class="picto-label">ShowAround</span>
+            <div class="picto-icons" style="color:var(--c-showaround,#c99a1a)">
+              <svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg><svg class="icon icon-solid"><use href="#i-users"/></svg>
+              <span class="picto-count">74 guide (đếm trực tiếp — hiển thị rút gọn 20 icon)</span>
             </div>
           </div>
           <div class="picto-row ello-target">
@@ -1342,8 +1707,8 @@
         </div>
         <div class="insight-card">
           <div class="big-num">02</div>
-          <h4>Cung HDV bản địa Đà Nẵng của đối thủ rất mỏng</h4>
-          <p>ToursByLocals ~12, WithLocals 8, GuruWalk 5, Ong Vò Vẽ 2. Ello sau khi tuyển HDV nòng cốt có thể dẫn đầu về mật độ &amp; độ đa dạng HDV tại chỗ — điểm bán hàng có thể truyền thông ngay.</p>
+          <h4>Cung HDV bản địa Đà Nẵng của đối thủ phần lớn còn mỏng</h4>
+          <p>GoWithGuide 8, WithLocals 8, Tubudd 9, ToursByLocals ~12, GuruWalk 5, Ong Vò Vẽ 2 — ngoại lệ là ShowAround với 74 guide. Ello sau khi tuyển HDV nòng cốt cần định vị rõ về <strong>chất lượng xác minh</strong> chứ không chỉ số lượng, vì riêng chạy đua số lượng thuần túy đã có ShowAround dẫn trước đáng kể.</p>
         </div>
         <div class="insight-card">
           <div class="big-num">03</div>
