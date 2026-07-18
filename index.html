@@ -608,6 +608,37 @@
       </div>
       <p class="lede">12 nền tảng đang khai thác mảng đặt/thuê HDV hoặc trải nghiệm địa phương tại Đà Nẵng — 6 nền tảng khảo sát ban đầu và 6 nền tảng bổ sung (Tubudd, GetYourGuide, Viator, ShowAround, GoWithGuide, Airbnb Experiences). Chi tiết xếp hạng đầy đủ (mức đe dọa, cách HDV nhận tour, vetting) xem tại <a href="https://github.com/vinhnguyenthanhdn/vinh-ello/blob/master/ello-competitor-analysis/xep-hang-doi-thu-2026-07-18.md" style="color:var(--orange-dark); text-decoration:underline;">xep-hang-doi-thu-2026-07-18.md</a>.</p>
 
+      <!-- Radar chart 5 dimensions -->
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <h3>2a. Ma trận cạnh tranh 5 chiều</h3>
+          <p class="muted small">Nguyên tắc: <strong>đối thủ càng mạnh, vòng càng rộng</strong>. Mỗi nền tảng — kể cả Ello — chấm cùng thang điểm 0–5 trên 5 tiêu chí đo được: độ hoàn thiện hệ thống (rating app, đầy đủ tính năng), traffic + booking + khách đã dùng, chất lượng &amp; số lượng HDV (theo review tổng hợp), thương hiệu <em>trong hoạt động đặt HDV</em> (không phải thương hiệu chung), và tình hình kinh doanh (doanh thu/vốn). Nguồn: WebSearch + agent-browser ngày 18–19/7/2026 (app store, Trustpilot, Crunchbase/PitchBook, báo cáo tài chính công khai).</p>
+        </div>
+
+        <div class="radar-key-wrap">
+          <svg viewBox="0 0 400 232" role="img" aria-label="Chú giải 5 trục của ma trận cạnh tranh">
+            <polygon points="190,40 258.5,89.8 232.3,170.2 147.7,170.2 121.5,89.8" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <polygon points="190,68.8 231.08,98.65 215.4,146.95 164.6,146.95 148.92,98.65" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <line x1="190" y1="112" x2="190" y2="40" stroke="var(--border)"/>
+            <line x1="190" y1="112" x2="258.5" y2="89.8" stroke="var(--border)"/>
+            <line x1="190" y1="112" x2="232.3" y2="170.2" stroke="var(--border)"/>
+            <line x1="190" y1="112" x2="147.7" y2="170.2" stroke="var(--border)"/>
+            <line x1="190" y1="112" x2="121.5" y2="89.8" stroke="var(--border)"/>
+            <text x="190" y="24" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text)">Hoàn thiện hệ thống</text>
+            <text x="260" y="93" text-anchor="start" font-size="11" font-weight="700" fill="var(--text)">Traffic &amp; booking</text>
+            <text x="235" y="192" text-anchor="start" font-size="11" font-weight="700" fill="var(--text)">Tình hình kinh doanh</text>
+            <text x="145" y="192" text-anchor="end" font-size="11" font-weight="700" fill="var(--text)">Chất lượng + SL HDV</text>
+            <text x="124" y="93" text-anchor="end" font-size="11" font-weight="700" fill="var(--text)">Thương hiệu đặt HDV</text>
+          </svg>
+          <div class="radar-key-note">
+            <p><strong>Cách đọc:</strong> vòng càng phình to, nền tảng càng mạnh — không có ngoại lệ cho Ello. Mỗi thẻ bên dưới là 1 đối thủ (không dùng điểm trung bình) — vòng <strong style="color:var(--orange)">cam nét đứt</strong> luôn là Ello, lặp lại trong cả 12 thẻ để so trực diện với vòng màu riêng của từng đối thủ.</p>
+            <p class="muted small">Điểm của Ello chấm theo hiện trạng thực tế đã công bố (đội ngũ vừa tuyển xong HDV nòng cốt, chưa có traffic/doanh thu độc lập, đang ở giai đoạn đầu vận hành) — không cộng điểm cho mục tiêu roadmap để giữ khách quan.</p>
+          </div>
+        </div>
+
+        <div id="radarGrid" class="radar-grid" aria-label="Radar 5 tiêu chí của từng nền tảng"></div>
+      </div>
+
       <div class="table-wrap">
         <table>
           <thead>
@@ -916,37 +947,6 @@
             </tbody>
           </table>
         </div>
-      </div>
-
-      <!-- Radar chart 5 dimensions -->
-      <div class="chart-card">
-        <div class="chart-card-head">
-          <h3>2d. Ma trận cạnh tranh 5 chiều</h3>
-          <p class="muted small">Mỗi nền tảng — kể cả Ello — là 1 vòng riêng, chấm cùng thang điểm 0–5 dựa trên bằng chứng thu thập được (mô hình đặt, mức vetting, số liệu cung/traffic thực tế). Điểm phản ánh <strong>hiện trạng đã triển khai</strong>, không tính các hạng mục còn ở giai đoạn roadmap/R&D — kể cả với Ello — để đảm bảo so sánh công bằng, không thiên vị.</p>
-        </div>
-
-        <div class="radar-key-wrap">
-          <svg viewBox="0 0 390 232" role="img" aria-label="Chú giải 5 trục của ma trận cạnh tranh">
-            <polygon points="190,40 258.5,89.8 232.3,170.2 147.7,170.2 121.5,89.8" fill="none" stroke="var(--border)" stroke-width="1"/>
-            <polygon points="190,68.8 231.08,98.65 215.4,146.95 164.6,146.95 148.92,98.65" fill="none" stroke="var(--border)" stroke-width="1"/>
-            <line x1="190" y1="112" x2="190" y2="40" stroke="var(--border)"/>
-            <line x1="190" y1="112" x2="258.5" y2="89.8" stroke="var(--border)"/>
-            <line x1="190" y1="112" x2="232.3" y2="170.2" stroke="var(--border)"/>
-            <line x1="190" y1="112" x2="147.7" y2="170.2" stroke="var(--border)"/>
-            <line x1="190" y1="112" x2="121.5" y2="89.8" stroke="var(--border)"/>
-            <text x="190" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">Xác nhận nhanh</text>
-            <text x="266" y="93" text-anchor="start" font-size="12" font-weight="700" fill="var(--text)">Chọn đích danh HDV</text>
-            <text x="238" y="192" text-anchor="start" font-size="12" font-weight="700" fill="var(--text)">Vetting nghiêm ngặt</text>
-            <text x="142" y="192" text-anchor="end" font-size="12" font-weight="700" fill="var(--text)">Mật độ cung ĐN</text>
-            <text x="114" y="93" text-anchor="end" font-size="12" font-weight="700" fill="var(--text)">Quy mô nguồn lực</text>
-          </svg>
-          <div class="radar-key-note">
-            <p><strong>Cách đọc:</strong> vòng càng phình to về phía nào, nền tảng càng mạnh ở tiêu chí đó. Mỗi thẻ bên dưới là 1 đối thủ (không dùng điểm trung bình) — vòng <strong style="color:var(--orange)">cam nét đứt</strong> luôn là Ello, lặp lại trong cả 12 thẻ để so trực diện với vòng màu riêng của từng đối thủ.</p>
-            <p class="muted small">Ello chấm theo tài liệu nội bộ hiện có (hồ sơ, xác minh trước khi active) — không cộng điểm cho các hạng mục còn ở giai đoạn R&D/roadmap (vd Smart Matching Engine bằng AI, chính sách hủy) để giữ khách quan.</p>
-          </div>
-        </div>
-
-        <div id="radarGrid" class="radar-grid" aria-label="Radar 5 tiêu chí của từng nền tảng"></div>
       </div>
     </section>
 
@@ -1856,35 +1856,35 @@
 
 /* ============ Radar small-multiples: 5 tiêu chí, 13 nền tảng (mỗi nền tảng 1 vòng riêng, không dùng trung bình) ============ */
 (function(){
-  // Thang 0–5 mỗi trục, chấm theo hiện trạng đã triển khai (không cộng điểm cho hạng mục roadmap/R&D) để công bằng giữa Ello và đối thủ.
-  // Thứ tự trục: [Xác nhận nhanh, Chọn đích danh HDV, Vetting nghiêm ngặt, Mật độ cung ĐN, Quy mô nguồn lực]
+  // Thang 0–5 mỗi trục, chấm theo bằng chứng công khai (app rating, Trustpilot, Crunchbase/PitchBook, báo cáo tài chính) — đối thủ càng mạnh, điểm càng cao, không có ngoại lệ cho Ello.
+  // Thứ tự trục: [Hoàn thiện hệ thống, Traffic & booking, Chất lượng + SL HDV, Thương hiệu đặt HDV, Tình hình kinh doanh]
   var RADAR_DATA = [
     { key:'ello', name:'Ello', color:'var(--orange)', isEllo:true,
-      scores:[3,5,4,2,1], note:'Startup, đang xây dựng cung tại ĐN' },
+      scores:[2,1,2,1,1], note:'Startup giai đoạn đầu, vừa tuyển xong HDV nòng cốt, chưa có traffic/doanh thu độc lập' },
     { key:'tubudd', name:'Tubudd', color:'#c2185b',
-      scores:[2,5,2,2,1] },
+      scores:[3,1,3,2,2] },
     { key:'gyg', name:'GetYourGuide', color:'#3a5fcd',
-      scores:[5,0,1,2,5] },
+      scores:[5,5,3,4,5] },
     { key:'klook', name:'Klook', color:'#12a49a',
-      scores:[5,0,1,1,5] },
+      scores:[5,5,2,4,4] },
     { key:'viator', name:'Viator', color:'#2e8b57',
-      scores:[5,1,1,2,4] },
+      scores:[5,4,3,5,4] },
     { key:'showaround', name:'ShowAround', color:'#d4a017',
-      scores:[2,5,1,5,2] },
+      scores:[3,2,3,2,1] },
     { key:'tbl', name:'ToursByLocals', color:'#8567d6',
-      scores:[2,5,5,3,2] },
+      scores:[4,3,5,4,3] },
     { key:'gwg', name:'GoWithGuide', color:'#8d6e63',
-      scores:[2,5,3,2,1] },
+      scores:[2,1,2,1,1] },
     { key:'withlocals', name:'WithLocals', color:'#e8477b',
-      scores:[2,4,3,2,2] },
+      scores:[3,2,3,3,2] },
     { key:'guruwalk', name:'GuruWalk', color:'#3ca866', segment:'Khác phân khúc',
-      scores:[4,3,1,2,3] },
+      scores:[3,5,3,4,2] },
     { key:'airbnb', name:'Airbnb Experiences', color:'#ff5a5f', segment:'Khác phân khúc',
-      scores:[4,4,5,1,4] },
+      scores:[4,2,3,2,3] },
     { key:'ongvove', name:'Ong Vò Vẽ', color:'#66788c',
-      scores:[1,3,0,1,1] },
+      scores:[1,1,0,1,1] },
     { key:'oneguide', name:'OneGuide', color:'#3d7fc4', segment:'B2B, khác phân khúc',
-      scores:[1,0,3,1,3] }
+      scores:[3,1,2,0,1] }
   ];
 
   var grid = document.getElementById('radarGrid');
