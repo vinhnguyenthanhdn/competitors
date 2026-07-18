@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review khách về HDV đối thủ — Insight &amp; Cảnh báo cho Ello Da Nang</title>
+<meta name="description" content="Tổng hợp review khách du lịch về hướng dẫn viên trên 9 nền tảng đối thủ tại Đà Nẵng: điều Ello nên học theo và điều cần tránh.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+  :root{
+    --bg-1:#eaf5ff;
+    --bg-2:#f7fbff;
+    --bg-3:#fdf6ee;
+    --surface:#ffffff;
+    --border:#dfe9f2;
+    --text:#132234;
+    --text-muted:#54687c;
+    --text-faint:#8093a4;
+
+    --orange:#F37120;
+    --orange-dark:#c9560f;
+    --orange-soft:#ffe7d6;
+    --orange-soft-2:#fff1e6;
+
+    --pink:#E84068;
+    --pink-soft:#fbdde4;
+    --yellow:#F8D060;
+    --yellow-soft:#fdf3d6;
+    --teal:#00D0A0;
+    --teal-soft:#d2f7ec;
+    --green:#3ca866;
+    --green-soft:#e0f4e6;
+    --purple:#9050D8;
+    --purple-soft:#eee1fb;
+    --slate:#66788c;
+    --slate-soft:#eaeef2;
+    --blue:#3d7fc4;
+    --blue-soft:#e0edf9;
+
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --shadow-card:0 1px 2px rgba(19,34,52,.04), 0 10px 28px -14px rgba(19,34,52,.16);
+    --shadow-soft:0 1px 2px rgba(19,34,52,.03), 0 4px 14px -8px rgba(19,34,52,.10);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:90px;}
+  body{
+    margin:0;
+    font-family:'Be Vietnam Pro', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 700px at 15% -10%, #f2f9ff 0%, transparent 60%),
+      radial-gradient(1000px 600px at 100% 0%, #fff3e8 0%, transparent 55%),
+      linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 40%, #f4f8fb 100%);
+    line-height:1.7;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;}
+  a{color:inherit;}
+  .icon{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .icon-solid{fill:currentColor;stroke:none;}
+
+  ::selection{background:var(--orange-soft);color:var(--orange-dark);}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:2.5px solid var(--orange); outline-offset:2px; border-radius:6px;
+  }
+
+  /* ============ Top bar ============ */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px;
+    padding:14px clamp(20px,3vw,48px);
+    max-width:1720px; margin:0 auto;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    border-bottom:1px solid var(--border);
+  }
+  .topbar-outer{position:sticky; top:0; z-index:40; background:rgba(255,255,255,.78); backdrop-filter:blur(14px) saturate(160%); -webkit-backdrop-filter:blur(14px) saturate(160%); border-bottom:1px solid var(--border);}
+  .topbar-outer .topbar{position:static; background:none; backdrop-filter:none; -webkit-backdrop-filter:none; border-bottom:none;}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.01em; font-size:1.05rem; cursor:pointer;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:10px;
+    background:#fff; object-fit:contain; padding:3px;
+    box-shadow:0 6px 14px -6px rgba(243,113,32,.35), 0 0 0 1px var(--border);
+  }
+  .brand small{display:block;font-weight:500;color:var(--text-muted);font-size:.72rem;letter-spacing:0;}
+  .topbar-meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--text-muted);}
+  .pill{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:6px 12px;border-radius:999px;background:var(--surface);
+    border:1px solid var(--border); font-size:.78rem; font-weight:600; color:var(--text-muted);
+    box-shadow:var(--shadow-soft);
+  }
+  .menu-btn{
+    display:none; align-items:center; justify-content:center;
+    width:40px;height:40px;border-radius:10px;border:1px solid var(--border);
+    background:var(--surface); cursor:pointer; color:var(--text);
+  }
+
+  /* ============ Layout ============ */
+  .shell{
+    max-width:1720px; margin:0 auto; padding:28px clamp(20px,3vw,48px) 80px;
+    display:grid; grid-template-columns:272px minmax(0,1fr); gap:40px;
+    align-items:start;
+  }
+  @media (min-width:1600px){
+    .shell{grid-template-columns:300px minmax(0,1fr); gap:48px;}
+  }
+  .toc{
+    position:sticky; top:88px;
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    padding:18px 16px; box-shadow:var(--shadow-card);
+    max-height:calc(100vh - 110px); overflow-y:auto;
+  }
+  .toc h4{margin:2px 6px 10px; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--text-faint); font-weight:700;}
+  .toc-group{margin-bottom:14px;}
+  .toc a{
+    display:flex; align-items:center; gap:8px;
+    padding:8px 10px; border-radius:9px; font-size:.87rem; font-weight:600; color:var(--text-muted);
+    text-decoration:none; transition:background .15s ease, color .15s ease; cursor:pointer;
+  }
+  .toc a .dot{width:7px;height:7px;border-radius:50%;background:var(--slate);flex:none;}
+  .toc a:hover{background:var(--bg-1); color:var(--text);}
+  .toc a.active{background:var(--orange-soft-2); color:var(--orange-dark);}
+  .toc a.active .dot{background:var(--orange);}
+  .toc-sub{margin-left:6px; padding-left:10px; border-left:2px solid var(--border);}
+  .toc-sub a{font-size:.82rem; font-weight:500; padding:6px 10px;}
+
+  main{min-width:0;}
+  section{scroll-margin-top:90px; margin-bottom:52px;}
+  .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:18px; flex-wrap:wrap;}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:.76rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--orange-dark); background:var(--orange-soft-2); border:1px solid var(--orange-soft); padding:5px 12px; border-radius:999px; margin-bottom:10px;}
+  h1{font-size:clamp(1.9rem,3.4vw,2.7rem); line-height:1.15; letter-spacing:-.02em; margin:0 0 12px; font-weight:800;}
+  h2{font-size:clamp(1.4rem,2.2vw,1.7rem); letter-spacing:-.015em; margin:0; font-weight:800;}
+  h3{font-size:1.08rem; margin:0 0 6px; font-weight:700;}
+  p{margin:0 0 12px; color:var(--text);}
+  .lede{font-size:1.05rem; color:var(--text-muted); max-width:78ch;}
+  .muted{color:var(--text-muted);}
+  .small{font-size:.85rem;}
+
+  /* ============ Hero ============ */
+  .hero{
+    background:linear-gradient(155deg, #ffffff 0%, #eef8ff 55%, #fff2e5 130%);
+    border:1px solid var(--border); border-radius:28px; padding:36px 32px;
+    box-shadow:var(--shadow-card); position:relative; overflow:hidden;
+  }
+  .hero::after{
+    content:""; position:absolute; right:-90px; top:-90px; width:280px; height:280px; border-radius:50%;
+    background:radial-gradient(circle, rgba(243,113,32,.16), transparent 70%);
+  }
+  .hero-links{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .hero-links a{
+    font-size:.8rem; font-weight:600; color:var(--text-muted); background:var(--surface);
+    border:1px solid var(--border); padding:6px 12px; border-radius:999px; text-decoration:none;
+    transition:all .15s ease; cursor:pointer;
+  }
+  .hero-links a:hover{border-color:var(--orange); color:var(--orange-dark); background:var(--orange-soft-2);}
+
+  /* ============ Stat grid ============ */
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:24px;}
+  .stat-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:18px 18px 16px; box-shadow:var(--shadow-soft); position:relative; overflow:hidden;
+  }
+  .stat-card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--accent,var(--orange));}
+  .stat-card .icon-wrap{
+    width:34px;height:34px;border-radius:10px; display:flex; align-items:center; justify-content:center;
+    background:var(--accent-soft,var(--orange-soft)); color:var(--accent-dark,var(--orange-dark)); margin-bottom:12px;
+  }
+  .stat-num{font-size:1.7rem; font-weight:800; letter-spacing:-.02em; line-height:1.1;}
+  .stat-label{font-size:.82rem; font-weight:700; color:var(--text); margin-top:4px;}
+  .stat-sub{font-size:.78rem; color:var(--text-muted); margin-top:4px;}
+
+  /* ============ Card / panel ============ */
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:26px; box-shadow:var(--shadow-card);}
+  .card + .card{margin-top:18px;}
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+
+  ul.bullets{margin:0; padding:0; list-style:none;}
+  ul.bullets li{position:relative; padding-left:22px; margin-bottom:10px; color:var(--text);}
+  ul.bullets li::before{content:""; position:absolute; left:0; top:9px; width:7px; height:7px; border-radius:50%; background:var(--orange);}
+
+  /* ============ Table ============ */
+  .table-wrap{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); box-shadow:var(--shadow-soft);}
+  table{border-collapse:collapse; width:100%; min-width:640px; font-size:.9rem; background:var(--surface);}
+  thead th{
+    text-align:left; font-size:.72rem; letter-spacing:.05em; text-transform:uppercase; color:var(--text-muted);
+    background:var(--bg-1); padding:12px 16px; border-bottom:1px solid var(--border); white-space:nowrap;
+  }
+  tbody td{padding:13px 16px; border-bottom:1px solid var(--border); vertical-align:top; color:var(--text);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#fbfdff;}
+  td.num, th.num{text-align:right; font-variant-numeric:tabular-nums;}
+  .row-name{font-weight:700; white-space:nowrap;}
+
+  .tag{display:inline-flex; align-items:center; gap:6px; font-size:.72rem; font-weight:700; padding:4px 10px; border-radius:999px; white-space:nowrap;}
+  .tag .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  /* competitor accent utility classes */
+  .c-ongvove{--accent:#66788c; --accent-soft:#eaeef2; --accent-dark:#3f4d5c;}
+  .c-klook{--accent:#00D0A0; --accent-soft:#d2f7ec; --accent-dark:#0a7a5f;}
+  .c-tbl{--accent:#9050D8; --accent-soft:#eee1fb; --accent-dark:#6a2fae;}
+  .c-withlocals{--accent:#E84068; --accent-soft:#fbdde4; --accent-dark:#a5133f;}
+  .c-guruwalk{--accent:#3ca866; --accent-soft:#e0f4e6; --accent-dark:#276b40;}
+  .c-oneguide{--accent:#3d7fc4; --accent-soft:#e0edf9; --accent-dark:#255d97;}
+  .c-ello{--accent:#F37120; --accent-soft:#ffe7d6; --accent-dark:#c9560f;}
+  .c-tubudd{--accent:#c2185b; --accent-soft:#fbe0ea; --accent-dark:#8a0f40;}
+  .c-gyg{--accent:#3a5fcd; --accent-soft:#e2e8fb; --accent-dark:#28409c;}
+  .c-viator{--accent:#2e8b57; --accent-soft:#e0f2e7; --accent-dark:#1f6740;}
+  .c-showaround{--accent:#F8D060; --accent-soft:#fdf3d6; --accent-dark:#8a660a;}
+  .c-gwg{--accent:#8d6e63; --accent-soft:#ece5e2; --accent-dark:#5f4a42;}
+  .c-airbnb{--accent:#ff5a5f; --accent-soft:#ffe4e5; --accent-dark:#c53337;}
+
+  .tag.c-ongvove{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-klook{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-tbl{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-withlocals{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-guruwalk{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-oneguide{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-ello{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-tubudd{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-gyg{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-viator{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-showaround{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-gwg{background:var(--accent-soft); color:var(--accent-dark);}
+  .tag.c-airbnb{background:var(--accent-soft); color:var(--accent-dark);}
+
+  /* ============ Bar chart ============ */
+  .barchart{display:flex; flex-direction:column; gap:14px; padding:6px 4px;}
+  .bar-row{display:grid; grid-template-columns:150px 1fr 128px; align-items:center; gap:14px;}
+  .bar-label{font-size:.86rem; font-weight:700; text-align:right;}
+  .bar-track{background:var(--bg-1); border-radius:999px; height:14px; overflow:hidden; border:1px solid var(--border);}
+  .bar-fill{height:100%; border-radius:999px; background:linear-gradient(90deg, var(--accent), var(--accent)); position:relative;}
+  .bar-value{font-size:.8rem; color:var(--text-muted); font-weight:600; font-variant-numeric:tabular-nums;}
+  .bar-value strong{color:var(--text); font-weight:700;}
+
+  /* ============ Competitor detail block ============ */
+  .competitor{
+    background:var(--surface); border:1px solid var(--border); border-radius:24px;
+    box-shadow:var(--shadow-card); overflow:hidden; margin-bottom:28px;
+  }
+  .competitor-head{
+    padding:24px 28px; display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg, var(--accent-soft) 0%, transparent 100%);
+  }
+  .competitor-head h3{font-size:1.35rem; margin-bottom:4px;}
+  .competitor-num{
+    width:38px;height:38px;border-radius:11px;background:var(--accent); color:#fff; font-weight:800;
+    display:flex; align-items:center; justify-content:center; font-size:1rem; flex:none;
+  }
+  .competitor-body{padding:26px 28px;}
+  .competitor-body h4{font-size:.95rem; font-weight:700; margin:0 0 12px; display:flex; align-items:center; gap:8px;}
+  .competitor-body h4 .icon{color:var(--accent);}
+
+  .quickstats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:22px;}
+  .qs-item{background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:12px 14px;}
+  .qs-item .qs-label{font-size:.72rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.04em; font-weight:700; margin-bottom:4px;}
+  .qs-item .qs-value{font-size:1.05rem; font-weight:800; letter-spacing:-.01em;}
+
+  .flow{display:flex; flex-wrap:wrap; align-items:center; gap:0; margin-bottom:22px;}
+  .flow-step{
+    background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:10px 14px;
+    font-size:.83rem; font-weight:600; color:var(--text);
+  }
+  .flow-arrow{color:var(--accent); margin:0 8px; flex:none;}
+
+  .verdict-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:22px;}
+  .verdict-box{border-radius:14px; padding:16px 18px; border:1px solid var(--border);}
+  .verdict-box.good{background:var(--green-soft);}
+  .verdict-box.bad{background:#fdeeee;}
+  .verdict-box h5{display:flex; align-items:center; gap:8px; font-size:.88rem; font-weight:800; margin:0 0 10px;}
+  .verdict-box.good h5{color:#1f7a45;}
+  .verdict-box.bad h5{color:#b83b3b;}
+  .verdict-box ul{margin:0; padding:0; list-style:none;}
+  .verdict-box li{display:flex; gap:8px; align-items:flex-start; margin-bottom:9px; font-size:.87rem; line-height:1.6;}
+  .verdict-box li:last-child{margin-bottom:0;}
+  .verdict-box li .icon{margin-top:3px; flex:none;}
+  .verdict-box.good li .icon{color:#28965a;}
+  .verdict-box.bad li .icon{color:#d34848;}
+
+  .note-box{
+    margin-top:18px; background:var(--bg-2); border:1px dashed var(--border); border-radius:12px;
+    padding:12px 16px; font-size:.85rem; color:var(--text-muted); display:flex; gap:10px; align-items:flex-start;
+  }
+  .note-box .icon{color:var(--text-faint); margin-top:2px;}
+
+  /* ============ Gap cards ============ */
+  .gap-list{display:flex; flex-direction:column; gap:14px;}
+  .gap-item{display:flex; gap:16px; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:18px 20px; box-shadow:var(--shadow-soft);}
+  .gap-num{
+    width:36px;height:36px;border-radius:10px;background:var(--orange-soft); color:var(--orange-dark); font-weight:800;
+    display:flex; align-items:center; justify-content:center; flex:none; font-size:.95rem;
+  }
+  .gap-item h4{margin:0 0 4px; font-size:.98rem; font-weight:700;}
+  .gap-item p{margin:0; color:var(--text-muted); font-size:.9rem;}
+
+  /* ============ Insight / segment ============ */
+  .insight-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .insight-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:20px; box-shadow:var(--shadow-soft);
+    position:relative;
+  }
+  .insight-card .big-num{font-size:2.1rem; font-weight:800; color:var(--orange); letter-spacing:-.03em; margin-bottom:6px;}
+  .insight-card p{font-size:.88rem; color:var(--text-muted); margin:0;}
+  .insight-card h4{font-size:.95rem; margin-bottom:6px;}
+
+  .segment-cell strong{display:block; margin-bottom:2px;}
+
+  .channel-list{display:flex; flex-direction:column; gap:12px;}
+  .channel-item{display:flex; gap:14px; padding:16px 18px; background:var(--surface); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow-soft);}
+  .channel-item .icon-wrap{
+    width:36px;height:36px;border-radius:10px;background:var(--orange-soft); color:var(--orange-dark);
+    display:flex;align-items:center;justify-content:center; flex:none;
+  }
+  .channel-item h4{margin:0 0 4px; font-size:.94rem;}
+  .channel-item p{margin:0; font-size:.87rem; color:var(--text-muted);}
+
+  .vs-chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
+  .vs-chip{display:flex; gap:8px; align-items:center; background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:9px 14px; font-size:.85rem;}
+  .vs-chip b{color:var(--orange-dark);}
+
+  .avoid-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .avoid-card{background:#fdeeee; border:1px solid #f7d3d3; border-radius:16px; padding:18px; box-shadow:var(--shadow-soft);}
+  .avoid-card .icon{color:#c94141; margin-bottom:8px;}
+  .avoid-card h4{font-size:.92rem; color:#8f2f2f; margin-bottom:6px;}
+  .avoid-card p{font-size:.86rem; color:#7a3d3d; margin:0;}
+
+  footer{
+    margin-top:20px; padding:26px 28px; border-radius:var(--radius-lg); background:var(--surface);
+    border:1px solid var(--border); color:var(--text-muted); font-size:.82rem; box-shadow:var(--shadow-soft);
+  }
+
+  /* ============ Visual charts: donut / radar / pictogram / timeline / matrix ============ */
+  .viz-grid{display:grid; grid-template-columns:220px 1fr; gap:28px; align-items:center;}
+  .donut-wrap{display:flex; flex-direction:column; align-items:center; gap:10px;}
+  .donut-center-label{font-size:1.5rem; font-weight:800; letter-spacing:-.02em;}
+  .donut-sub-label{font-size:.76rem; color:var(--text-muted); text-align:center; max-width:180px;}
+  .donut-legend{display:flex; gap:14px; font-size:.78rem; color:var(--text-muted); margin-top:4px;}
+  .donut-legend span{display:inline-flex; align-items:center; gap:6px;}
+  .donut-legend i{width:9px;height:9px;border-radius:50%; display:inline-block;}
+
+  .chart-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:26px; box-shadow:var(--shadow-card); margin-top:18px;}
+  .chart-card-head{margin-bottom:18px;}
+  .chart-card-head h3{margin-bottom:4px;}
+  .criteria-list{list-style:none; margin:10px 0 12px; padding:0; display:flex; flex-direction:column; gap:7px;}
+  .criteria-list li{
+    position:relative; padding-left:16px; font-size:.85rem; color:var(--text-muted); line-height:1.5;
+  }
+  .criteria-list li::before{content:""; position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--orange);}
+  .crit-label{color:var(--orange-dark); font-weight:700;}
+
+  .radar-flex{display:flex; gap:28px; align-items:center; flex-wrap:wrap;}
+  .radar-legend{display:flex; flex-direction:column; gap:10px; min-width:200px;}
+  .radar-legend .item{display:flex; align-items:center; gap:10px; font-size:.86rem; font-weight:600;}
+  .radar-legend .swatch{width:14px;height:14px;border-radius:4px; flex:none;}
+  .radar-legend .swatch.ello{background:var(--orange);}
+  .radar-legend .swatch.avg{background:var(--slate); opacity:.55;}
+  .radar-legend p{margin:2px 0 0; font-size:.78rem; color:var(--text-muted); font-weight:400;}
+
+  .radar-key-wrap{display:flex; flex-direction:column; gap:16px; align-items:center; padding:18px; background:var(--bg-2); border:1px solid var(--border); border-radius:16px; margin-bottom:22px;}
+  .radar-key-wrap svg{width:100%; max-width:360px; height:auto; overflow:visible; flex:none;}
+  .radar-key-note{width:100%; max-width:640px;}
+  .radar-key-note p{margin:0 0 8px;}
+  .radar-key-note p:last-child{margin-bottom:0;}
+  @media (min-width:860px){
+    .radar-key-wrap{flex-direction:row; align-items:center; text-align:left;}
+    .radar-key-note{flex:1;}
+  }
+
+  .radar-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:16px;}
+  .radar-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:14px 14px 16px;
+    box-shadow:var(--shadow-soft); text-align:center; position:relative;
+  }
+  .radar-card.ello-card{border:2px solid var(--orange); box-shadow:0 0 0 3px var(--orange-soft);}
+  .radar-card svg{width:100%; height:auto; display:block; margin:0 auto 8px;}
+  .radar-card .rc-name{font-size:.86rem; font-weight:800; color:var(--text);}
+  .radar-card .rc-total{font-size:.74rem; color:var(--text-muted); font-weight:600; margin-top:2px;}
+  .radar-card .rc-segment{
+    display:inline-block; margin-top:6px; font-size:.66rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em;
+    color:var(--text-faint); background:var(--bg-2); border:1px solid var(--border); border-radius:999px; padding:2px 8px;
+  }
+
+  .pictogram{display:flex; flex-direction:column; gap:16px;}
+  .picto-row{display:grid; grid-template-columns:150px 1fr; gap:16px; align-items:center;}
+  .picto-label{font-size:.86rem; font-weight:700; text-align:right;}
+  .picto-icons{display:flex; flex-wrap:wrap; gap:5px; align-items:center;}
+  .picto-icons svg{width:18px;height:18px;}
+  .picto-count{margin-left:8px; font-size:.82rem; font-weight:700; color:var(--text-muted);}
+  .picto-row.ello-target .picto-label{color:var(--orange-dark);}
+
+  .timeline{display:flex; flex-direction:column; gap:0; margin:6px 0 4px;}
+  .tl-item{display:grid; grid-template-columns:120px 24px 1fr; gap:14px;}
+  .tl-date{font-size:.8rem; font-weight:700; color:var(--text-muted); text-align:right; padding-top:2px;}
+  .tl-rail{display:flex; flex-direction:column; align-items:center;}
+  .tl-dot{width:12px;height:12px;border-radius:50%; background:var(--accent); border:3px solid var(--accent-soft); flex:none; margin-top:3px;}
+  .tl-line{flex:1; width:2px; background:var(--border); margin-top:2px;}
+  .tl-item:last-child .tl-line{display:none;}
+  .tl-content{padding-bottom:20px;}
+  .tl-content h5{margin:0 0 4px; font-size:.9rem; font-weight:700;}
+  .tl-content p{margin:0; font-size:.84rem; color:var(--text-muted);}
+  .tl-item.dim .tl-dot{background:var(--slate); opacity:.5;}
+  .tl-item.warn .tl-dot{background:#d34848;}
+
+  .matrix-wrap{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); box-shadow:var(--shadow-soft);}
+  table.matrix{border-collapse:collapse; width:100%; min-width:1480px; background:var(--surface); font-size:.86rem;}
+  table.matrix th, table.matrix td{border-bottom:1px solid var(--border); padding:12px 14px; text-align:center;}
+  table.matrix thead th{background:var(--bg-1); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; color:var(--text-muted);}
+  table.matrix th:first-child, table.matrix td:first-child{text-align:left; font-weight:700;}
+  table.matrix td.yes{color:#1f7a45;}
+  table.matrix td.no{color:#c94141;}
+  table.matrix td.mid{color:#b5860f;}
+  table.matrix th.ello-col, table.matrix td.ello-col{background:var(--orange-soft-2);}
+  table.matrix tbody tr:last-child td{border-bottom:none;}
+  table.matrix .icon{width:18px;height:18px;}
+
+  @media (max-width:640px){
+    .viz-grid{grid-template-columns:1fr;}
+    .picto-row{grid-template-columns:1fr; text-align:left;}
+    .picto-label{text-align:left;}
+    .tl-item{grid-template-columns:88px 20px 1fr; gap:8px;}
+  }
+
+  /* ============ Mobile ============ */
+  @media (max-width: 1023px){
+    .shell{grid-template-columns:1fr;}
+    .toc{
+      position:fixed; inset:0 auto 0 0; left:-100%; top:0; height:100vh; width:82%; max-width:320px;
+      z-index:60; border-radius:0; max-height:none; transition:left .25s ease; box-shadow:0 0 40px rgba(0,0,0,.25);
+    }
+    .toc.open{left:0;}
+    .menu-btn{display:flex;}
+    .scrim{display:none; position:fixed; inset:0; background:rgba(10,20,30,.42); z-index:55;}
+    .scrim.open{display:block;}
+    .stat-grid{grid-template-columns:repeat(2,1fr);}
+    .grid-2, .grid-3, .insight-grid, .avoid-grid, .verdict-grid{grid-template-columns:1fr;}
+    .bar-row{grid-template-columns:96px 1fr 88px; gap:8px;}
+    .bar-label{font-size:.78rem;}
+    .topbar-meta .pill:nth-child(2){display:none;}
+  }
+  @media (max-width:640px){
+    .stat-grid{grid-template-columns:1fr 1fr;}
+    .hero{padding:26px 20px;}
+    .competitor-head, .competitor-body{padding:20px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{scroll-behavior:auto !important; transition:none !important;}
+  }
+
+
+  /* ====== Review-report specific ====== */
+  .rwrap{max-width:1180px;margin:0 auto;padding:26px 22px 64px;}
+  .rwrap .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:26px 26px 28px;margin-top:22px;}
+  .rwrap .section-head{display:flex;align-items:center;gap:11px;margin-bottom:6px;}
+  .rwrap .section-head h2{margin:0;font-size:1.35rem;font-weight:800;letter-spacing:-.01em;}
+  .rwrap .section-head .sh-ico{flex:none;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:var(--orange-soft);color:var(--orange-dark);}
+  .rwrap .section-head .sh-ico svg{width:20px;height:20px;}
+  .sub-lede{font-size:.92rem;color:var(--text-muted);line-height:1.6;margin:2px 0 0;max-width:760px;}
+  .rhero{background:linear-gradient(135deg,#fff 0%,var(--bg-3) 100%);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:34px 30px 30px;}
+  .rhero .eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-dark);background:var(--orange-soft);padding:5px 12px;border-radius:999px;}
+  .rhero h1{margin:14px 0 8px;font-size:2rem;line-height:1.15;font-weight:850;letter-spacing:-.02em;}
+  .rhero .lede{font-size:1rem;color:var(--text-muted);line-height:1.65;max-width:820px;margin:0;}
+  .rstat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:22px;}
+  .rstat{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:var(--radius-md);padding:15px 16px;}
+  .rstat .num{font-size:1.5rem;font-weight:850;color:var(--orange-dark);line-height:1;}
+  .rstat .lbl{font-size:.78rem;color:var(--text-muted);margin-top:6px;line-height:1.4;}
+  @media(max-width:640px){.rhero h1{font-size:1.55rem;}.rwrap .section-head h2{font-size:1.15rem;}}
+  .back-link{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--orange-dark);
+    background:var(--orange-soft);border:1px solid #f4c9a8;padding:6px 12px;border-radius:999px;text-decoration:none;transition:.15s;}
+  .back-link:hover{background:var(--orange-soft-2);transform:translateX(-2px);}
+
+  .split-legend{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 4px;}
+  .split-legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;padding:7px 14px;border-radius:999px;}
+  .lg.good{background:var(--teal-soft);color:#067a5e;}
+  .lg.bad{background:var(--pink-soft);color:#b31d47;}
+
+  /* Review cards */
+  .rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px;margin-top:18px;}
+  .rev-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+    box-shadow:var(--shadow-soft);padding:20px 20px 18px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+  .rev-card::before{content:"";position:absolute;top:0;left:0;width:5px;height:100%;}
+  .rev-card.good::before{background:linear-gradient(var(--teal),#3ca866);}
+  .rev-card.bad::before{background:linear-gradient(var(--pink),#e0552a);}
+  .rev-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;}
+  .rev-ico{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;}
+  .rev-card.good .rev-ico{background:var(--teal-soft);color:#067a5e;}
+  .rev-card.bad .rev-ico{background:var(--pink-soft);color:#b31d47;}
+  .rev-ico svg{width:20px;height:20px;}
+  .rev-head h3{margin:0;font-size:1.02rem;line-height:1.3;font-weight:750;}
+  .rev-head .rank{font-size:.72rem;font-weight:700;color:var(--text-faint);letter-spacing:.04em;text-transform:uppercase;}
+
+  .quote{margin:0 0 10px;padding:10px 12px 10px 14px;border-left:3px solid var(--border);
+    background:var(--bg-2);border-radius:0 8px 8px 0;font-size:.86rem;line-height:1.55;color:var(--text);}
+  .rev-card.good .quote{border-left-color:var(--teal);}
+  .rev-card.bad .quote{border-left-color:var(--pink);}
+  .quote .en{font-style:italic;}
+  .quote .src{display:block;margin-top:6px;font-style:normal;font-size:.73rem;font-weight:600;color:var(--text-faint);}
+  .src-tag{display:inline-block;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:6px;background:var(--slate-soft);color:var(--slate);margin-right:5px;vertical-align:middle;}
+
+  .takeaway{margin-top:auto;display:flex;gap:9px;align-items:flex-start;padding:12px 13px;border-radius:10px;font-size:.85rem;line-height:1.5;}
+  .rev-card.good .takeaway{background:var(--teal-soft);color:#065f49;}
+  .rev-card.bad .takeaway{background:var(--pink-soft);color:#8f1638;}
+  .takeaway svg{flex:none;width:17px;height:17px;margin-top:2px;}
+  .takeaway b{font-weight:750;}
+
+  /* Summary matrix */
+  .matrix2{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin-top:18px;}
+  .matrix2 .col{padding:0;}
+  .matrix2 .col-h{padding:14px 18px;font-weight:750;font-size:.95rem;display:flex;align-items:center;gap:9px;}
+  .matrix2 .col.good .col-h{background:var(--teal-soft);color:#067a5e;}
+  .matrix2 .col.bad .col-h{background:var(--pink-soft);color:#b31d47;}
+  .matrix2 .col.bad{border-left:1px solid var(--border);}
+  .matrix2 ul{list-style:none;margin:0;padding:12px 18px 16px;display:flex;flex-direction:column;gap:9px;}
+  .matrix2 li{position:relative;padding-left:20px;font-size:.85rem;line-height:1.5;color:var(--text-muted);}
+  .matrix2 .col.good li::before{content:"✓";position:absolute;left:0;color:#3ca866;font-weight:800;}
+  .matrix2 .col.bad li::before{content:"✕";position:absolute;left:0;color:var(--pink);font-weight:800;}
+  .matrix2 li b{color:var(--text);font-weight:700;}
+  @media(max-width:680px){.matrix2{grid-template-columns:1fr;}.matrix2 .col.bad{border-left:none;border-top:1px solid var(--border);}}
+
+  /* Playbook checklist */
+  .playbook{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:18px;}
+  .pb-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 16px 14px;box-shadow:var(--shadow-soft);}
+  .pb-item .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;background:var(--orange);color:#fff;font-weight:800;font-size:.8rem;margin-bottom:9px;}
+  .pb-item h4{margin:0 0 5px;font-size:.92rem;font-weight:750;}
+  .pb-item p{margin:0;font-size:.82rem;color:var(--text-muted);line-height:1.5;}
+
+  .method-note{display:flex;gap:12px;align-items:flex-start;background:var(--bg-3);border:1px solid #f0e2cf;border-radius:var(--radius-md);padding:16px 18px;margin-top:8px;}
+  .method-note svg{flex:none;width:20px;height:20px;color:var(--orange-dark);margin-top:2px;}
+  .method-note p{margin:0 0 7px;font-size:.85rem;line-height:1.55;color:var(--text-muted);}
+  .method-note p:last-child{margin-bottom:0;}
+  .method-note b{color:var(--text);}
+
+</style>
+</head>
+<body>
+
+<!-- ============ SVG ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M11 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.4-5-3.4s-5 1.4-5 3.2S9.2 9.5 12 10s5 1.5 5 3.3-2.2 3.2-5 3.2-5-1.5-5-3.4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-13h-7l1-7Z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.8 8.4A8.6 8.6 0 0 1 8 19l-5 1 1.4-4.2A8.4 8.4 0 1 1 21 11.5Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M4 4h13l3 3v13H4Z"/><path d="M9 9h7M9 13h7M9 17h4"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ Top bar ============ -->
+<div class="topbar-outer">
+  <div class="topbar">
+    <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <img class="brand-mark" src="data:image/png;base64,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" alt="Ello logo" width="34" height="34">
+      <span>Ello Da Nang<small>Review khách về HDV — Insight &amp; Cảnh báo</small></span>
+    </div>
+    <div class="topbar-meta">
+      <a class="back-link" href="index.html"><svg class="icon" width="14" height="14"><use href="#i-x" transform="rotate(45 12 12)"/></svg>Về báo cáo đối thủ</a>
+    </div>
+  </div>
+</div>
+
+<div class="rwrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="rhero" id="top">
+    <span class="eyebrow"><svg class="icon" width="13" height="13"><use href="#i-chat"/></svg>Phân tích tiếng nói khách hàng (Voice of Customer)</span>
+    <h1>Review khách về HDV của đối thủ: điều nên học &amp; điều phải tránh</h1>
+    <p class="lede">Tổng hợp review thật của khách du lịch về <b>hướng dẫn viên / local host</b> trên 9 nền tảng đối thủ (khu vực Đà Nẵng – Hội An – Central Vietnam, một số quote lấy ở phạm vi rộng hơn khi dữ liệu Đà Nẵng khan hiếm). Chia làm 2 phần: <b>review tốt</b> → insight Ello nên học theo, và <b>review xấu</b> → lỗi Ello cần tránh. Mọi <b>dẫn chứng để nguyên tiếng Anh</b>; phần phân tích &amp; hành động viết tiếng Việt.</p>
+    <div class="rstat-grid">
+      <div class="rstat"><div class="num">9</div><div class="lbl">nền tảng đối thủ được khảo sát review</div></div>
+      <div class="rstat"><div class="num">7</div><div class="lbl">insight từ review TỐT (nên học)</div></div>
+      <div class="rstat"><div class="num">8</div><div class="lbl">lỗi từ review XẤU (cần tránh)</div></div>
+      <div class="rstat"><div class="num">18–19/7</div><div class="lbl">agent-browser + WebSearch, 2026</div></div>
+    </div>
+    <div class="split-legend">
+      <span class="lg good"><svg class="icon" width="14" height="14"><use href="#i-check"/></svg>Xanh = điều khách khen → Ello học theo</span>
+      <span class="lg bad"><svg class="icon" width="14" height="14"><use href="#i-alert"/></svg>Hồng = điều khách chê → Ello tránh</span>
+    </div>
+  </section>
+
+  <!-- ============ Methodology ============ -->
+  <div class="card" id="phuong-phap">
+    <div class="section-head"><span class="sh-ico"><svg class="icon"><use href="#i-info"/></svg></span><h2>Cách thu thập &amp; quy ước đọc</h2></div>
+    <div class="method-note">
+      <svg class="icon"><use href="#i-note"/></svg>
+      <div>
+        <p><b>Nguồn:</b> review công khai cào bằng <b>agent-browser</b> (trình duyệt thật) + <b>WebSearch</b>. ToursByLocals, GoWithGuide, Withlocals, ShowAround, GuruWalk, Airbnb, Tubudd đọc được review trực tiếp. <b>GetYourGuide, Viator, Klook</b> chặn bot (Cloudflare/DataDome 403) nên quote được lấy qua WebSearch + trang tổng hợp bên thứ ba (PissedConsumer, ProductReview, Trustpilot, TripAdvisor forum) — độ tin cậy thấp hơn quote đọc trực tiếp.</p>
+        <p><b>Quy ước:</b> phần trong khung <span class="src-tag">quote</span> là <b>nguyên văn tiếng Anh của khách</b> (một số ghi rõ là paraphrase khi chỉ có bản tóm tắt từ search). Tên HDV/ngày ở các nền tảng bị chặn mang tính tham khảo. Phần “<b>→ Ello nên / Ello cần</b>” là khuyến nghị hành động.</p>
+        <p><b>Lưu ý mẫu:</b> hồ sơ HDV trên các marketplace chỉ hiển thị review đã lọc (đa số 4–5★), nên review xấu cấp-HDV khan hiếm và thường xuất hiện ở kênh tổng hợp; ngược lại lỗi vận hành (no-show, ép mua, phí ẩn) lại rất dày ở các nền tảng quy mô lớn.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PART 1: GOOD ============ -->
+  <div class="card" id="nen-hoc">
+    <div class="section-head"><span class="sh-ico" style="background:var(--teal-soft);color:#067a5e;"><svg class="icon"><use href="#i-check"/></svg></span><h2>Phần 1 — Review TỐT: 7 insight Ello nên học theo</h2></div>
+    <p class="sub-lede">Đây là những điều khách khen nhiều nhất. Chúng chính là “khuôn mẫu HDV lý tưởng” mà Ello nên chuẩn hóa vào quy trình tuyển chọn, đào tạo và xếp hạng HDV.</p>
+
+    <div class="rev-grid">
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-chat"/></svg></span><div><div class="rank">Insight 01</div><h3>Kiến thức bản địa + kể chuyện có chiều sâu</h3></div></div>
+        <p class="quote"><span class="en">“His knowledge and storytelling truly made the tour one of the highlights of my trip.”</span><span class="src"><span class="src-tag">ToursByLocals</span>Guide Tony H., Đà Nẵng</span></p>
+        <p class="quote"><span class="en">“Anh leans into the ‘why’, offering sharp, honest societal perspectives that make the city feel human, complex, and real.”</span><span class="src"><span class="src-tag">GuruWalk</span>Đà Nẵng</span></p>
+        <p class="quote"><span class="en">“…a fantastic storyteller who wove facts with local legends and personal anecdotes, revealing hidden spots and rich history.”</span><span class="src"><span class="src-tag">Tubudd</span>Buddy NyNy</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> đào tạo HDV kể chuyện văn hóa – lịch sử, giải thích “tại sao” chứ không chỉ đọc dữ kiện. Đây là yếu tố khách nhắc lại nhiều nhất và khó sao chép bằng OTA đại trà.</div></div>
+      </div>
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-bolt"/></svg></span><div><div class="rank">Insight 02</div><h3>Linh hoạt &amp; cá nhân hóa lịch trình</h3></div></div>
+        <p class="quote"><span class="en">“Tony quickly adjusted the plan and turned it into a fantastic Da Nang city tour instead.”</span><span class="src"><span class="src-tag">ToursByLocals</span>Guide Tony H.</span></p>
+        <p class="quote"><span class="en">“They were wonderful and exceedingly flexible as I changed some of the itinerary last minute.”</span><span class="src"><span class="src-tag">GoWithGuide</span>Harris K., 5/2025</span></p>
+        <p class="quote"><span class="en">“Everything was custom to my particular needs and it was an unforgettable experience!!”</span><span class="src"><span class="src-tag">ToursByLocals</span>Nicole D. (guide Abby)</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> cho phép khách tùy chỉnh lịch trình, trao quyền HDV điều chỉnh tại chỗ. Biến “may đo theo khách” thành điểm bán, thay vì tour đóng gói cứng.</div></div>
+      </div>
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-users"/></svg></span><div><div class="rank">Insight 03</div><h3>Ấm áp cá nhân — “như đi chơi với bạn”</h3></div></div>
+        <p class="quote"><span class="en">“The whole time felt more like hanging out with a friend instead of following a guide around.”</span><span class="src"><span class="src-tag">Withlocals</span>Guide Tam, Hội An</span></p>
+        <p class="quote"><span class="en">“…even took my pictures and fanned me in the heat! Everything was custom to my particular needs.”</span><span class="src"><span class="src-tag">ToursByLocals</span>Nicole D. (guide Abby)</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> tuyển &amp; tôn vinh HDV có “human touch”, đưa sự chân thành – chăm sóc nhỏ vào tiêu chí đánh giá, không chỉ chấm kiến thức.</div></div>
+      </div>
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-chat"/></svg></span><div><div class="rank">Insight 04</div><h3>Tiếng Anh tốt &amp; giao tiếp rõ ràng</h3></div></div>
+        <p class="quote"><span class="en">“Kim is a local with excellent English language and communication skills so was very informative.”</span><span class="src"><span class="src-tag">Airbnb</span>Gretchen L.</span></p>
+        <p class="quote"><span class="en">“Born and raised in Hoi An and educated in the UK, she shared fascinating local knowledge in superb English.”</span><span class="src"><span class="src-tag">Airbnb</span>Ploy, Boston</span></p>
+        <p class="quote"><span class="en">“He has a remarkable command of the language for English speakers.”</span><span class="src"><span class="src-tag">GoWithGuide</span>Gerald D. (guide Tony)</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> kiểm tra năng lực ngoại ngữ khi vetting và hiển thị rõ trình độ trên hồ sơ HDV. Tiếng Anh tốt là điều khách khen — tiếng Anh kém là lý do bị chê (xem Phần 2).</div></div>
+      </div>
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-calendar"/></svg></span><div><div class="rank">Insight 05</div><h3>Đúng giờ &amp; đáng tin cậy</h3></div></div>
+        <p class="quote"><span class="en">“She and the driver met us at our hotel promptly at 8am.”</span><span class="src"><span class="src-tag">GoWithGuide</span>Cheryl F. (guide Mun)</span></p>
+        <p class="quote"><span class="en">“Chuong was waiting outside the cruise port when we got off the ship.”</span><span class="src"><span class="src-tag">ToursByLocals</span>Guide Chuong N.</span></p>
+        <p class="quote"><span class="en">“Duy is highly trustworthy and punctual… answered all texts and calls even before the trip began.”</span><span class="src"><span class="src-tag">TripAdvisor</span>Buddy Private Tour, 1/2026</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> cam kết đón đúng giờ như một SLA, có theo dõi vị trí/xác nhận. Đây là điểm khách khen nhiều <b>và</b> là lỗi đối thủ hay mắc nhất → cơ hội tạo khác biệt.</div></div>
+      </div>
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-bolt"/></svg></span><div><div class="rank">Insight 06</div><h3>Phản hồi nhanh trước &amp; trong chuyến</h3></div></div>
+        <p class="quote"><span class="en">“Tony was quick in responding to all my messages… used the time very efficiently and yet never let us feel rushed.”</span><span class="src"><span class="src-tag">GoWithGuide</span>Vijay P., 2/2026</span></p>
+        <p class="quote"><span class="en">“…was our lifeline throughout our stay in Vietnam — reachable for advice even outside official hours.”</span><span class="src"><span class="src-tag">ShowAround</span>Local Phanh</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> chat in-app phản hồi nhanh, HDV chủ động liên hệ trước chuyến. Đo response time và đưa vào thuật toán xếp hạng/hiển thị HDV.</div></div>
+      </div>
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-map"/></svg></span><div><div class="rank">Insight 07</div><h3>Ẩm thực &amp; trải nghiệm thoát “đường mòn du lịch”</h3></div></div>
+        <p class="quote"><span class="en">“…took us to several local restaurants we would never have found on our own… great explanations about the food and local culture.”</span><span class="src"><span class="src-tag">Withlocals</span>Dave (guide Huyen), 3/2026</span></p>
+        <p class="quote"><span class="en">“…ducking down alleyways we would have passed by.”</span><span class="src"><span class="src-tag">Withlocals</span>Gia đình 5 người (guide Mun)</span></p>
+        <p class="quote"><span class="en">“We wanted to get away from the tourist area and we did exactly that.”</span><span class="src"><span class="src-tag">GuruWalk</span>Guide Hong, Đà Nẵng</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> xây tour “local / hidden gems” nhấn ẩm thực đường phố &amp; ngõ nhỏ. Đây là định vị khách đánh giá cao và khó bị OTA tour đại trà thay thế.</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ PART 2: BAD ============ -->
+  <div class="card" id="can-tranh">
+    <div class="section-head"><span class="sh-ico" style="background:var(--pink-soft);color:#b31d47;"><svg class="icon"><use href="#i-alert"/></svg></span><h2>Phần 2 — Review XẤU: 8 lỗi Ello cần tránh</h2></div>
+    <p class="sub-lede">Đây là các nguyên nhân khiến khách bức xúc nhất trên nền tảng đối thủ. Mỗi lỗi kèm một “guardrail” — rào chắn Ello nên thiết kế sẵn để không lặp lại.</p>
+
+    <div class="rev-grid">
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-x"/></svg></span><div><div class="rank">Lỗi 01 · phổ biến nhất</div><h3>No-show / đón trễ / hủy phút chót</h3></div></div>
+        <p class="quote"><span class="en">“We have been waiting outside for 20 minutes, and nobody is here.”</span><span class="src"><span class="src-tag">Viator</span>Archana L., 1/5/2026</span></p>
+        <p class="quote"><span class="en">“We arrived early at the meeting point… no guide ever arrived… told the tour ‘went ahead without me’.”</span><span class="src"><span class="src-tag">Klook</span>Emmy L.</span></p>
+        <p class="quote"><span class="en">“Three locals simply didn’t turn up, and one cancelled but never clearly communicated.”</span><span class="src"><span class="src-tag">ShowAround</span>Trustpilot</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> xác nhận HDV chắc chắn trước giờ, có HDV dự phòng, phạt no-show và <b>không dùng “minimum group”</b> (GuruWalk hủy tour vì thiếu người). Reliability là “vũ khí” lớn nhất của Ello.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-dollar"/></svg></span><div><div class="rank">Lỗi 02</div><h3>Chăn shopping / điểm dừng ăn hoa hồng</h3></div></div>
+        <p class="quote"><span class="en">“The whole tour was a trip from one shopping trap to another.”</span><span class="src"><span class="src-tag">TripAdvisor</span>An Travel, Đà Nẵng</span></p>
+        <p class="quote"><span class="en">“…taken to a stone gallery and encouraged to purchase things.” <em>(paraphrase)</em></span><span class="src"><span class="src-tag">Viator</span>Hội An walking tour</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> cấm điểm dừng hoa hồng ngoài lịch trình, minh bạch toàn bộ lộ trình trước khi đặt. HDV kiếm tiền từ phí dịch vụ, không từ “lùa” khách mua.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-calendar"/></svg></span><div><div class="rank">Lỗi 03</div><h3>Hối thúc / chia thời gian kém</h3></div></div>
+        <p class="quote"><span class="en">“The tour guide was not friendly and rushed us through the trip.”</span><span class="src"><span class="src-tag">Viator</span>Đà Nẵng – Hội An</span></p>
+        <p class="quote"><span class="en">“…rushed the group through sights so they could spend more time at tourist-trap shops.” <em>(paraphrase)</em></span><span class="src"><span class="src-tag">TripAdvisor</span>An Travel</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> thiết kế thời lượng hợp lý mỗi điểm, không nhồi lịch. Ràng buộc HDV không được rút ngắn điểm tham quan để tranh thủ việc khác.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-chat"/></svg></span><div><div class="rank">Lỗi 04</div><h3>Tiếng Anh kém / khó giao tiếp</h3></div></div>
+        <p class="quote"><span class="en">“The last guide we had we couldn’t understand him at all even in English.”</span><span class="src"><span class="src-tag">Klook</span>Kit / Trish</span></p>
+        <p class="quote"><span class="en">Review titled “Bad english” — the guide was rude and spoke English very poorly.</span><span class="src"><span class="src-tag">TripAdvisor</span>An Travel (guide Tin Tin)</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> test ngoại ngữ bắt buộc khi onboard, gắn nhãn trình độ. Không để khách quốc tế “bốc thăm” trúng HDV không giao tiếp được.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-users"/></svg></span><div><div class="rank">Lỗi 05</div><h3>HDV thô lỗ / không chứng chỉ</h3></div></div>
+        <p class="quote"><span class="en">Guide described as “old, unfriendly, rude and arrogant”; could not produce a valid guide license when asked. <em>(paraphrase)</em></span><span class="src"><span class="src-tag">TripAdvisor</span>An Travel (guide Tony/Dao)</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> bắt buộc thẻ HDV hợp lệ khi duyệt hồ sơ, có chuẩn thái độ phục vụ và review 2 chiều. Vetting là điểm Ello phải mạnh hơn marketplace mở.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-dollar"/></svg></span><div><div class="rank">Lỗi 06</div><h3>Phí ẩn / đòi thêm tiền mặt</h3></div></div>
+        <p class="quote"><span class="en">Forced to pay an extra “public holiday cash fee”… and asked for an extra 1,000,000 VND via WhatsApp hours before departure. <em>(paraphrase)</em></span><span class="src"><span class="src-tag">Klook</span>Russell P. / Bach Ma</span></p>
+        <p class="quote"><span class="en">“…asked definitively for 15 euros per person for a supposedly ‘free’ tour.” <em>(paraphrase)</em></span><span class="src"><span class="src-tag">GuruWalk</span>Trustpilot</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> giá trọn gói minh bạch, thanh toán một lần trong app, <b>cấm thu ngoài</b>. Không mô hình “free rồi ép tip”.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-search"/></svg></span><div><div class="rank">Lỗi 07</div><h3>HDV thiếu kiến thức / nhạt</h3></div></div>
+        <p class="quote"><span class="en">A guide “doesn’t know at all what he’s doing,” “not informative at all,” took tourists to a construction site and called it classical ruins. <em>(paraphrase)</em></span><span class="src"><span class="src-tag">GetYourGuide</span>reviews.io</span></p>
+        <p class="quote"><span class="en">“…tour was incredibly boring with little info of interest provided.”</span><span class="src"><span class="src-tag">GetYourGuide</span>myvegantravels</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> kiểm tra kiến thức điểm đến khi vetting, cung cấp nội dung chuẩn (điểm đến, lịch sử) cho HDV để đảm bảo mặt bằng chất lượng.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-alert"/></svg></span><div><div class="rank">Lỗi 08</div><h3>Mất hút trước chuyến / nền tảng không kiểm soát</h3></div></div>
+        <p class="quote"><span class="en">Repeated attempts several days ahead to confirm pickup got “no response.” <em>(paraphrase)</em></span><span class="src"><span class="src-tag">GetYourGuide</span>myvegantravels</span></p>
+        <p class="quote"><span class="en">“Little or no quality control; inactive/‘no-response’ guides are not removed.” <em>(paraphrase)</em></span><span class="src"><span class="src-tag">ShowAround</span>Trustpilot</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> HDV không phản hồi bị hạ hiển thị / loại tự động; hệ thống nhắc xác nhận trước chuyến. Chất lượng nền tảng = chất lượng HDV còn hoạt động thật.</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ Summary matrix ============ -->
+  <div class="card" id="tong-hop">
+    <div class="section-head"><span class="sh-ico"><svg class="icon"><use href="#i-target"/></svg></span><h2>Tổng hợp: khách thưởng gì &amp; phạt gì</h2></div>
+    <p class="sub-lede">Chắt lọc từ hàng chục review: đây là những gì khách chủ động khen (nên khuếch đại) và những gì khiến khách cho điểm thấp (phải chặn từ gốc).</p>
+    <div class="matrix2">
+      <div class="col good">
+        <div class="col-h"><svg class="icon" width="18" height="18"><use href="#i-check"/></svg>Khách THƯỞNG điểm khi HDV…</div>
+        <ul>
+          <li><b>Kể chuyện</b> văn hóa – lịch sử, giải thích “tại sao”</li>
+          <li><b>Linh hoạt</b>, may đo lịch trình theo khách</li>
+          <li><b>Ấm áp</b>, tạo cảm giác “như đi với bạn”</li>
+          <li><b>Tiếng Anh tốt</b>, giao tiếp rõ ràng</li>
+          <li><b>Đúng giờ</b>, đón tận nơi, đáng tin</li>
+          <li><b>Phản hồi nhanh</b> trước &amp; trong chuyến</li>
+          <li>Dẫn tới <b>chỗ local/ẩm thực</b> khách tự đi không tìm ra</li>
+        </ul>
+      </div>
+      <div class="col bad">
+        <div class="col-h"><svg class="icon" width="18" height="18"><use href="#i-x"/></svg>Khách PHẠT điểm khi gặp…</div>
+        <ul>
+          <li><b>No-show / đón trễ / hủy</b> phút chót</li>
+          <li><b>Chăn shopping</b>, điểm dừng ăn hoa hồng</li>
+          <li><b>Hối thúc</b>, chia thời gian kém</li>
+          <li><b>Tiếng Anh kém</b>, khó hiểu</li>
+          <li><b>Thô lỗ</b>, thiếu chuyên nghiệp / không thẻ HDV</li>
+          <li><b>Phí ẩn</b>, đòi thêm tiền mặt, “free” rồi ép tip</li>
+          <li><b>Nhạt / thiếu kiến thức</b>; mất hút trước chuyến</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ Ello playbook ============ -->
+  <div class="card" id="playbook">
+    <div class="section-head"><span class="sh-ico"><svg class="icon"><use href="#i-bolt"/></svg></span><h2>Ello Playbook — biến insight thành lợi thế</h2></div>
+    <p class="sub-lede">6 việc cụ thể để Ello vừa khuếch đại điều khách khen, vừa chặn sẵn điều khách chê — trở thành nền tảng đặt HDV “đáng tin &amp; đúng chất” tại Đà Nẵng.</p>
+    <div class="playbook">
+      <div class="pb-item"><span class="n">1</span><h4>Chuẩn HDV Ello</h4><p>Bộ tiêu chí tuyển: thẻ HDV hợp lệ, test tiếng Anh, kiểm tra kiến thức điểm đến, đánh giá “human touch”. Chỉ HDV đạt chuẩn mới lên nền tảng.</p></div>
+      <div class="pb-item"><span class="n">2</span><h4>Cam kết đúng giờ</h4><p>SLA đón đúng giờ + HDV dự phòng + xác nhận trước chuyến. Chống lại lỗi no-show/đón trễ — điểm yếu lớn nhất của Viator/Klook/GuruWalk.</p></div>
+      <div class="pb-item"><span class="n">3</span><h4>Minh bạch giá, zero hoa hồng</h4><p>Giá trọn gói, thanh toán 1 lần trong app, cấm điểm dừng shopping &amp; thu ngoài. Định vị “không chăn khách” đối lập tour hoa hồng.</p></div>
+      <div class="pb-item"><span class="n">4</span><h4>Đào tạo storytelling</h4><p>Cung cấp nội dung chuẩn về điểm đến + huấn luyện HDV kể chuyện “tại sao”. Nâng mặt bằng, tránh HDV nhạt/thiếu kiến thức.</p></div>
+      <div class="pb-item"><span class="n">5</span><h4>Xếp hạng theo phản hồi</h4><p>Đo response time &amp; tỉ lệ hoàn thành; HDV không phản hồi bị hạ hiển thị/loại. Giữ nền tảng chỉ còn HDV hoạt động thật.</p></div>
+      <div class="pb-item"><span class="n">6</span><h4>Tour “local &amp; ẩm thực”</h4><p>Sản phẩm hidden-gems, ẩm thực đường phố, may đo theo khách — đúng thứ khách khen nhất và khó bị OTA đại trà thay thế.</p></div>
+    </div>
+  </div>
+
+  <!-- ============ Footer ============ -->
+  <footer id="nguon" style="margin-top:30px;padding:24px 4px;border-top:1px solid var(--border);color:var(--text-faint);font-size:.82rem;line-height:1.6;">
+    <p style="margin:0 0 8px;"><b>Nguồn dữ liệu:</b> ToursByLocals, GoWithGuide, Withlocals, ShowAround, GuruWalk, Airbnb Experiences, Tubudd (đọc review trực tiếp qua agent-browser/WebSearch); GetYourGuide, Viator, Klook (qua WebSearch + PissedConsumer, ProductReview, Trustpilot, TripAdvisor forum do site chặn bot). Thu thập 18–19/7/2026.</p>
+    <p style="margin:0 0 14px;">Quote để nguyên tiếng Anh của khách; mục ghi <em>(paraphrase)</em> là bản tóm tắt từ search, tên HDV/ngày mang tính tham khảo.</p>
+    <a class="back-link" href="index.html"><svg class="icon" width="14" height="14"><use href="#i-x" transform="rotate(45 12 12)"/></svg>Quay lại Báo cáo thị trường &amp; đối thủ cạnh tranh</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
