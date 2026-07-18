@@ -353,10 +353,15 @@
   .radar-legend .swatch.avg{background:var(--slate); opacity:.55;}
   .radar-legend p{margin:2px 0 0; font-size:.78rem; color:var(--text-muted); font-weight:400;}
 
-  .radar-key-wrap{display:flex; gap:24px; align-items:center; flex-wrap:wrap; padding:18px; background:var(--bg-2); border:1px solid var(--border); border-radius:16px; margin-bottom:22px;}
-  .radar-key-note{flex:1; min-width:220px;}
+  .radar-key-wrap{display:flex; flex-direction:column; gap:16px; align-items:center; padding:18px; background:var(--bg-2); border:1px solid var(--border); border-radius:16px; margin-bottom:22px;}
+  .radar-key-wrap svg{width:100%; max-width:360px; height:auto; overflow:visible; flex:none;}
+  .radar-key-note{width:100%; max-width:640px;}
   .radar-key-note p{margin:0 0 8px;}
   .radar-key-note p:last-child{margin-bottom:0;}
+  @media (min-width:860px){
+    .radar-key-wrap{flex-direction:row; align-items:center; text-align:left;}
+    .radar-key-note{flex:1;}
+  }
 
   .radar-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:16px;}
   .radar-card{
@@ -858,19 +863,19 @@
         </div>
 
         <div class="radar-key-wrap">
-          <svg width="230" height="230" viewBox="0 0 230 230" role="img" aria-label="Chú giải 5 trục của ma trận cạnh tranh">
-            <polygon points="115,20 199.75,79.15 168.4,177.2 61.6,177.2 30.25,79.15" fill="none" stroke="var(--border)" stroke-width="1"/>
-            <polygon points="115,70 157.38,104.58 142.7,150.6 87.3,150.6 72.62,104.58" fill="none" stroke="var(--border)" stroke-width="1"/>
-            <line x1="115" y1="115" x2="115" y2="20" stroke="var(--border)"/>
-            <line x1="115" y1="115" x2="199.75" y2="79.15" stroke="var(--border)"/>
-            <line x1="115" y1="115" x2="168.4" y2="177.2" stroke="var(--border)"/>
-            <line x1="115" y1="115" x2="61.6" y2="177.2" stroke="var(--border)"/>
-            <line x1="115" y1="115" x2="30.25" y2="79.15" stroke="var(--border)"/>
-            <text x="115" y="12" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">Xác nhận nhanh</text>
-            <text x="205" y="73" text-anchor="start" font-size="10.5" font-weight="700" fill="var(--text)">Chọn đích danh HDV</text>
-            <text x="172" y="197" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">Vetting nghiêm ngặt</text>
-            <text x="58" y="197" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">Mật độ cung ĐN</text>
-            <text x="24" y="73" text-anchor="end" font-size="10.5" font-weight="700" fill="var(--text)">Quy mô nguồn lực</text>
+          <svg viewBox="0 0 390 232" role="img" aria-label="Chú giải 5 trục của ma trận cạnh tranh">
+            <polygon points="190,40 258.5,89.8 232.3,170.2 147.7,170.2 121.5,89.8" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <polygon points="190,68.8 231.08,98.65 215.4,146.95 164.6,146.95 148.92,98.65" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <line x1="190" y1="112" x2="190" y2="40" stroke="var(--border)"/>
+            <line x1="190" y1="112" x2="258.5" y2="89.8" stroke="var(--border)"/>
+            <line x1="190" y1="112" x2="232.3" y2="170.2" stroke="var(--border)"/>
+            <line x1="190" y1="112" x2="147.7" y2="170.2" stroke="var(--border)"/>
+            <line x1="190" y1="112" x2="121.5" y2="89.8" stroke="var(--border)"/>
+            <text x="190" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">Xác nhận nhanh</text>
+            <text x="266" y="93" text-anchor="start" font-size="12" font-weight="700" fill="var(--text)">Chọn đích danh HDV</text>
+            <text x="232.3" y="192" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">Vetting nghiêm ngặt</text>
+            <text x="147.7" y="192" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">Mật độ cung ĐN</text>
+            <text x="114" y="93" text-anchor="end" font-size="12" font-weight="700" fill="var(--text)">Quy mô nguồn lực</text>
           </svg>
           <div class="radar-key-note">
             <p><strong>Cách đọc:</strong> vòng càng phình to về phía nào, nền tảng càng mạnh ở tiêu chí đó. Mỗi thẻ bên dưới là 1 đối thủ (không dùng điểm trung bình) — vòng <strong style="color:var(--orange)">cam nét đứt</strong> luôn là Ello, lặp lại trong cả 12 thẻ để so trực diện với vòng màu riêng của từng đối thủ.</p>
