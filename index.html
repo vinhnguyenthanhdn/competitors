@@ -86,9 +86,8 @@
   .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.01em; font-size:1.05rem; cursor:pointer;}
   .brand-mark{
     width:34px;height:34px;border-radius:10px;
-    background:linear-gradient(140deg,var(--orange),#ff9a52);
-    display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.1rem;
-    box-shadow:0 6px 14px -6px rgba(243,113,32,.55);
+    background:#fff; object-fit:contain; padding:3px;
+    box-shadow:0 6px 14px -6px rgba(243,113,32,.35), 0 0 0 1px var(--border);
   }
   .brand small{display:block;font-weight:500;color:var(--text-muted);font-size:.72rem;letter-spacing:0;}
   .topbar-meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--text-muted);}
@@ -212,6 +211,12 @@
   .c-guruwalk{--accent:#3ca866; --accent-soft:#e0f4e6; --accent-dark:#276b40;}
   .c-oneguide{--accent:#3d7fc4; --accent-soft:#e0edf9; --accent-dark:#255d97;}
   .c-ello{--accent:#F37120; --accent-soft:#ffe7d6; --accent-dark:#c9560f;}
+  .c-tubudd{--accent:#c2185b; --accent-soft:#fbe0ea; --accent-dark:#8a0f40;}
+  .c-gyg{--accent:#3a5fcd; --accent-soft:#e2e8fb; --accent-dark:#28409c;}
+  .c-viator{--accent:#2e8b57; --accent-soft:#e0f2e7; --accent-dark:#1f6740;}
+  .c-showaround{--accent:#d4a017; --accent-soft:#fbf1d8; --accent-dark:#9c7610;}
+  .c-gwg{--accent:#8d6e63; --accent-soft:#ece5e2; --accent-dark:#5f4a42;}
+  .c-airbnb{--accent:#ff5a5f; --accent-soft:#ffe4e5; --accent-dark:#c53337;}
 
   .tag.c-ongvove{background:var(--accent-soft); color:var(--accent-dark);}
   .tag.c-klook{background:var(--accent-soft); color:var(--accent-dark);}
@@ -348,6 +353,25 @@
   .radar-legend .swatch.avg{background:var(--slate); opacity:.55;}
   .radar-legend p{margin:2px 0 0; font-size:.78rem; color:var(--text-muted); font-weight:400;}
 
+  .radar-key-wrap{display:flex; gap:24px; align-items:center; flex-wrap:wrap; padding:18px; background:var(--bg-2); border:1px solid var(--border); border-radius:16px; margin-bottom:22px;}
+  .radar-key-note{flex:1; min-width:220px;}
+  .radar-key-note p{margin:0 0 8px;}
+  .radar-key-note p:last-child{margin-bottom:0;}
+
+  .radar-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:16px;}
+  .radar-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:14px 14px 16px;
+    box-shadow:var(--shadow-soft); text-align:center; position:relative;
+  }
+  .radar-card.ello-card{border:2px solid var(--orange); box-shadow:0 0 0 3px var(--orange-soft);}
+  .radar-card svg{width:100%; height:auto; display:block; margin:0 auto 8px;}
+  .radar-card .rc-name{font-size:.86rem; font-weight:800; color:var(--text);}
+  .radar-card .rc-total{font-size:.74rem; color:var(--text-muted); font-weight:600; margin-top:2px;}
+  .radar-card .rc-segment{
+    display:inline-block; margin-top:6px; font-size:.66rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em;
+    color:var(--text-faint); background:var(--bg-2); border:1px solid var(--border); border-radius:999px; padding:2px 8px;
+  }
+
   .pictogram{display:flex; flex-direction:column; gap:16px;}
   .picto-row{display:grid; grid-template-columns:150px 1fr; gap:16px; align-items:center;}
   .picto-label{font-size:.86rem; font-weight:700; text-align:right;}
@@ -445,7 +469,7 @@
 <div class="topbar-outer">
   <div class="topbar">
     <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-      <span class="brand-mark">E</span>
+      <img class="brand-mark" src="data:image/png;base64,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" alt="Ello logo" width="34" height="34">
       <span>Ello Da Nang<small>Báo cáo thị trường &amp; đối thủ cạnh tranh</small></span>
     </div>
     <div class="topbar-meta">
@@ -569,23 +593,33 @@
           <h2>Bản đồ đối thủ tại Đà Nẵng</h2>
         </div>
       </div>
-      <p class="lede">6 nền tảng đang khai thác mảng đặt/thuê HDV tại Đà Nẵng, cộng 2 nền tảng ghi nhận thêm chưa phân tích sâu (GoWithGuide, ShowAround).</p>
+      <p class="lede">12 nền tảng đang khai thác mảng đặt/thuê HDV hoặc trải nghiệm địa phương tại Đà Nẵng — 6 nền tảng khảo sát ban đầu và 6 nền tảng bổ sung (Tubudd, GetYourGuide, Viator, ShowAround, GoWithGuide, Airbnb Experiences). Chi tiết xếp hạng đầy đủ (mức đe dọa, cách HDV nhận tour, vetting) xem tại <a href="https://github.com/vinhnguyenthanhdn/vinh-ello/blob/master/ello-competitor-analysis/xep-hang-doi-thu-2026-07-18.md" style="color:var(--orange-dark); text-decoration:underline;">xep-hang-doi-thu-2026-07-18.md</a>.</p>
 
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>Nền tảng</th><th>Mô hình</th><th>Phạm vi</th><th>Quy mô cung tại Đà Nẵng</th><th>Giá tham khảo</th><th>Đặc điểm nổi bật</th>
+              <th>Nền tảng</th><th>Mô hình</th><th>Phạm vi</th><th>Quy mô cung tại Đà Nẵng</th><th>Giá tham khảo</th><th>App</th><th>Đặc điểm nổi bật</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="row-name"><span class="tag c-ongvove"><span class="dot"></span>Ong Vò Vẽ</span></td>
-              <td>OTA marketplace, đặt HDV theo giờ/ngày, xác nhận thủ công</td>
-              <td>Toàn quốc VN + quốc tế</td>
-              <td>57 HDV toàn hệ thống, <strong>chỉ 2 tại Đà Nẵng</strong>; 0/57 có booking</td>
-              <td>400.000–800.000đ/ngày</td>
-              <td>SEO dày (2.094 trang địa điểm) nhưng traffic thật thấp; mảng HDV gần như "ngủ đông"</td>
+              <td class="row-name"><span class="tag c-tubudd"><span class="dot"></span>Tubudd</span></td>
+              <td>Marketplace "buddy" bản địa VN, đặt theo giờ, browse hồ sơ + "Smart Matching"</td>
+              <td>40 thành phố, 12 quốc gia; ~700 buddy tại VN</td>
+              <td>9 buddy hiển thị trực tiếp tại ĐN</td>
+              <td>$5–12,5/giờ</td>
+              <td>Có</td>
+              <td>Startup VN (từ 2018), gọi vốn từ TheVentures (Hàn Quốc); cùng thuật ngữ "Smart Matching" Ello đang dùng làm USP</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag c-gyg"><span class="dot"></span>GetYourGuide</span></td>
+              <td>OTA toàn cầu, category "Private Tours" riêng cho từng điểm đến, HDV do supplier tự gán</td>
+              <td>Toàn cầu, ĐN có category riêng</td>
+              <td>~9+ sản phẩm private tour tại ĐN</td>
+              <td>Theo từng sản phẩm</td>
+              <td>Có (26tr lượt tải)</td>
+              <td>54,4 triệu visit/tháng — lớn hơn cả klook.com; thống trị SEO "Da Nang tours"</td>
             </tr>
             <tr>
               <td class="row-name"><span class="tag c-klook"><span class="dot"></span>Klook</span></td>
@@ -593,7 +627,26 @@
               <td>Toàn cầu, Đà Nẵng là 1 SKU</td>
               <td>Không lộ diện HDV cụ thể trước khi đặt</td>
               <td>₫975k (4h) / ₫1.312.500 (8h) mỗi HDV</td>
+              <td>Có</td>
               <td>3 gói 4h/8h/12h, 6 ngôn ngữ, xác nhận tức thời + hủy miễn phí 24h; 12 review, 5.0/5, 100+ đã đặt</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag c-viator"><span class="dot"></span>Viator</span></td>
+              <td>OTA toàn cầu (TripAdvisor), driver/guide riêng theo giờ, vận hành qua supplier</td>
+              <td>Toàn cầu</td>
+              <td>Nhiều listing private driver/guide 4h–full day</td>
+              <td>Theo từng sản phẩm</td>
+              <td>Có</td>
+              <td>19,66 triệu visit/tháng, 41% traffic từ paid ads — cạnh tranh giá thầu trực tiếp nếu Ello chạy Google Ads</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag c-showaround"><span class="dot"></span>ShowAround</span></td>
+              <td>Marketplace HDV cá nhân, nhắn tin qua Messenger/SMS</td>
+              <td>60.000+ local, 8.000+ thành phố toàn cầu</td>
+              <td><strong>74 local guide</strong> (đếm trực tiếp)</td>
+              <td>€5–24/giờ (nhiều slot "Free")</td>
+              <td>Có</td>
+              <td>Độ phủ tại ĐN lớn nhất trong nhóm marketplace HDV cá nhân đã khảo sát; rào cản gia nhập thấp</td>
             </tr>
             <tr>
               <td class="row-name"><span class="tag c-tbl"><span class="dot"></span>ToursByLocals</span></td>
@@ -601,7 +654,17 @@
               <td>Toàn cầu</td>
               <td>117 kết quả tour, ~12 HDV bản địa Đà Nẵng</td>
               <td>$114–320+/tour</td>
-              <td>Rating hầu hết 5.0/HDV, cá nhân hóa cao nhưng quy trình thủ công</td>
+              <td>Không (chỉ web)</td>
+              <td>Rating hầu hết 5.0/HDV; vetting nghiêm nhất nhóm marketplace cá nhân (2 vòng phỏng vấn + background check + bảo hiểm $3tr)</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag c-gwg"><span class="dot"></span>GoWithGuide</span></td>
+              <td>Marketplace HDV cá nhân, guide phỏng vấn sàng lọc, nhắn tin trực tiếp</td>
+              <td>Toàn cầu (từ Nhật Bản, 2013)</td>
+              <td>8 guide hiển thị tại ĐN</td>
+              <td>$29–39 (ngắn) đến $80–249+ (cả ngày)</td>
+              <td>Không (chỉ web)</td>
+              <td>Mô hình tương đồng ToursByLocals nhưng vetting nhẹ hơn (1 vòng phỏng vấn online)</td>
             </tr>
             <tr>
               <td class="row-name"><span class="tag c-withlocals"><span class="dot"></span>WithLocals</span></td>
@@ -609,6 +672,7 @@
               <td>250+ điểm đến toàn cầu</td>
               <td>8 experience tại Đà Nẵng (không có landing page riêng — 404)</td>
               <td>€34–82/người + markup ~32% + phí ~10%</td>
+              <td>Có (100k+ lượt tải)</td>
               <td>Cơ chế phí phức tạp, giá cuối cao hơn phần host nhận; review dày 155–238/experience</td>
             </tr>
             <tr>
@@ -617,23 +681,35 @@
               <td>Toàn cầu</td>
               <td>5 tour đi bộ tại Đà Nẵng (91 ở VN, 951 ở châu Á)</td>
               <td>Tip 100.000–300.000đ/người (2–2,5h)</td>
+              <td>Có</td>
               <td>Rating Đà Nẵng 4,74/5 (731 review); chỉ phục vụ tour đi bộ ngắn, không phải thuê HDV riêng cả ngày</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag c-airbnb"><span class="dot"></span>Airbnb Experiences</span></td>
+              <td>Experience đóng gói theo chủ đề, lịch tự phục vụ</td>
+              <td>Toàn cầu</td>
+              <td>Vài experience tại ĐN (chưa đếm chính xác)</td>
+              <td>Theo từng experience, phí nền tảng 20%</td>
+              <td>Có (app Airbnb chung)</td>
+              <td>Vetting host nghiêm ngặt nhất toàn ngành (5 năm kinh nghiệm + trial chấm điểm) nhưng không phải thuê HDV linh hoạt</td>
+            </tr>
+            <tr>
+              <td class="row-name"><span class="tag c-ongvove"><span class="dot"></span>Ong Vò Vẽ</span></td>
+              <td>OTA marketplace, đặt HDV theo giờ/ngày, xác nhận thủ công</td>
+              <td>Toàn quốc VN + quốc tế</td>
+              <td>57 HDV toàn hệ thống, <strong>chỉ 2 tại Đà Nẵng</strong>; 0/57 có booking</td>
+              <td>400.000–800.000đ/ngày</td>
+              <td>Không tìm thấy</td>
+              <td>SEO dày (2.094 trang địa điểm) nhưng traffic thật thấp; mảng HDV gần như "ngủ đông"</td>
             </tr>
             <tr>
               <td class="row-name"><span class="tag c-oneguide"><span class="dot"></span>OneGuide</span></td>
               <td>Nền tảng B2B miễn phí kết nối HDV ⟷ doanh nghiệp lữ hành</td>
               <td>Toàn quốc</td>
-              <td>&gt;30.000 HDV, &gt;2.600 doanh nghiệp lữ hành</td>
+              <td>&gt;23.000–30.000 HDV, &gt;2.600 doanh nghiệp lữ hành</td>
               <td>Miễn phí</td>
+              <td>Có</td>
               <td>Thuộc iTourism (ngành/nhà nước hậu thuẫn) — khác phân khúc (B2B)</td>
-            </tr>
-            <tr>
-              <td class="row-name"><span class="tag" style="background:var(--slate-soft);color:var(--slate)"><span class="dot"></span>GoWithGuide / ShowAround</span></td>
-              <td>Marketplace HDV cá nhân, tương tự ToursByLocals/WithLocals</td>
-              <td>Toàn cầu, có trang riêng cho Đà Nẵng</td>
-              <td>Chưa xác định</td>
-              <td>Chưa xác định</td>
-              <td>Ghi nhận thêm, chưa phân tích sâu — cần theo dõi</td>
             </tr>
           </tbody>
         </table>
@@ -695,6 +771,11 @@
         <div class="note-box">
           <svg class="icon" width="16" height="16"><use href="#i-info"/></svg>
           <span><strong>Đọc nhanh:</strong> các đối thủ đúng phân khúc (ToursByLocals, WithLocals) có traffic vừa phải và <strong>chủ yếu là khách phương Tây đã biết thương hiệu</strong>, không phải khách tìm HDV Đà Nẵng qua Google — đây là tệp khác với khách mục tiêu của Ello. GuruWalk traffic khổng lồ nhưng khác phân khúc. Ong Vò Vẽ tuy nội dung SEO dày nhưng traffic thật rất thấp.</span>
+        </div>
+
+        <div class="note-box">
+          <svg class="icon" width="16" height="16"><use href="#i-info"/></svg>
+          <span><strong>Quy mô nguồn lực tổng thể (không cùng đơn vị đo với bảng organic ở trên, chỉ tham chiếu):</strong> GetYourGuide <strong>54,4 triệu</strong> lượt truy cập/tháng (Semrush, toàn nền tảng) — lớn hơn cả klook.com; Viator <strong>19,66 triệu</strong> lượt truy cập/tháng, trong đó <strong>41,5%</strong> đến từ quảng cáo trả phí. GetYourGuide/Viator chặn công cụ đo organic tự động ở cấp trang Đà Nẵng nên chưa tách được traffic organic riêng cho HDV/private-tour tại đây.</span>
         </div>
       </div>
 
@@ -773,36 +854,31 @@
       <div class="chart-card">
         <div class="chart-card-head">
           <h3>2d. Ma trận cạnh tranh 5 chiều</h3>
-          <p class="muted small">Ello so với mức trung bình nhóm đối thủ đã khảo sát (thang điểm định tính 0–5, dựa trên phân tích ở trên).</p>
+          <p class="muted small">Mỗi nền tảng — kể cả Ello — là 1 vòng riêng, chấm cùng thang điểm 0–5 dựa trên bằng chứng thu thập được (mô hình đặt, mức vetting, số liệu cung/traffic thực tế). Điểm phản ánh <strong>hiện trạng đã triển khai</strong>, không tính các hạng mục còn ở giai đoạn roadmap/R&D — kể cả với Ello — để đảm bảo so sánh công bằng, không thiên vị.</p>
         </div>
-        <div class="radar-flex">
-          <svg width="260" height="260" viewBox="0 0 260 260" role="img" aria-label="Radar chart so sánh Ello và trung bình đối thủ trên 5 tiêu chí">
-            <polygon points="130,30 225.11,99.10 188.78,210.90 71.22,210.90 34.89,99.10" fill="none" stroke="var(--border)" stroke-width="1"/>
-            <polygon points="130,50 206.08,105.28 177.02,194.72 82.98,194.72 53.92,105.28" fill="none" stroke="var(--border)" stroke-width="1"/>
-            <polygon points="130,70 187.06,111.46 165.27,178.54 94.73,178.54 72.94,111.46" fill="none" stroke="var(--border)" stroke-width="1"/>
-            <polygon points="130,90 168.04,117.64 153.51,162.36 106.49,162.36 91.96,117.64" fill="none" stroke="var(--border)" stroke-width="1"/>
-            <polygon points="130,110 149.02,123.82 141.76,146.18 118.24,146.18 110.98,123.82" fill="none" stroke="var(--border)" stroke-width="1"/>
-            <line x1="130" y1="130" x2="130" y2="30" stroke="var(--border)"/>
-            <line x1="130" y1="130" x2="225.11" y2="99.10" stroke="var(--border)"/>
-            <line x1="130" y1="130" x2="188.78" y2="210.90" stroke="var(--border)"/>
-            <line x1="130" y1="130" x2="71.22" y2="210.90" stroke="var(--border)"/>
-            <line x1="130" y1="130" x2="34.89" y2="99.10" stroke="var(--border)"/>
 
-            <polygon points="130,110 187.06,111.46 159.39,170.45 118.24,146.18 91.96,117.64" fill="var(--slate)" fill-opacity="0.16" stroke="var(--slate)" stroke-width="2" stroke-dasharray="4 3"/>
-            <polygon points="130,30 206.08,105.28 177.02,194.72 82.98,194.72 53.92,105.28" fill="var(--orange)" fill-opacity="0.20" stroke="var(--orange)" stroke-width="2.5"/>
-
-            <text x="130" y="18" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">Matching tức thời</text>
-            <text x="234" y="93" text-anchor="start" font-size="10.5" font-weight="700" fill="var(--text)">Cá nhân hóa</text>
-            <text x="192" y="230" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">Giá minh bạch</text>
-            <text x="68" y="230" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">SEO Đà Nẵng</text>
-            <text x="26" y="93" text-anchor="end" font-size="10.5" font-weight="700" fill="var(--text)">Mật độ cung</text>
+        <div class="radar-key-wrap">
+          <svg width="230" height="230" viewBox="0 0 230 230" role="img" aria-label="Chú giải 5 trục của ma trận cạnh tranh">
+            <polygon points="115,20 199.75,79.15 168.4,177.2 61.6,177.2 30.25,79.15" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <polygon points="115,70 157.38,104.58 142.7,150.6 87.3,150.6 72.62,104.58" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <line x1="115" y1="115" x2="115" y2="20" stroke="var(--border)"/>
+            <line x1="115" y1="115" x2="199.75" y2="79.15" stroke="var(--border)"/>
+            <line x1="115" y1="115" x2="168.4" y2="177.2" stroke="var(--border)"/>
+            <line x1="115" y1="115" x2="61.6" y2="177.2" stroke="var(--border)"/>
+            <line x1="115" y1="115" x2="30.25" y2="79.15" stroke="var(--border)"/>
+            <text x="115" y="12" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">Xác nhận nhanh</text>
+            <text x="205" y="73" text-anchor="start" font-size="10.5" font-weight="700" fill="var(--text)">Chọn đích danh HDV</text>
+            <text x="172" y="197" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">Vetting nghiêm ngặt</text>
+            <text x="58" y="197" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">Mật độ cung ĐN</text>
+            <text x="24" y="73" text-anchor="end" font-size="10.5" font-weight="700" fill="var(--text)">Quy mô nguồn lực</text>
           </svg>
-          <div class="radar-legend">
-            <div class="item"><span class="swatch ello"></span>Ello (định hướng sản phẩm)</div>
-            <div class="item"><span class="swatch avg"></span>Trung bình 6 đối thủ</div>
-            <p>Ello dẫn trước rõ nhất ở matching tức thời và SEO/nội dung riêng cho Đà Nẵng — đúng 2 khoảng trống lớn nhất quan sát được từ đối thủ.</p>
+          <div class="radar-key-note">
+            <p><strong>Cách đọc:</strong> vòng càng phình to về phía nào, nền tảng càng mạnh ở tiêu chí đó. Mỗi thẻ bên dưới là 1 đối thủ (không dùng điểm trung bình) — vòng <strong style="color:var(--orange)">cam nét đứt</strong> luôn là Ello, lặp lại trong cả 12 thẻ để so trực diện với vòng màu riêng của từng đối thủ.</p>
+            <p class="muted small">Ello chấm theo tài liệu nội bộ hiện có (hồ sơ, xác minh trước khi active) — không cộng điểm cho các hạng mục còn ở giai đoạn R&D/roadmap (vd Smart Matching Engine bằng AI, chính sách hủy) để giữ khách quan.</p>
           </div>
         </div>
+
+        <div id="radarGrid" class="radar-grid" aria-label="Radar 5 tiêu chí của từng nền tảng"></div>
       </div>
     </section>
 
@@ -1406,6 +1482,96 @@
   }, { rootMargin:'-15% 0px -70% 0px', threshold:0 });
 
   sections.forEach(function(s){ observer.observe(s); });
+})();
+
+/* ============ Radar small-multiples: 5 tiêu chí, 13 nền tảng (mỗi nền tảng 1 vòng riêng, không dùng trung bình) ============ */
+(function(){
+  // Thang 0–5 mỗi trục, chấm theo hiện trạng đã triển khai (không cộng điểm cho hạng mục roadmap/R&D) để công bằng giữa Ello và đối thủ.
+  // Thứ tự trục: [Xác nhận nhanh, Chọn đích danh HDV, Vetting nghiêm ngặt, Mật độ cung ĐN, Quy mô nguồn lực]
+  var RADAR_DATA = [
+    { key:'ello', name:'Ello', color:'var(--orange)', isEllo:true,
+      scores:[3,5,4,2,1], note:'Startup, đang xây dựng cung tại ĐN' },
+    { key:'tubudd', name:'Tubudd', color:'#c2185b',
+      scores:[2,5,2,2,1] },
+    { key:'gyg', name:'GetYourGuide', color:'#3a5fcd',
+      scores:[5,0,1,2,5] },
+    { key:'klook', name:'Klook', color:'#12a49a',
+      scores:[5,0,1,1,5] },
+    { key:'viator', name:'Viator', color:'#2e8b57',
+      scores:[5,1,1,2,4] },
+    { key:'showaround', name:'ShowAround', color:'#d4a017',
+      scores:[2,5,1,5,2] },
+    { key:'tbl', name:'ToursByLocals', color:'#8567d6',
+      scores:[2,5,5,3,2] },
+    { key:'gwg', name:'GoWithGuide', color:'#8d6e63',
+      scores:[2,5,3,2,1] },
+    { key:'withlocals', name:'WithLocals', color:'#e8477b',
+      scores:[2,4,3,2,2] },
+    { key:'guruwalk', name:'GuruWalk', color:'#3ca866', segment:'Khác phân khúc',
+      scores:[4,3,1,2,3] },
+    { key:'airbnb', name:'Airbnb Experiences', color:'#ff5a5f', segment:'Khác phân khúc',
+      scores:[4,4,5,1,4] },
+    { key:'ongvove', name:'Ong Vò Vẽ', color:'#66788c',
+      scores:[1,3,0,1,1] },
+    { key:'oneguide', name:'OneGuide', color:'#3d7fc4', segment:'B2B, khác phân khúc',
+      scores:[1,0,3,1,3] }
+  ];
+
+  var grid = document.getElementById('radarGrid');
+  if(!grid) return;
+
+  var ELLO = RADAR_DATA.filter(function(e){ return e.isEllo; })[0];
+  var COMPETITORS = RADAR_DATA.filter(function(e){ return !e.isEllo; });
+
+  function pentagon(cx, cy, r){
+    var pts=[];
+    for(var i=0;i<5;i++){
+      var angle=(-90+i*72)*Math.PI/180;
+      pts.push([cx+r*Math.cos(angle), cy+r*Math.sin(angle)]);
+    }
+    return pts;
+  }
+  function toStr(pts){ return pts.map(function(p){ return p[0].toFixed(1)+','+p[1].toFixed(1); }).join(' '); }
+  function scorePolygon(scores, cx, cy, maxR){
+    var pts=[];
+    for(var i=0;i<5;i++){
+      var angle=(-90+i*72)*Math.PI/180;
+      var r=(scores[i]/5)*maxR;
+      pts.push([cx+r*Math.cos(angle), cy+r*Math.sin(angle)]);
+    }
+    return toStr(pts);
+  }
+
+  // Mỗi mini-radar vẽ 2 vòng chồng lên nhau: Ello (cam, nét đứt, phía sau) và đối thủ (màu riêng, phía trước) để so sánh trực diện.
+  function miniRadarSVG(entity){
+    var cx=70, cy=72, maxR=50;
+    var outer=toStr(pentagon(cx,cy,maxR));
+    var mid=toStr(pentagon(cx,cy,maxR*0.55));
+    var axisLines=pentagon(cx,cy,maxR).map(function(p){
+      return '<line x1="'+cx+'" y1="'+cy+'" x2="'+p[0].toFixed(1)+'" y2="'+p[1].toFixed(1)+'" stroke="var(--border)" stroke-width="1"/>';
+    }).join('');
+    var elloStr = scorePolygon(ELLO.scores, cx, cy, maxR);
+    var dataStr = scorePolygon(entity.scores, cx, cy, maxR);
+    return '<svg viewBox="0 0 140 144">'
+      + '<polygon points="'+outer+'" fill="none" stroke="var(--border)" stroke-width="1"/>'
+      + '<polygon points="'+mid+'" fill="none" stroke="var(--border)" stroke-width="1"/>'
+      + axisLines
+      + '<polygon points="'+elloStr+'" fill="'+ELLO.color+'" fill-opacity="0.12" stroke="'+ELLO.color+'" stroke-width="2" stroke-dasharray="4 3"/>'
+      + '<polygon points="'+dataStr+'" fill="'+entity.color+'" fill-opacity="0.24" stroke="'+entity.color+'" stroke-width="2.2"/>'
+      + '</svg>';
+  }
+
+  COMPETITORS.forEach(function(entity){
+    var elloTotal = ELLO.scores.reduce(function(a,b){ return a+b; }, 0);
+    var total = entity.scores.reduce(function(a,b){ return a+b; }, 0);
+    var card = document.createElement('div');
+    card.className = 'radar-card';
+    card.innerHTML = miniRadarSVG(entity)
+      + '<div class="rc-name">'+entity.name+'</div>'
+      + '<div class="rc-total">Ello '+elloTotal+' · '+entity.name+' '+total+'</div>'
+      + (entity.segment ? '<div class="rc-segment">'+entity.segment+'</div>' : '');
+    grid.appendChild(card);
+  });
 })();
 </script>
 </body>
