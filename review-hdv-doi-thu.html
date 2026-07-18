@@ -541,6 +541,44 @@
   .method-note p:last-child{margin-bottom:0;}
   .method-note b{color:var(--text);}
 
+  .new-tag{display:inline-block;background:var(--orange);color:#fff;font-size:.62rem;font-weight:800;padding:1px 6px;border-radius:5px;letter-spacing:.03em;vertical-align:middle;margin-left:7px;text-transform:uppercase;}
+  .region-tag{display:inline-block;font-size:.66rem;font-weight:700;padding:1px 7px;border-radius:6px;background:var(--blue-soft);color:var(--blue);margin-right:5px;vertical-align:middle;}
+  .vn-banner{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(135deg,var(--orange-soft-2),#fff);border:1px solid #f4c9a8;border-radius:var(--radius-md);padding:15px 18px;margin-top:10px;}
+  .vn-banner svg{flex:none;width:20px;height:20px;color:var(--orange-dark);margin-top:2px;}
+  .vn-banner p{margin:0;font-size:.86rem;line-height:1.55;color:var(--text-muted);}
+  .vn-banner b{color:var(--text);}
+
+  /* Region filter */
+  .filter-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:20px;padding:12px 16px;background:rgba(255,255,255,.65);border:1px solid var(--border);border-radius:999px;}
+  .filter-bar .fb-label{font-size:.8rem;font-weight:700;color:var(--text-muted);display:inline-flex;align-items:center;gap:7px;}
+  .filter-bar .fb-label svg{width:15px;height:15px;color:var(--orange-dark);}
+  .seg{display:inline-flex;background:var(--bg-1);border-radius:999px;padding:3px;gap:2px;}
+  .seg button{border:none;background:none;font:inherit;cursor:pointer;font-size:.82rem;font-weight:700;color:var(--text-muted);padding:7px 16px;border-radius:999px;transition:.15s;}
+  .seg button.active{background:var(--orange);color:#fff;box-shadow:0 2px 8px -2px rgba(243,113,32,.6);}
+  .filter-note{font-size:.78rem;color:var(--text-faint);}
+  body.only-dn .scope-vn{display:none !important;}
+
+  .qnote{display:block;margin-top:6px;font-size:.74rem;font-weight:600;color:var(--orange-dark);font-style:normal;}
+  .qnote::before{content:"↻ ";}
+
+  /* Distribution table */
+  .dist-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.85rem;}
+  .dist-table th,.dist-table td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+  .dist-table th{background:var(--bg-2);font-weight:750;color:var(--text);font-size:.8rem;}
+  .dist-table td:first-child{font-weight:700;color:var(--text);white-space:nowrap;}
+  .dist-table .hot{color:#b31d47;font-weight:700;}
+  .dist-wrap{overflow-x:auto;}
+  .dn-focus{background:var(--teal-soft);border:1px solid #a5e8d5;border-radius:var(--radius-md);padding:18px 20px;margin-top:18px;}
+  .dn-focus h3{margin:0 0 10px;font-size:1.02rem;color:#067a5e;display:flex;align-items:center;gap:8px;}
+  .dn-focus h3 svg{width:19px;height:19px;}
+  .dn-focus ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px;}
+  .dn-focus li{font-size:.86rem;line-height:1.55;color:var(--text);}
+  .dn-focus li b{color:#065f49;}
+  .metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:16px;}
+  .metric{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 15px;text-align:center;}
+  .metric .m-num{font-size:1.45rem;font-weight:850;color:var(--orange-dark);line-height:1;}
+  .metric .m-lbl{font-size:.75rem;color:var(--text-muted);margin-top:6px;line-height:1.35;}
+
 </style>
 </head>
 <body>
@@ -587,18 +625,61 @@
   <section class="rhero" id="top">
     <span class="eyebrow"><svg class="icon" width="13" height="13"><use href="#i-chat"/></svg>Phân tích tiếng nói khách hàng (Voice of Customer)</span>
     <h1>Review khách về HDV của đối thủ: điều nên học &amp; điều phải tránh</h1>
-    <p class="lede">Tổng hợp review thật của khách du lịch về <b>hướng dẫn viên / local host</b> trên 9 nền tảng đối thủ (khu vực Đà Nẵng – Hội An – Central Vietnam, một số quote lấy ở phạm vi rộng hơn khi dữ liệu Đà Nẵng khan hiếm). Chia làm 2 phần: <b>review tốt</b> → insight Ello nên học theo, và <b>review xấu</b> → lỗi Ello cần tránh. Mọi <b>dẫn chứng để nguyên tiếng Anh</b>; phần phân tích &amp; hành động viết tiếng Việt.</p>
+    <p class="lede">Tổng hợp review thật của khách du lịch về <b>hướng dẫn viên / local host</b> trên 10 nền tảng đối thủ, khảo sát toàn Việt Nam (Đà Nẵng, Hà Nội, TP.HCM, Hội An, Huế, Sapa, Hạ Long, Ninh Bình, Mekong, Nha Trang). Báo cáo gồm: <b>bức tranh phân bố dịch vụ</b>, <b>review tốt</b> → insight Ello nên học, <b>review xấu</b> → lỗi Ello cần tránh, và <b>phần bổ sung toàn VN</b>. Dẫn chứng để nguyên tiếng Anh, phân tích tiếng Việt.</p>
     <div class="rstat-grid">
-      <div class="rstat"><div class="num">9</div><div class="lbl">nền tảng đối thủ được khảo sát review</div></div>
-      <div class="rstat"><div class="num">7</div><div class="lbl">insight từ review TỐT (nên học)</div></div>
-      <div class="rstat"><div class="num">8</div><div class="lbl">lỗi từ review XẤU (cần tránh)</div></div>
-      <div class="rstat"><div class="num">18–19/7</div><div class="lbl">agent-browser + WebSearch, 2026</div></div>
+      <div class="rstat"><div class="num">10</div><div class="lbl">nền tảng đối thủ được khảo sát</div></div>
+      <div class="rstat"><div class="num">13</div><div class="lbl">insight từ review TỐT (nên học)</div></div>
+      <div class="rstat"><div class="num">14</div><div class="lbl">lỗi từ review XẤU (cần tránh)</div></div>
+      <div class="rstat"><div class="num">10</div><div class="lbl">vùng du lịch VN được khảo sát</div></div>
     </div>
     <div class="split-legend">
       <span class="lg good"><svg class="icon" width="14" height="14"><use href="#i-check"/></svg>Xanh = điều khách khen → Ello học theo</span>
       <span class="lg bad"><svg class="icon" width="14" height="14"><use href="#i-alert"/></svg>Hồng = điều khách chê → Ello tránh</span>
     </div>
+    <div class="filter-bar">
+      <span class="fb-label"><svg class="icon"><use href="#i-map"/></svg>Phạm vi hiển thị:</span>
+      <span class="seg" role="group" aria-label="Lọc theo vùng">
+        <button id="btnVN" class="active" onclick="setScope('vn')">Toàn Việt Nam</button>
+        <button id="btnDN" onclick="setScope('dn')">Chỉ Đà Nẵng</button>
+      </span>
+      <span class="filter-note" id="filterNote">Đang xem: toàn bộ dữ liệu toàn VN</span>
+    </div>
   </section>
+
+  <!-- ============ DISTRIBUTION / ACTIVITY ============ -->
+  <div class="card" id="phan-bo">
+    <div class="section-head"><span class="sh-ico"><svg class="icon"><use href="#i-map"/></svg></span><h2>Bức tranh hoạt động: dịch vụ đặt HDV phân bố thế nào</h2></div>
+    <p class="sub-lede">Dựa trên dữ liệu review cào được, dưới đây là mức độ hoạt động của mảng đặt/thuê HDV &amp; local host trên toàn Việt Nam và tại Đà Nẵng. <em>Lưu ý: đây là mức độ hiện diện quan sát từ trang review công khai (số HDV, độ dày review theo vùng/nền tảng), không phải số liệu thị phần chính thức.</em></p>
+
+    <div class="dist-wrap scope-vn">
+      <table class="dist-table">
+        <thead><tr><th>Vùng</th><th>Nền tảng nổi bật</th><th>Loại hình chính</th><th>Tín hiệu từ review</th></tr></thead>
+        <tbody>
+          <tr><td>Hà Nội &amp; TP.HCM</td><td>ShowAround, Tubudd, GuruWalk, GetYourGuide/Klook/Viator, Airbnb</td><td>Buddy đồng hành, food/night tour, easy-rider, walking tour</td><td>Cầu lớn nhất cả nước; “buddy” cho khách solo &amp; food tour rất nổi; nhiều review nhấn <b>an toàn &amp; tin cậy</b></td></tr>
+          <tr><td>Đà Nẵng – Hội An – Huế</td><td>ToursByLocals, Withlocals, GoWithGuide, ShowAround, GetYourGuide/Viator/Klook, Airbnb</td><td>HDV riêng, food tour, tour Bà Nà/Hội An, shore excursion</td><td>Cụm <b>HDV cá nhân chất lượng cao</b>, review dày &amp; rất tích cực về kiến thức + ẩm thực</td></tr>
+          <tr><td>Sapa</td><td>GetYourGuide, TripAdvisor, Sapa Sisters</td><td>Trekking bản địa (người H'mong)</td><td>Mô hình nữ bản địa; nhấn <b>an toàn cho khách nữ</b> &amp; trả công công bằng</td></tr>
+          <tr><td>Hạ Long – Ninh Bình</td><td>Viator, Klook, GetYourGuide + operator cruise</td><td>Du thuyền, day-trip trọn gói</td><td><span class="hot">Nhiều phàn nàn</span>: no-show, chen chúc, lái xe ẩu, “scam” thời tiết/hoàn tiền</td></tr>
+          <tr><td>Mekong – Nha Trang – Phú Quốc</td><td>OTA + operator ghép tour</td><td>Tour ghép giá rẻ, xe bus, easy-rider</td><td><span class="hot">Nhiều phàn nàn</span>: nhồi bus 12h, guide vô cảm, tài xế lái ẩu/buồn ngủ</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="dn-focus">
+      <h3><svg class="icon"><use href="#i-target"/></svg>Riêng Đà Nẵng — nguồn cung phân mảnh, cơ hội cho Ello</h3>
+      <ul>
+        <li>Nguồn cung HDV/host tại Đà Nẵng <b>rải rác trên nhiều nền tảng</b>: ShowAround (<b>74 locals</b> đã xác minh), Tubudd (~9 buddy), ToursByLocals/GoWithGuide/Withlocals (nhiều HDV cá nhân, review 5★ dày về kiến thức &amp; ẩm thực), và tour bán qua OTA GetYourGuide/Viator/Klook.</li>
+        <li>Cạnh tranh Đà Nẵng tập trung ở <b>tour Bà Nà – Hội An, food tour, night tour, shore excursion</b> (khách tàu biển) — phần lớn bán qua operator, nên hay dính no-show/đón trễ.</li>
+        <li>Khoảng trống rõ: HDV cá nhân giỏi thì <b>nằm rải rác</b>, khách khó tìm &amp; khó so sánh; <b>chưa có nền tảng chuyên “HDV riêng theo giờ/ngày, 100% Đà Nẵng, chịu trách nhiệm end-to-end”</b>.</li>
+        <li><b>→ Cơ hội Ello:</b> gom HDV Đà Nẵng chất lượng về một nơi, chuẩn hoá (vetting, đúng giờ, giá minh bạch, không giao thầu), phục vụ mạnh khách solo / gia đình / khách tàu biển.</li>
+      </ul>
+      <div class="metric-row">
+        <div class="metric"><div class="m-num">74</div><div class="m-lbl">ShowAround locals tại Đà Nẵng (xác minh)</div></div>
+        <div class="metric"><div class="m-num">~9</div><div class="m-lbl">Tubudd buddy tại Đà Nẵng</div></div>
+        <div class="metric"><div class="m-num">6+</div><div class="m-lbl">nền tảng đang bán dịch vụ HDV Đà Nẵng</div></div>
+        <div class="metric"><div class="m-num">0</div><div class="m-lbl">nền tảng “HDV riêng” chuyên biệt Đà Nẵng</div></div>
+      </div>
+    </div>
+  </div>
 
   <!-- ============ PART 1: GOOD ============ -->
   <div class="card" id="nen-hoc">
@@ -619,7 +700,7 @@
         <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-bolt"/></svg></span><div><div class="rank">Insight 02</div><h3>Linh hoạt &amp; cá nhân hóa lịch trình</h3></div></div>
         <p class="quote"><span class="en">“Tony quickly adjusted the plan and turned it into a fantastic Da Nang city tour instead.”</span><span class="src"><span class="src-tag">ToursByLocals</span>Guide Tony H.</span></p>
         <p class="quote"><span class="en">“They were wonderful and exceedingly flexible as I changed some of the itinerary last minute.”</span><span class="src"><span class="src-tag">GoWithGuide</span>Harris K., 5/2025</span></p>
-        <p class="quote"><span class="en">“Everything was custom to my particular needs and it was an unforgettable experience!!”</span><span class="src"><span class="src-tag">ToursByLocals</span>Nicole D. (guide Abby)</span></p>
+        <p class="quote"><span class="en">“Everything was custom to my particular needs and it was an unforgettable experience!!”</span><span class="src"><span class="src-tag">ToursByLocals</span>Nicole D. (guide Abby)</span><span class="qnote">Hồ sơ HDV Abby (Nhan) đạt 5.0 với 31 review, phần lớn cùng khen sự linh hoạt &amp; may đo lịch trình.</span></p>
         <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> cho phép khách tùy chỉnh lịch trình, trao quyền HDV điều chỉnh tại chỗ. Biến “may đo theo khách” thành điểm bán, thay vì tour đóng gói cứng.</div></div>
       </div>
 
@@ -730,6 +811,108 @@
     </div>
   </div>
 
+  <!-- ============ PART 3: VN-WIDE NEW ============ -->
+  <div class="card scope-vn" id="toan-vn">
+    <div class="section-head"><span class="sh-ico"><svg class="icon"><use href="#i-map"/></svg></span><h2>Phần 3 — Insight bổ sung từ review toàn Việt Nam</h2></div>
+    <div class="vn-banner">
+      <svg class="icon"><use href="#i-info"/></svg>
+      <p>Mở rộng khảo sát ra <b>Hà Nội · TP.HCM · Hội An · Huế · Sapa · Hạ Long · Ninh Bình · Mekong · Nha Trang</b>. Đây là các chủ đề <b>chưa xuất hiện trong phần Đà Nẵng</b> ở trên — bổ sung góc nhìn về an toàn, tài xế/xe, khách solo &amp; gia đình, và các mô hình vận hành dễ hỏng của đối thủ.</p>
+    </div>
+
+    <h3 style="margin:22px 0 0;font-size:1.05rem;color:#067a5e;display:flex;align-items:center;gap:8px;"><svg class="icon" width="18" height="18" style="color:#067a5e;"><use href="#i-check"/></svg>6 điều NÊN HỌC mới (toàn VN)</h3>
+    <div class="rev-grid">
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-map"/></svg></span><div><div class="rank">Insight 08 <span class="new-tag">mới</span></div><h3>Tài xế &amp; xe: sạch, mát, lái an toàn</h3></div></div>
+        <p class="quote"><span class="en">“The car was great, amazing A/C and constantly provided with cold water and cool face towels.”</span><span class="src"><span class="region-tag">Hội An–Huế</span><span class="src-tag">ToursByLocals</span>Guide Nguyên “Win”</span></p>
+        <p class="quote"><span class="en">Guide “kind, helpful and very entertaining”, minibus “very comfortable”. <em>(paraphrase)</em></span><span class="src"><span class="region-tag">Ninh Bình–Hạ Long</span><span class="src-tag">TripAdvisor</span>Gói 3N2Đ</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> chuẩn hoá chất lượng xe/tài xế (điều hoà, nước mát, khăn lạnh, lái an toàn) như một phần trải nghiệm — không chỉ chấm HDV. Xe bẩn/tài xế ẩu là điểm khách phàn nàn gay gắt (xem Lỗi 09).</div></div>
+      </div>
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-shield"/></svg></span><div><div class="rank">Insight 09 <span class="new-tag">mới</span></div><h3>An toàn &amp; che chở khách nữ đi một mình</h3></div></div>
+        <p class="quote"><span class="en">“I never felt sexually threatened in Vietnam” — local men were “respectful, helpful, and even protective.”</span><span class="src"><span class="region-tag">Toàn VN</span><span class="src-tag">Blog</span>P.S. I'm On My Way</span></p>
+        <p class="quote"><span class="en">“…many thanks for explaining me how to (safely !!) cross a street in Saigon” · “She take care me specially when crossing the busy road.”</span><span class="src"><span class="region-tag">TP.HCM</span><span class="src-tag">ShowAround</span>Hugo &amp; Mithun (host Katie)</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> định vị mạnh cho <b>khách nữ đi một mình</b> — HDV được vetting, thái độ tôn trọng, hỗ trợ băng đường/di chuyển an toàn. Đây là phân khúc lớn &amp; nhạy cảm mà đối thủ hiếm khi nói tới.</div></div>
+      </div>
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-users"/></svg></span><div><div class="rank">Insight 10 <span class="new-tag">mới</span></div><h3>Bạn đồng hành cho khách solo</h3></div></div>
+        <p class="quote"><span class="en">“I recently travelled solo to Vietnam and was lucky enough to meet Katie in HCMC. Her kind and caring nature soon had me relaxed and I found myself enjoying many lovely bars and restaurants with her.”</span><span class="src"><span class="region-tag">TP.HCM</span><span class="src-tag">ShowAround</span>Ben, 1/2025</span></p>
+        <p class="quote"><span class="en">“I reserved a companion to tour Danang because I was traveling alone. It was quite useful… let me do whatever I wanted.”</span><span class="src"><span class="region-tag">Đà Nẵng</span><span class="src-tag">Tubudd</span>TripAdvisor</span><span class="qnote">Riêng host Katie (ShowAround, TP.HCM) có 43 review — rất nhiều review cùng nhấn vai trò “bạn đồng hành”, an toàn &amp; đáng tin cho khách solo.</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> khai thác nhu cầu “bạn đồng hành” (companion) chứ không chỉ “tour” — giải toả cô đơn, gợi ý quán xá, đi cùng theo giờ. Rất hợp khách solo &amp; công tác.</div></div>
+      </div>
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-bolt"/></svg></span><div><div class="rank">Insight 11 <span class="new-tag">mới</span></div><h3>Linh hoạt ăn uống &amp; đi trên cả mong đợi</h3></div></div>
+        <p class="quote"><span class="en">“I requested to have authentic Vietnamese pho for lunch and he was able to cancel the original set lunch plan to make a delicious meal change… all our requests were met with a smile.”</span><span class="src"><span class="region-tag">Hội An–Huế</span><span class="src-tag">ToursByLocals</span>Guide Win</span></p>
+        <p class="quote"><span class="en">“We made a last minute request to find a specific drug at the pharmacy… and he went out of his way to try and make it happen.”</span><span class="src"><span class="region-tag">Hội An–Huế</span><span class="src-tag">ToursByLocals</span>Guide Win</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> trao quyền HDV xử lý yêu cầu tại chỗ (đổi món, ăn chay, việc gấp như tìm thuốc). “Trên cả mong đợi” là thứ tạo review 5★ và lời giới thiệu.</div></div>
+      </div>
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-users"/></svg></span><div><div class="rank">Insight 12 <span class="new-tag">mới</span></div><h3>Nhóm nhỏ, hợp gia đình đa thế hệ</h3></div></div>
+        <p class="quote"><span class="en">“Travelling with my parents and my kid and she was able to make sure everyone from the elders to the young kid was entertained… we didn't even have to walk for too long or be in boring overly touristy places.”</span><span class="src"><span class="region-tag">TP.HCM</span><span class="src-tag">ShowAround</span>Manish, 1/2025</span></p>
+        <p class="quote"><span class="en">“The group is small, with a maximum of six people, which allows for more attention, closeness.”</span><span class="src"><span class="region-tag">Hội An</span><span class="src-tag">Airbnb</span>Hidden Gems tour</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> làm nổi bật <b>private / nhóm nhỏ</b> may đo cho gia đình có người già &amp; trẻ nhỏ — đối lập trực tiếp với tour đông đúc (Lỗi 10, 11).</div></div>
+      </div>
+
+      <div class="rev-card good">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-dollar"/></svg></span><div><div class="rank">Insight 13 <span class="new-tag">mới</span></div><h3>Đáng đồng tiền &amp; tin cậy người lạ</h3></div></div>
+        <p class="quote"><span class="en">“Her bargaining skills will save you plenty of money, but it's her warm, infectious love for life that stays with you forever.”</span><span class="src"><span class="region-tag">TP.HCM</span><span class="src-tag">ShowAround</span>host Katie, 11/2025</span></p>
+        <p class="quote"><span class="en">“Was apprehensive to use the app as it was my first time but I'm glad I did!… You're definitely in good company!” · “fully trustworthy and helped us a lot to navigate the country.”</span><span class="src"><span class="region-tag">TP.HCM</span><span class="src-tag">ShowAround</span>Rose &amp; Torben</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-target"/></svg><div><b>→ Ello nên:</b> xây niềm tin cho lần đặt đầu (hồ sơ vetting rõ, review thật, đảm bảo) và nhấn giá trị “có người bản địa giúp mặc cả/định hướng” — khách thấy đáng tiền hơn tự đi.</div></div>
+      </div>
+
+    </div>
+
+    <h3 style="margin:26px 0 0;font-size:1.05rem;color:#b31d47;display:flex;align-items:center;gap:8px;"><svg class="icon" width="18" height="18" style="color:#b31d47;"><use href="#i-alert"/></svg>6 lỗi CẦN TRÁNH mới (toàn VN)</h3>
+    <div class="rev-grid">
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-alert"/></svg></span><div><div class="rank">Lỗi 09 <span class="new-tag">mới</span></div><h3>Lái xe ẩu / mệt / nguy hiểm</h3></div></div>
+        <p class="quote"><span class="en">“The driver was reckless — driving like crazy and texting at the same time… aggressive, took too many chances, overtaking every vehicle, driving into oncoming traffic and constantly honking.”</span><span class="src"><span class="region-tag">Hạ Long–Ninh Bình</span><span class="src-tag">TripAdvisor</span>Khanh An Limousine</span></p>
+        <p class="quote"><span class="en">The driver's “eyes becoming heavy and closing” as he “veered off the road” — the reviewer called it “a bit scary.”</span><span class="src"><span class="region-tag">Nha Trang–Đà Lạt</span><span class="src-tag">TripAdvisor</span>Private Car</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> chuẩn an toàn tài xế bắt buộc (không dùng điện thoại, giới hạn giờ lái, mũ bảo hiểm đạt chuẩn với tour xe máy). An toàn tính mạng là lằn ranh không được vượt.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-users"/></svg></span><div><div class="rank">Lỗi 10 <span class="new-tag">mới</span></div><h3>“Private” hoá nhóm ghép / xếp hàng công cộng</h3></div></div>
+        <p class="quote"><span class="en">Booked as a private boat, the operator “just led them to the public line for boats and put them in a 30-minute wait line… could have done that by themselves.” <em>(paraphrase)</em></span><span class="src"><span class="region-tag">Hội An</span><span class="src-tag">TripAdvisor</span>Boat tours</span></p>
+        <p class="quote"><span class="en">“…felt like preschool children on a field trip” — beaches “the size of a tennis court shared with about 20 other boatloads of people.”</span><span class="src"><span class="region-tag">Hạ Long</span><span class="src-tag">TripAdvisor</span>Cruise</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> “private” phải thật sự riêng tư. Cam kết đúng loại dịch vụ đã đặt, không âm thầm gộp khách/đẩy vào hàng chờ chung.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-calendar"/></svg></span><div><div class="rank">Lỗi 11 <span class="new-tag">mới</span></div><h3>Nhồi bus, chen chúc, ít trải nghiệm thật</h3></div></div>
+        <p class="quote"><span class="en">“Never never ever should you keep passengers on a bus for twelve hours a day… and then only give them 15 minutes at the local market, 20 minutes at a crocodile farm.”</span><span class="src"><span class="region-tag">Mekong</span><span class="src-tag">Blog</span>ThatBackpacker</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> thiết kế lịch trình lấy trải nghiệm làm trọng tâm, đủ thời gian mỗi điểm, tránh mô hình “gom khách – di chuyển nhiều – dừng chớp nhoáng”.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-x"/></svg></span><div><div class="rank">Lỗi 12 <span class="new-tag">mới</span></div><h3>Guide vô cảm / bỏ khách lại</h3></div></div>
+        <p class="quote"><span class="en">When a tourist went missing, the guide said “She's not here. We go.” and refused to wait; another curt “You climb 400 steps. Come back 30 minutes.”</span><span class="src"><span class="region-tag">Mekong</span><span class="src-tag">Blog</span>ThatBackpacker</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> chuẩn chăm sóc khách (không bỏ ai lại, luôn điểm danh, ưu tiên an toàn/thoải mái của khách). Đưa thái độ phục vụ vào review 2 chiều &amp; xử lý vi phạm.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-target"/></svg></span><div><div class="rank">Lỗi 13 <span class="new-tag">mới</span></div><h3>Giao thầu bên thứ ba — không ai chịu trách nhiệm</h3></div></div>
+        <p class="quote"><span class="en">“Get Your Guide farms out to various independent guides (ours was Know My City) so probably luck of the draw.”</span><span class="src"><span class="region-tag">Toàn VN</span><span class="src-tag">GetYourGuide</span>MyVeganTravels</span></p>
+        <p class="quote"><span class="en">After a weather cancellation: “your team declined to issue any refund… citing standard policy.”</span><span class="src"><span class="region-tag">Toàn VN</span><span class="src-tag">GetYourGuide</span>khách hàng</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> đây là <b>lợi thế cạnh tranh trực tiếp</b> — Ello ghép khách với đúng HDV, chịu trách nhiệm end-to-end, chính sách hoàn/hủy minh bạch (đặc biệt mùa bão). Không “hên xui” như OTA giao thầu.</div></div>
+      </div>
+
+      <div class="rev-card bad">
+        <div class="rev-head"><span class="rev-ico"><svg class="icon"><use href="#i-chat"/></svg></span><div><div class="rank">Lỗi 14 <span class="new-tag">mới</span></div><h3>Vệ sinh/tiếng ồn · thiên vị ngôn ngữ · trả tiền trước cho người lạ</h3></div></div>
+        <p class="quote"><span class="en">“Hairs from other guests in the bed and a moldy pillow… they play loud karaoke with no respect for other guests on neighboring boats.”</span><span class="src"><span class="region-tag">Hạ Long</span><span class="src-tag">TripAdvisor</span>Cruise</span></p>
+        <p class="quote"><span class="en">The Vietnamese guide “giving information mostly in Vietnamese and neglecting the English-speaking guests.” <em>(paraphrase)</em></span><span class="src"><span class="region-tag">Hạ Long</span><span class="src-tag">TripAdvisor</span>Cruise</span></p>
+        <p class="quote"><span class="en">A PayPal request from a buddy “whom they had never met or been introduced to” → ended as “a NON-SHOW service!!” <em>(paraphrase)</em></span><span class="src"><span class="region-tag">Hà Nội</span><span class="src-tag">Tubudd</span>TripAdvisor</span></p>
+        <div class="takeaway"><svg class="icon"><use href="#i-shield"/></svg><div><b>→ Ello guardrail:</b> chuẩn vệ sinh/không gian yên tĩnh; HDV phục vụ đều mọi nhóm khách; <b>thanh toán qua nền tảng có bảo vệ</b>, không để khách chuyển tiền riêng cho người chưa gặp.</div></div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- ============ Summary matrix ============ -->
   <div class="card" id="tong-hop">
     <div class="section-head"><span class="sh-ico"><svg class="icon"><use href="#i-target"/></svg></span><h2>Tổng hợp: khách thưởng gì &amp; phạt gì</h2></div>
@@ -778,12 +961,30 @@
 
   <!-- ============ Footer ============ -->
   <footer id="nguon" style="margin-top:30px;padding:24px 4px;border-top:1px solid var(--border);color:var(--text-faint);font-size:.82rem;line-height:1.6;">
-    <p style="margin:0 0 8px;"><b>Nguồn dữ liệu:</b> ToursByLocals, GoWithGuide, Withlocals, ShowAround, GuruWalk, Airbnb Experiences, Tubudd (đọc review trực tiếp qua agent-browser/WebSearch); GetYourGuide, Viator, Klook (qua WebSearch + PissedConsumer, ProductReview, Trustpilot, TripAdvisor forum do site chặn bot). Thu thập 18–19/7/2026.</p>
-    <p style="margin:0 0 14px;">Quote để nguyên tiếng Anh của khách; mục ghi <em>(paraphrase)</em> là bản tóm tắt từ search, tên HDV/ngày mang tính tham khảo.</p>
+    <p style="margin:0 0 8px;"><b>Nguồn dữ liệu:</b> ToursByLocals, GoWithGuide, Withlocals, ShowAround, GuruWalk, Airbnb Experiences, Tubudd (đọc review trực tiếp qua agent-browser/WebSearch); GetYourGuide, Viator, Klook (qua WebSearch + PissedConsumer, ProductReview, reviews.io, TripAdvisor forum &amp; travel blog do site chặn bot). Khảo sát toàn Việt Nam — Đà Nẵng, Hà Nội, TP.HCM, Hội An, Huế, Sapa, Hạ Long, Ninh Bình, Mekong, Nha Trang. Thu thập 17–19/7/2026.</p>
+    <p style="margin:0 0 14px;">Quote để nguyên tiếng Anh của khách; mục ghi <em>(paraphrase)</em> là bản tóm tắt từ search, tên HDV/ngày mang tính tham khảo. Con số hiện diện là mức quan sát từ trang review công khai, không phải số liệu thị phần chính thức.</p>
     <a class="back-link" href="index.html"><svg class="icon" width="14" height="14"><use href="#i-x" transform="rotate(45 12 12)"/></svg>Quay lại Báo cáo thị trường &amp; đối thủ cạnh tranh</a>
   </footer>
 
 </div>
+
+<script>
+function setScope(s){
+  var b=document.body,
+      vn=document.getElementById('btnVN'),
+      dn=document.getElementById('btnDN'),
+      note=document.getElementById('filterNote');
+  if(s==='dn'){
+    b.classList.add('only-dn');
+    dn.classList.add('active'); vn.classList.remove('active');
+    note.textContent='Đang xem: chỉ dữ liệu Đà Nẵng';
+  } else {
+    b.classList.remove('only-dn');
+    vn.classList.add('active'); dn.classList.remove('active');
+    note.textContent='Đang xem: toàn bộ dữ liệu toàn VN';
+  }
+}
+</script>
 
 </body>
 </html>
