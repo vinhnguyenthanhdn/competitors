@@ -32,10 +32,17 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW_DIR = os.path.join(ROOT, 'data', 'raw')
 OUT_FILE = os.path.join(ROOT, 'data', 'tours-data.js')
 
-# ShowAround/Tubudd/GoWithGuide are guide-profile marketplaces (browse an hourly
-# guide, not a fixed-itinerary tour) — always bucket them into the guide-rate
-# group regardless of what their profile blurb/title says.
-GUIDE_PROFILE_PLATFORMS = {'ShowAround', 'Tubudd', 'GoWithGuide'}
+# ShowAround/Tubudd are pure guide-profile marketplaces (every card is an
+# hourly guide, not a fixed-itinerary tour) — always bucket them into the
+# guide-rate group regardless of what their profile blurb/title says.
+# GoWithGuide is a hybrid: 37 fixed-itinerary packaged tours (classify normally)
+# + 8 guide profiles (title suffixed " (guide)" by build script when scraped) —
+# only the guide-profile cards get force-bucketed there, see is_guide_profile().
+GUIDE_PROFILE_PLATFORMS = {'ShowAround', 'Tubudd'}
+
+
+def is_guide_profile(card):
+    return card['platform'] in GUIDE_PROFILE_PLATFORMS or card['title'].endswith(' (guide)')
 
 GROUP_ORDER = [
     "Thuê HDV theo giờ / gói giờ (không lịch trình cố định)",
@@ -124,7 +131,7 @@ def load_cards():
 
 def enrich(card):
     vnd, forced_unit = parse_price(card.get('price'), card['platform'])
-    if card['platform'] in GUIDE_PROFILE_PLATFORMS:
+    if is_guide_profile(card):
         unit = 'giờ'
         group = GROUP_ORDER[0]
     elif vnd is not None:

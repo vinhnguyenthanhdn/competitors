@@ -71,6 +71,25 @@
   .ov-table td.src{color:var(--text-faint);font-size:12px;white-space:nowrap;}
   .pf-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--orange);margin-right:6px;opacity:.7;}
 
+  .sum-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface);box-shadow:var(--shadow-card);margin-bottom:14px;}
+  .sum-table{width:100%;border-collapse:collapse;font-size:13px;}
+  .sum-table th{text-align:left;padding:10px 14px;background:var(--bg-1);color:var(--text-muted);font-size:11px;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid var(--border);white-space:nowrap;}
+  .sum-table td{padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top;}
+  .sum-table tr:last-child td{border-bottom:none;}
+  .sum-table td.total-num{white-space:nowrap;}
+  .sum-table .total-num b{font-size:15px;color:var(--green);}
+  .sum-table .total-num .of{color:var(--text-faint);font-weight:400;}
+  .sum-table .method{color:var(--text-muted);font-size:12px;max-width:270px;}
+  .sum-table .quality{max-width:250px;font-size:12.5px;}
+  .sum-table .booking{max-width:250px;font-size:12.5px;}
+  .sum-badge{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10.5px;font-weight:700;margin-bottom:4px;}
+  .sum-badge.b-exact{background:var(--green-soft);color:#1f7a45;}
+  .sum-badge.b-partial{background:var(--yellow-soft);color:#8a6a10;}
+  .sum-badge.b-threshold{background:var(--slate-soft);color:var(--slate);}
+  .sum-badge.b-manual{background:var(--blue-soft);color:#2b5d8f;}
+  .sum-badge.b-verified{background:var(--teal-soft);color:#0d7a63;}
+  .sum-badge.b-unstable{background:var(--pink-soft);color:#a12b4a;}
+
 
 /* ============ Common cross-page sidebar (Ello Da Nang reports) ============ */
 .ello-cross-nav{
@@ -146,12 +165,101 @@ body{padding-left:84px;}
 
 <span class="eyebrow"><svg class="icon" width="13" height="13"><use href="#i-dollar"/></svg>So sánh giá toàn ngành</span>
 <h1>Tổng quan so sánh giá (quy đổi VNĐ, tỷ giá 1 USD ≈ 26.000đ · 1 EUR ≈ 30.000đ)</h1>
-<p class="lede">So sánh theo cùng địa điểm/lịch trình để công bằng — mỗi bảng dưới đây gom các tour có cùng điểm đến chính, xếp theo giá tăng dần. <strong id="ledePriced">…</strong>/<strong id="ledeTotal">…</strong> tour có dữ liệu giá đọc được (<span id="ledeNoPrice">…</span> tour không hiển thị giá công khai trên trang danh sách). Dữ liệu cào trực tiếp từ 11 nền tảng bằng Chrome thật, ngày 18/7/2026, phạm vi Đà Nẵng · Hội An · Huế.</p>
+<p class="lede">So sánh theo cùng địa điểm/lịch trình để công bằng — mỗi bảng dưới đây gom các tour có cùng điểm đến chính, xếp theo giá tăng dần. <strong id="ledePriced">…</strong>/<strong id="ledeTotal">…</strong> tour có dữ liệu giá đọc được (<span id="ledeNoPrice">…</span> tour không hiển thị giá công khai trên trang danh sách). Dữ liệu cào trực tiếp từ 11 nền tảng bằng Chrome thật, ngày 18–19/7/2026, phạm vi Đà Nẵng · Hội An · Huế.</p>
 <div style="height:8px"></div>
+
+<h2 style="font-size:1.1rem;margin:0 0 4px;">Tổng số tour/HDV, cách tính, chất lượng &amp; booking từng đối thủ</h2>
+<p class="ov-note" style="margin-bottom:10px;">Cột "Đã lập hồ sơ" lấy trực tiếp từ <code>data/tours-data.js</code> (tự cập nhật khi cào thêm). Cột "Tổng nền tảng công bố" + "Cách tính" giải thích rõ số đó đến từ đâu — số đếm chính xác 100%, ngưỡng nền tảng tự hiển thị ("500+"), hay đếm thủ công qua từng hồ sơ — để tránh hiểu nhầm các số không cùng bản chất. Chất lượng/booking lấy từ khảo sát trực tiếp từng nền tảng, xem chi tiết tại <a href="index.html#tong-quan" style="color:var(--orange-dark);">trang phân tích tổng hợp</a>.</p>
+<div class="sum-table-wrap">
+  <table class="sum-table">
+    <thead>
+      <tr><th>Nền tảng</th><th>Đã lập hồ sơ / Tổng công bố</th><th>Cách tính tổng</th><th>Chất lượng</th><th>Booking / mức độ hoạt động</th></tr>
+    </thead>
+    <tbody id="summaryBody"></tbody>
+  </table>
+</div>
+<div style="height:20px"></div>
 
 <div id="priceGroups"></div>
 
 <script src="data/tours-data.js"></script>
+<script>
+// Renders the summary table (total/methodology/quality/booking per platform).
+// Only the "đã lập hồ sơ" count comes from TOURS_DATA (auto-updates when more
+// gets scraped) — the published-total/method/quality/booking text is curated
+// from direct site checks (see docs/scraping-refactor-plan.md's reliability
+// review, 19/07/2026) and index.html's per-platform analysis, since booking
+// counts and quality ratings aren't fields in tours-data.js.
+(function () {
+  const esc = (s) => (s == null ? '' : String(s));
+  const counts = {};
+  TOURS_DATA.forEach((t) => { counts[t.platform] = (counts[t.platform] || 0) + 1; });
+
+  // badge: 'exact' = khớp 100% số nền tảng tự công bố · 'threshold' = nền tảng
+  // chỉ cho biết ngưỡng ("500+"), không phải số đếm chính xác · 'partial' =
+  // biết tổng thật nhưng giao diện giới hạn nên chưa cào hết · 'manual' =
+  // không có tổng đáng tin từ nền tảng, phải đếm thủ công qua hồ sơ
+  const PLATFORM_META = [
+    { platform: 'Airbnb Experiences', published: '200–309', badge: 'unstable',
+      method: 'Cùng URL, cùng ngày 19/07/2026, không đổi filter: buổi sáng nền tảng ghi "Explore 309 experiences in Da Nang", buổi chiều load lại (2 lần liên tiếp, kết quả giữ nguyên) ghi "Explore 200 experiences" — chênh lệch 35% không rõ nguyên nhân (nghi do cá nhân hoá/A-B test kết quả tìm kiếm phía Airbnb). Số nền tảng tự công bố vì vậy KHÔNG đáng tin để dùng làm tổng chính xác. Số chắc chắn nhất hiện có: 185 experience đã lập hồ sơ chi tiết qua cào trực tiếp (giao diện chỉ render tối đa ~20–56 card/lượt xem, không phân trang thật nên chưa chắc đã hết ngay cả với số thấp hơn 200).',
+      quality: 'Vetting host nghiêm ngặt nhất ngành (≥5 năm kinh nghiệm + trial chấm điểm trước khi active). Mẫu cào: đa số rating 4.7–5.0★.',
+      booking: 'Không công khai số booking; phí nền tảng 20%/giao dịch là proxy gián tiếp cho doanh thu.' },
+    { platform: 'GetYourGuide', published: '500+', badge: 'threshold',
+      method: 'Nền tảng tự hiển thị dạng ngưỡng "500+ results" khi tìm "Da Nang" — không phải số đếm chính xác. Đã thử xác minh sâu như Viator (đếm sản phẩm thật qua "Show more") nhưng bị chặn bởi Cloudflare nhiều lần liên tiếp lúc kiểm tra (19/07/2026) nên chưa có kết luận số thật cao/thấp hơn "500+" — khác với Viator, chưa thể khẳng định số này đáng tin hay bị thổi phồng.',
+      quality: 'Không vet HDV cá nhân — chỉ yêu cầu supplier có đăng ký kinh doanh + bảo hiểm. Dựa vào rating/review từng sản phẩm làm proxy chất lượng (mẫu cào: đa số 4.2–4.9★).',
+      booking: 'Không công khai số booking; traffic 54,4 triệu visit/tháng toàn nền tảng (25,48% organic) — lớn hơn cả klook.com.' },
+    { platform: 'ToursByLocals', published: '117', badge: 'exact',
+      method: 'Khớp chính xác 100% với "117 results" nền tảng tự công bố — đã cào đủ 2 trang kết quả, không còn sót.',
+      quality: 'Vetting nghiêm nhất nhóm marketplace cá nhân: 2 vòng phỏng vấn + background check + bảo hiểm $3 triệu. Rating hầu hết 5.0/HDV.',
+      booking: 'Không công khai số booking cụ thể; traffic organic ~46.100 lượt/tháng toàn trang dùng làm proxy nhu cầu tìm kiếm.' },
+    { platform: 'Viator', published: '≥1.750', badge: 'verified',
+      method: 'Nghi ngờ ban đầu "1.000+" là số ảo (thử nghiệm sơ bộ cho thấy 51% trùng lặp giữa các trang) — nhưng đó là do lẫn link từ khu vực đề xuất, không phải card sản phẩm thật. Xác minh lại bằng selector card chính xác, cào 73/77 trang phân trang (dừng ở 73 vì bị rate-limit tạm thời, trang tự chặn render): 1.824 lượt sản phẩm thô, chỉ trùng lặp ~4%, ra 1.752 sản phẩm riêng biệt — và ngay tại trang 73 (gần cuối) vẫn còn 24/25 sản phẩm hoàn toàn mới, chưa có dấu hiệu cạn. Kết luận: "1.000+" không hề bị thổi phồng — thực tế còn BẢO THỦ hơn số thật. Lưu ý: ~7% trong số đó là tour Hội An/Huế/TP.HCM được gắn kèm vì liên quan đến khách tìm "Da Nang" chứ không nằm trong nội đô Đà Nẵng.',
+      quality: 'Thuộc hệ sinh thái TripAdvisor, thừa hưởng lượng review/trust lớn nhưng không vet HDV cá nhân trực tiếp. Sản phẩm tiêu biểu ĐN: 129 review.',
+      booking: 'Không công khai số booking; traffic 19,66 triệu visit/tháng, 41,5% đến từ paid search — cạnh tranh giá thầu trực tiếp nếu Ello chạy Google Ads.' },
+    { platform: 'ShowAround', published: '74', badge: 'partial',
+      method: 'Nền tảng tự ghi "one of 74 locals" — số cụ thể. Giao diện chỉ cho duyệt tối đa ~32 hồ sơ/lượt xem; phải lọc thêm theo Gender (Nam/Nữ) và hợp nhất theo href hồ sơ thật mới cào được 61/74 (19/07/2026) — trước đó chỉ có 30 vì tưởng đã hết mà thực ra bị chặn bởi giới hạn hiển thị.',
+      quality: 'Rào cản gia nhập thấp ("không cần là người chuyên nghiệp") nên chất lượng không đồng đều — nhiều guide 0–2 review bên cạnh guide tiêu biểu như Phanh (€24/h, 11 review).',
+      booking: 'Trang chủ hiển thị booking gần đây theo thời gian thực (vd "Caliboys đặt với Phanh") — tín hiệu xã hội mạnh, nhưng không có tổng số booking công khai.' },
+    { platform: 'GoWithGuide', published: '45', badge: 'exact',
+      method: 'Số cũ (8) chỉ tính phần hồ sơ HDV, bỏ sót toàn bộ catalog tour đóng gói — đã cào lại đủ cả 2 nhánh: 37 tour đóng gói (qua 7 category: Highlights, Culture, Food, Nature, Off-the-beaten-path, Day Trip, Nightlife) + 8 hồ sơ HDV (19/07/2026). Không có trần hiển thị như Airbnb/ShowAround nên tin cậy ~100% với những gì đang live.',
+      quality: 'Mô hình lai — phần hồ sơ HDV vetting nhẹ hơn ToursByLocals (1 vòng phỏng vấn online); mẫu rating hồ sơ đa số 5.0/5 nhưng cỡ mẫu nhỏ.',
+      booking: 'Không công khai số booking cụ thể cho cả 2 nhánh tour/hồ sơ.' },
+    { platform: 'Tubudd', published: '9', badge: 'exact',
+      method: 'Khớp chính xác 100% với "Da Nang · 9 buddies" nền tảng tự hiển thị ở trang Locations (xác nhận lại 19/07/2026).',
+      quality: 'Cùng thuật ngữ "Smart Matching" Ello đang dùng làm USP. TripAdvisor 4,8/5 (26 review); mobile app rating ít review.',
+      booking: 'Không công khai số booking; App Store chỉ 2 rating dù vận hành nhiều năm — phần lớn giao dịch có thể qua web/Messenger/hotline hơn qua app.' },
+    { platform: 'WithLocals', published: '8', badge: 'exact',
+      method: 'Khớp chính xác 100% qua tìm kiếm trực tiếp ("8 experiences worldwide to discover with a local", xác nhận lại 19/07/2026) — không có landing page riêng cho Đà Nẵng (404) nên phải tìm qua search.',
+      quality: 'Cơ chế phí "net price + markup" phức tạp; review dày 155–238/experience nhưng rating mẫu cào thấp hơn kỳ vọng — cần đối chiếu thêm trước khi kết luận.',
+      booking: 'Không công khai số booking cụ thể; markup ~32% + phí ~10% là cấu trúc phí gián tiếp cho biết quy mô giao dịch qua nền tảng.' },
+    { platform: 'GuruWalk', published: '5', badge: 'partial',
+      method: 'Trang tự ghi "5 free tours in Da Nang" nhưng chỉ 4 tour có link thật hiển thị/đặt được khi rà lại (19/07/2026) — số "5" nhiều khả năng gồm 1 tour tạm ẩn/ngừng hoạt động.',
+      quality: 'Rating tổng hợp Đà Nẵng 4,74/5 (731 review) — cao nhất trong nhóm đã khảo sát, nhưng chỉ phục vụ tour đi bộ ngắn 2–2,5h, không phải thuê HDV riêng cả ngày.',
+      booking: 'Không tách riêng theo tour; traffic organic toàn trang ~372.700 lượt/tháng — lớn nhất trong nhóm nền tảng nhỏ.' },
+    { platform: 'Ong Vò Vẽ', published: '2', badge: 'manual',
+      method: 'Site không có bộ lọc theo tỉnh/thành hoạt động được, và số marketing tự công bố ở trang chủ không nhất quán qua các lần kiểm tra (từng "57 toàn hệ thống", nay "+1999 HDV") — không dùng số này; giữ đếm thủ công 2 HDV Đà Nẵng qua link hồ sơ đã xác định.',
+      quality: 'Chỉ 3/57 HDV toàn hệ thống đã verify. SEO dày (2.094 trang địa điểm) nhưng traffic thật thấp.',
+      booking: '0/57 HDV toàn hệ thống có booking phát sinh — dấu hiệu "liquidity trap" rõ rệt, mảng HDV gần như đóng băng.' },
+    { platform: 'Klook', published: '1 SKU', badge: 'exact',
+      method: 'Chỉ 1 SKU duy nhất ("Tour Guide Service in Da Nang") cho toàn bộ Đà Nẵng — không cần đếm, tự nhiên là 100%. Không kiểm tra lại được 19/07/2026 do bị chặn bởi CAPTCHA (DataDome) tại thời điểm truy cập.',
+      quality: '5.0/5, 12 review — toàn bộ 12 review đều nêu đích danh tên HDV dù DMC gán HDV vô danh trước khi đặt.',
+      booking: '100+ đã đặt (con số booking cụ thể hiếm hoi có được) — nhưng trang SKU có 0 organic traffic, toàn bộ đến từ traffic nội bộ Klook (37,1 triệu visit/tháng của nền tảng mẹ).' },
+  ];
+
+  const badgeLabel = { exact: 'Khớp 100%', threshold: 'Ngưỡng hiển thị', partial: 'Chưa cào hết', manual: 'Đếm thủ công', verified: 'Đã xác minh sâu', unstable: 'Số dao động — cẩn trọng' };
+
+  document.getElementById('summaryBody').innerHTML = PLATFORM_META.map((m) => {
+    const scraped = counts[m.platform] || 0;
+    return `<tr>
+      <td><span class="pf-dot"></span><strong>${esc(m.platform)}</strong></td>
+      <td class="total-num"><b>${scraped}</b><span class="of"> / ${esc(m.published)}</span></td>
+      <td class="method"><span class="sum-badge b-${m.badge}">${badgeLabel[m.badge]}</span><br>${esc(m.method)}</td>
+      <td class="quality">${esc(m.quality)}</td>
+      <td class="booking">${esc(m.booking)}</td>
+    </tr>`;
+  }).join('');
+})();
+</script>
 <script>
 // Renders every group/table below from TOURS_DATA (data/tours-data.js) —
 // no HTML to hand-edit when more tours get scraped. Add entries to that data

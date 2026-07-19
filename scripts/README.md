@@ -72,10 +72,34 @@ khi mở trực tiếp bằng `file://`) và tự render card/bảng/filter/coun
   URL `/Da-Nang/d4680-ttd/<số trang>` (77 trang, ~40-50 unique/trang).
 - **ToursByLocals**: chỉ có đúng 2 trang (`?page=2`), gộp lại đúng bằng tổng
   thật platform tự công bố (117) — đã cào hết 100%, không cần cào thêm.
-- **ShowAround**: nút "Show More" không ổn định — nhiều lần bấm bị nhầm sang
-  nút "Show More" của mục review khách (không phải guide mới), phải kiểm tra
-  lại số lượng guide có `-vietnam-\d+$` trong slug sau mỗi lần bấm để xác nhận
-  đúng là guide mới, không phải review noise.
+- **ShowAround**: có trần hiển thị ~32 hồ sơ/lượt xem giống Airbnb (không phải
+  do bấm nhầm nút review như từng nghi ngờ trước đây) — nút "Show More" của
+  lưới guide (`button[class*="ShowMoreButton"]`) chỉ tăng từ 16 lên 32 rồi biến
+  mất, dù trang tự công bố tổng lớn hơn (vd 74). Workaround: mở "Advanced
+  Filters" → lọc theo Gender (Male/Female/Couple) → mỗi lượt lọc lại có trần
+  32 riêng nhưng là tập con khác nhau → hợp nhất theo **href thật của từng hồ
+  sơ** (`a[href*="-vietnam-"]`, KHÔNG dùng href trang danh sách chung) sẽ ra
+  nhiều hơn hẳn so với chỉ dùng view mặc định. Bộ lọc Activities và Languages
+  trên ShowAround **không hoạt động** (áp dụng vẫn trả về full tổng, coi như
+  no-op, đừng mất thời gian thử). Couple luôn ra 0. Lưu ý quan trọng: nhiều
+  guide trùng tên (vd 2 người tên "Trang", "Miu"...) — nếu dùng href trang
+  danh sách chung làm key dedupe sẽ mất dữ liệu, phải dùng href hồ sơ thật.
+- **GoWithGuide**: là mô hình lai, có **2 view tách biệt** dễ bỏ sót nếu chỉ
+  cào 1 view — `/vietnam/da-nang/tours` (catalog tour đóng gói giá cố định) và
+  `/vietnam/da-nang/guides` (hồ sơ HDV đặt theo giờ). View tours mặc định
+  (`/s?city=da-nang&t=tours`) chỉ hiển thị một phần tour thật có — phải duyệt
+  qua từng link category ở trang `/vietnam/da-nang/tours` (7 category:
+  highlights, art-culture-historical, food-drink, nature-outdoor,
+  off-the-beaten-path, day-trip, nightlife) rồi hợp nhất theo href mới ra đủ
+  catalog. Không có trần ~32 như Airbnb/ShowAround, mỗi category page hiển thị
+  đủ số tour của nó, không cần Show More.
+- **Klook**: có DataDome (CAPTCHA riêng, khác Cloudflare) — khi gặp trang
+  CAPTCHA `geo.captcha-delivery.com`, không có cách bypass hợp lệ, phải bỏ qua
+  lượt cào đó và thử lại sau, không được tự động giải CAPTCHA.
+- **Ong Vò Vẽ**: không có bộ lọc theo tỉnh/thành hoạt động được trên site,
+  và số liệu marketing tự công bố ở trang chủ (vd "+1999 HDV") không nhất
+  quán giữa các lần kiểm tra — không dùng số này làm tổng, chỉ đếm thủ công
+  qua các link hồ sơ đã xác định được.
 
 ## File liên quan
 

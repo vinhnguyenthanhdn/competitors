@@ -45,6 +45,40 @@
 ## Lưu ý quan trọng khi làm tiếp
 
 - **Không dùng `fetch()`** để load `tours-data.js` — 2 trang này mở trực tiếp bằng `file://`, Chrome chặn CORS cho fetch giữa 2 file `file://`. Phải dùng `<script src="data/tours-data.js"></script>` (khai báo biến toàn cục), không phải AJAX.
-- **3 platform coi là "hồ sơ HDV theo giờ"** (ShowAround, Tubudd, GoWithGuide) phải luôn được gán `group = "Thuê HDV theo giờ / gói giờ (không lịch trình cố định)"` bất kể tiêu đề, không chạy qua `classify()` — nếu không sẽ bị xếp nhầm nhóm theo từ khoá trong tên HDV.
-- Airbnb/GetYourGuide/Viator **chưa phải toàn bộ** (146/500+, 118/500+, 105/1.000+ — xem lại, Airbnb đã lên 185 sau khi cào thêm Hội An/Huế) — khi hiển thị tổng số, luôn ghi rõ đây là mẫu đã cào, tổng thật xem ở `index.html` cột "Tổng số tour/HDV đang hoạt động".
+- **2 platform coi là "hồ sơ HDV theo giờ" thuần** (ShowAround, Tubudd) phải luôn được gán `group = "Thuê HDV theo giờ / gói giờ (không lịch trình cố định)"` bất kể tiêu đề, không chạy qua `classify()`. **GoWithGuide là mô hình lai** (37 tour đóng gói + 8 hồ sơ HDV) — chỉ card có `title` kết thúc bằng `" (guide)"` mới bị force vào nhóm này (`is_guide_profile()` trong `build_unified_data.py`), 37 tour còn lại chạy qua `classify()` bình thường. Nếu thêm platform hồ sơ HDV thuần mới, thêm vào `GUIDE_PROFILE_PLATFORMS`; nếu platform lai như GoWithGuide, đặt suffix `" (guide)"` vào title khi build card cho phần hồ sơ.
+- Airbnb/GetYourGuide/Viator **chưa phải toàn bộ** (185/309, 118/500+, 105/1.000+) — khi hiển thị tổng số, luôn ghi rõ đây là mẫu đã cào, tổng thật xem ở `index.html` cột "Tổng số tour/HDV đang hoạt động". GetYourGuide/Viator hiển thị dạng ngưỡng "500+"/"1.000+" (không phải số đếm chính xác), Airbnb ghi số cụ thể.
+- **ShowAround cũng có trần hiển thị ~32 hồ sơ/lượt xem** giống Airbnb (không phải do lỗi thao tác trước đây) — trang tự công bố 74 guide nhưng chỉ duyệt được tối đa ~32/lượt; workaround: lọc theo Gender (Nam=26 đầy đủ, Nữ=44 nhưng vẫn cắt ở 38) rồi hợp nhất theo href thật (không dùng href chung của trang danh sách) → cào được 61/74 (19/07/2026). Bộ lọc Activities/Languages trên ShowAround **không hoạt động** (luôn trả về full 74, coi như no-op — đừng phí thời gian thử lại).
+- **GoWithGuide có 2 view riêng biệt** dễ bị bỏ sót: `/vietnam/da-nang/tours` (catalog tour đóng gói) và `/vietnam/da-nang/guides` (hồ sơ HDV) — nếu chỉ cào 1 trong 2 sẽ ra số thấp hơn thực tế nhiều (từng bị ghi nhầm là "8" vì chỉ cào phần guides). Trang tours mặc định (`/s?city=da-nang&t=tours`) cũng chỉ hiển thị 11/37 tour thật — phải duyệt qua từng category (`/vietnam/da-nang/category/<slug>`: highlights, art-culture-historical, food-drink, nature-outdoor, off-the-beaten-path, day-trip, nightlife) rồi hợp nhất theo href mới ra đủ 37.
+- Klook bị chặn bởi DataDome CAPTCHA khi kiểm tra lại ngày 19/07/2026 — không có cách nào bypass CAPTCHA một cách hợp lệ, đành giữ nguyên số cũ (1 SKU), thử lại sau.
+- Ong Vò Vẽ không có bộ lọc theo tỉnh/thành đáng tin cậy trên site, và số marketing tự công bố ở trang chủ không nhất quán qua các lần kiểm tra (từng "57 toàn hệ thống", nay "+1999") — không dùng số này, giữ đếm thủ công qua link hồ sơ trực tiếp.
 - File gốc `so-sanh-gia-tour.html` và `toan-bo-tour-hdv.html` đã có backup tại `data/raw/scrapes/` phòng khi cần đối chiếu (không phải bản backup chính thức, chỉ là snapshot giữa chừng lúc merge).
+
+## Rà soát độ tin cậy số liệu (19/07/2026)
+
+Theo yêu cầu "biết số total chính xác từng đối thủ làm cơ sở phân tích", đã đối chiếu lại số ở mỗi nền tảng với chính trang web của họ (không suy diễn/ước tính):
+
+| Platform | Số cũ | Số đã xác minh (19/07/2026) | Ghi chú |
+|---|---|---|---|
+| Airbnb Experiences | 310 | **200–309 (dao động, không đáng tin)** | Cùng URL/ngày/filter, số tự công bố lệch 309→200 (35%) qua các lần load lại — xem mục xác minh sâu bên dưới |
+| GetYourGuide | 500+ | **500+** (chưa xác minh sâu được) | Thử đếm sản phẩm thật như Viator nhưng bị Cloudflare chặn liên tục lúc kiểm tra |
+| Viator | 1.000+ | **≥1.750 (đã xác minh sâu, không bị thổi phồng)** | Cào 73/77 trang bằng selector card chính xác — số thật CAO hơn số công bố, xem mục xác minh sâu bên dưới |
+| ToursByLocals | 117 | **117** (không đổi) | Khớp 100% với số nền tảng tự công bố |
+| WithLocals | 8 | **8** (không đổi) | Khớp 100% qua tìm kiếm trực tiếp |
+| Tubudd | 9 | **9** (không đổi) | Khớp 100% với "Da Nang · 9 buddies" |
+| GuruWalk | 5 | **4** | Trang tự ghi "5 free tours" nhưng chỉ 4 tour có link thật hiển thị/đặt được |
+| ShowAround | 30 (cào được) / 74 (công bố) | **61/74** | Trần hiển thị ~32/lượt xem; dùng thêm filter Gender mới lên 61 |
+| GoWithGuide | 8 (chỉ tính guide) | **45** (37 tour + 8 guide) | Số cũ bỏ sót toàn bộ catalog tour đóng gói — sai lệch lớn nhất phát hiện được |
+| Ong Vò Vẽ | 2 | **2** (không đổi) | Site không có filter tỉnh/thành đáng tin, giữ đếm thủ công |
+| Klook | 1 | không kiểm tra được | Bị chặn DataDome CAPTCHA lúc truy cập |
+
+## Xác minh sâu "số công bố có bị thổi phồng không" (19/07/2026, theo yêu cầu riêng của user)
+
+User nghi ngờ Viator "1.000+" là "số láo" — thay vì trả lời cảm tính, đã đếm thật:
+
+**Viator — không bị thổi phồng, thậm chí bảo thủ.** Lượt kiểm tra đầu dùng selector rộng `a[href*="/tours/Da-Nang/"]` trên 6 trang mẫu (1, 10, 20, 40, 60, 77) ra 51% trùng lặp — trông giống bị lặp/ảo. Nhưng đối chiếu DOM thấy selector đó lẫn cả link ở khu vực đề xuất/carousel lặp lại giữa các trang, không phải card sản phẩm thật (`a[class*="_productCard_"]`, mỗi trang đúng 24-25 card). Cào lại bằng selector đúng cho 73/77 trang (dừng ở 73 vì Viator bắt đầu trả về trang trắng — rate-limit tạm thời sau ~75 lượt điều hướng liên tục, không phải hết nội dung thật): 1.824 sản phẩm thô, trùng lặp chỉ ~4%, ra **1.752 sản phẩm riêng biệt**, và ngay tại trang 73 (gần cuối danh sách 77 trang) vẫn cho 24/25 sản phẩm hoàn toàn mới — không có dấu hiệu cạn dần. Kết luận: số nền tảng công bố ("1.000+") thực ra là con số **bảo thủ**, thực tế cao hơn. Có một điểm cần lưu ý khác (không phải "số láo" nhưng đáng ghi chú): ~7% kết quả là tour Hội An/Huế/TP.HCM được gắn kèm vì liên quan đến khách tìm "Da Nang" (di chuyển từ ĐN), không phải tour nằm hoàn toàn trong nội đô Đà Nẵng.
+
+**Airbnb — phát hiện vấn đề thật, nhưng khác loại.** Không nghi Airbnb ban đầu vì số "309" là số cụ thể (không phải ngưỡng "X+"), nhưng khi kiểm tra lại cùng ngày để đối chiếu: load lại đúng URL `airbnb.com/s/Da-Nang/experiences`, không đổi bất kỳ filter/ngày/khách nào, buổi sáng ra "Explore 309 experiences in Da Nang", buổi chiều load lại 2 lần liên tiếp đều ra "Explore 200 experiences" — chênh 35% trong cùng một ngày, không có nguyên nhân nào quan sát được (nghi do cá nhân hoá/A-B test kết quả tìm kiếm phía Airbnb, không kiểm chứng được vì đây là hộp đen). Kết luận: số Airbnb tự công bố **không ổn định đủ để dùng làm tổng chính xác**, dù bản thân nó không phải dạng ngưỡng mơ hồ như GetYourGuide/Viator. Số đáng tin nhất vẫn là 185 experience đã lập hồ sơ chi tiết qua cào trực tiếp.
+
+**GetYourGuide — chưa kết luận được.** Định làm quy trình giống Viator (đếm card sản phẩm thật thay vì tin số ngưỡng) nhưng trang bị Cloudflare "Just a moment..." chặn liên tục >1 phút mỗi lần thử trong lúc kiểm tra — nhiều khả năng do IP/profile đã bị gắn cờ sau khối lượng lớn thao tác tự động trong ngày (Viator 73 trang + ShowAround + GoWithGuide). Để ngỏ, thử lại vào phiên khác khi Cloudflare hạ mức cảnh giác.
+
+**Bài học phương pháp:** một selector CSS quá rộng có thể tạo ảo giác "số bị thổi phồng" (trường hợp Viator) — luôn đối chiếu DOM để chắc chắn đang đếm đúng card sản phẩm, không phải link ở carousel/đề xuất trước khi kết luận. Ngược lại, một con số cụ thể (không phải ngưỡng "X+") vẫn có thể không đáng tin nếu nó dao động giữa các lần tải cùng ngày (trường hợp Airbnb) — "số cụ thể" không đồng nghĩa "số ổn định".
