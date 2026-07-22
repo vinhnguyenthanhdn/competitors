@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[WIP] Top tour bán nhiều nhất Đà Nẵng — gợi ý thiết kế cho Ello</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+  :root{
+    --bg-1:#eaf5ff; --bg-2:#f7fbff;
+    --surface:#ffffff; --border:#dfe9f2;
+    --text:#132234; --text-muted:#54687c; --text-faint:#8093a4;
+    --orange:#F37120; --orange-dark:#c9560f; --orange-soft:#fff1e6;
+    --pink:#E84068; --pink-soft:#fbdde4;
+    --teal:#00D0A0; --teal-soft:#d2f7ec;
+    --green:#3ca866; --green-soft:#e0f4e6;
+    --purple:#9050D8; --purple-soft:#eee1fb;
+    --amber:#c98a12; --amber-soft:#fdf3d6;
+    --radius-lg:18px; --radius-md:12px;
+    --shadow:0 1px 2px rgba(19,34,52,.04), 0 10px 28px -14px rgba(19,34,52,.14);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  body{
+    margin:0; font-family:'Be Vietnam Pro','Inter',system-ui,sans-serif;
+    color:var(--text); line-height:1.7; font-size:16px;
+    background:
+      radial-gradient(1200px 700px at 15% -10%, #f2f9ff 0%, transparent 60%),
+      radial-gradient(1000px 600px at 100% 0%, #fff3e8 0%, transparent 55%),
+      linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 40%, #f4f8fb 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:32px 20px 80px;}
+  a{color:var(--orange-dark); text-decoration:none; border-bottom:1px solid var(--orange-soft);}
+  a:hover{border-bottom-color:var(--orange-dark);}
+
+  .wip-banner{
+    display:flex; gap:12px; align-items:flex-start;
+    background:var(--amber-soft); border:1px solid #f0dfa0; color:#5c470a;
+    border-radius:var(--radius-md); padding:14px 18px; margin-bottom:28px;
+    font-size:.92rem;
+  }
+  .wip-banner b{color:#3d3005;}
+
+  header.page{margin-bottom:8px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.76rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--orange-dark); background:var(--orange-soft);
+    padding:5px 12px; border-radius:999px; margin-bottom:14px;
+  }
+  h1{font-size:1.9rem; font-weight:800; letter-spacing:-.01em; margin:0 0 6px;}
+  .subtitle{color:var(--text-muted); font-size:1rem; margin:0 0 28px;}
+
+  h2{
+    font-size:1.15rem; font-weight:800; margin:40px 0 14px;
+    padding-top:6px; border-top:1px solid var(--border);
+    display:flex; align-items:center; gap:10px;
+  }
+  h2:first-of-type{border-top:none; padding-top:0;}
+  h2 .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:26px; height:26px; border-radius:8px; font-size:.8rem;
+    background:var(--orange); color:#fff; flex:none;
+  }
+  h3{font-size:.98rem; font-weight:700; margin:22px 0 8px; color:var(--text);}
+  p{margin:0 0 12px;}
+  ul{margin:0 0 14px; padding-left:22px;}
+  li{margin-bottom:6px;}
+
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    padding:20px 22px; margin-bottom:16px; box-shadow:var(--shadow);
+  }
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:640px){.grid2{grid-template-columns:1fr;}}
+
+  .stat{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:14px 16px;
+  }
+  .stat .label{font-size:.76rem; color:var(--text-muted); font-weight:600; margin-bottom:4px;}
+  .stat .value{font-size:1.3rem; font-weight:800;}
+  .stat .value small{font-size:.7rem; font-weight:600; color:var(--text-faint);}
+
+  table{width:100%; border-collapse:collapse; font-size:.9rem; margin-bottom:16px;}
+  th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--border);}
+  th{font-size:.76rem; text-transform:uppercase; letter-spacing:.03em; color:var(--text-muted); font-weight:700;}
+  tr:last-child td{border-bottom:none;}
+  td.num{text-align:right; font-weight:600; white-space:nowrap;}
+
+  .badge{
+    display:inline-flex; align-items:center; gap:6px; font-size:.74rem; font-weight:700;
+    padding:3px 10px; border-radius:999px; margin-right:6px;
+  }
+  .badge.verified{background:var(--green-soft); color:#1f5c37;}
+  .badge.inferred{background:var(--amber-soft); color:#5c470a;}
+  .badge.ruled-out{background:var(--pink-soft); color:#8a1f3d;}
+
+  .finding{border-left:3px solid var(--orange); padding-left:14px; margin-bottom:18px;}
+  .finding .head{font-weight:700; margin-bottom:4px;}
+
+  .rank{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:10px; font-size:1rem; font-weight:800;
+    background:var(--orange); color:#fff; flex:none; margin-right:10px;
+  }
+  .tour-head{display:flex; align-items:center; margin-bottom:4px;}
+  .tour-head h3{margin:0; font-size:1.05rem;}
+
+  .src-list{font-size:.84rem; color:var(--text-muted);}
+  .src-list li{margin-bottom:4px;}
+
+  footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.8rem; color:var(--text-faint);}
+</style>
+</head>
+<body>
+<script src="nav.js"></script>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.8 8.4A8.6 8.6 0 0 1 8 19l-5 1 1.4-4.2A8.4 8.4 0 1 1 21 11.5Z"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.4-5-3.4s-5 1.4-5 3.2S9.2 9.5 12 10s5 1.5 5 3.3-2.2 3.2-5 3.2-5-1.5-5-3.4"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M4 4h13l3 3v13H4Z"/><path d="M9 9h7M9 13h7M9 17h4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  </defs>
+</svg>
+<div class="wrap">
+<div class="wip-banner">
+    <div>🚧</div>
+    <div>
+      <b>WIP — nháp.</b> Top 5 xếp theo bằng chứng doanh số/review thu thập được từ nhiều operator
+      (Dacotours, Venus Travel, Le Family Riders, TripAdvisor) — không phải số liệu tổng toàn thị trường,
+      chỉ phản ánh những gì đo được qua các nguồn công khai đã kiểm tra.
+    </div>
+  </div>
+
+  <header class="page">
+    <span class="eyebrow">Phân tích sản phẩm</span>
+    <h1>Top 5 tour bán nhiều nhất tại Đà Nẵng</h1>
+    <p class="subtitle">Vì sao bán được nhiều, mức giá, phân khúc khách — và gợi ý thiết kế tour cho Ello dựa trên các yếu tố lặp lại ở mọi tour bán chạy.</p>
+  </header>
+
+  <div class="card">
+    <table>
+      <tr><th>#</th><th>Tour</th><th>Giá</th><th>Bằng chứng khối lượng</th></tr>
+      <tr><td class="num">1</td><td>Ngũ Hành Sơn (Marble Mountains) + Hội An Ancient Town</td><td class="num">$34–53</td><td class="num">19.087 + 17.765 tour đã bán (Dacotours)</td></tr>
+      <tr><td class="num">2</td><td>Bà Nà Hills – Cầu Vàng (Golden Bridge)</td><td class="num">$21–99</td><td class="num">~20.500 tour đã bán (Dacotours, 2 gói) + 3.100 review (Venus Travel)</td></tr>
+      <tr><td class="num">3</td><td>Đèo Hải Vân (Đà Nẵng–Huế–Hội An)</td><td class="num">$56–75</td><td class="num">3.486+ review (Le Family Riders) + 5.218 tour đã bán (Dacotours, bản tàu hoả)</td></tr>
+      <tr><td class="num">4</td><td>Bán đảo Sơn Trà (Chùa Linh Ứng – Lady Buddha – Voọc chà vá)</td><td class="num">$27–45</td><td class="num">7.564 + 6.582 tour đã bán (Dacotours, 2 buổi sáng/chiều)</td></tr>
+      <tr><td class="num">5</td><td>Cù Lao Chàm (Cham Island) snorkeling</td><td class="num">$39–45</td><td class="num">5.370 tour đã bán (Dacotours)</td></tr>
+    </table>
+    <p style="font-size:.8rem; color:var(--text-muted);">Nguồn số liệu: bộ đếm "Sold X tours" công khai trên dacotours.com và số review TripAdvisor của Venus Travel/Le Family Riders — cả hai đã kiểm tra chi tiết ở trang phân tích đối thủ.</p>
+  </div>
+
+  <h2><span class="num">1</span>Ngũ Hành Sơn + Hội An Ancient Town — điểm bán chạy nhất</h2>
+  <div class="card">
+    <p><b>Giá:</b> $34 (chỉ Ngũ Hành Sơn) đến $53 (kèm chèo thuyền thúng rừng dừa + phố cổ Hội An).</p>
+    <p><b>Vì sao bán nhiều:</b></p>
+    <ul>
+      <li>Hang động biến thành chùa/thánh địa hàng trăm năm — khách được vừa tham quan hang vừa vào không gian tâm linh, tạo cảm giác "kỳ bí" khác hẳn tour thắng cảnh thông thường.</li>
+      <li>Khí mát trong hang là điểm nghỉ giữa trời nắng nóng — review nhắc đi nhắc lại yếu tố này.</li>
+      <li>Ghép được nhiều điểm trong 1 tour giá rẻ: núi + chùa + tượng Phật Bà cao nhất Việt Nam (Linh Ứng) + phố cổ Hội An + thúng rừng dừa — hiệu suất/giá rất cao.</li>
+      <li>Đi bằng xe hơi/xe máy, không cần leo núi nặng — tiếp cận được số đông khách kể cả người lớn tuổi.</li>
+    </ul>
+  </div>
+
+  <h2><span class="num">2</span>Bà Nà Hills – Cầu Vàng — icon toàn cầu</h2>
+  <div class="card">
+    <p><b>Giá:</b> $21 (vé cơ bản) đến $99+ (private/luxury có xe riêng).</p>
+    <p><b>Vì sao bán nhiều:</b></p>
+    <ul>
+      <li>Cầu Vàng (2 bàn tay đá khổng lồ đỡ cầu) là biểu tượng đã viral toàn cầu từ 2018 — khách đến Đà Nẵng coi đây là điểm "phải chụp ảnh", không phải lựa chọn mà là mặc định trong lịch trình.</li>
+      <li>Ở độ cao ~1.400m, khí hậu mát mẻ quanh năm ("nóc nhà Đà Nẵng") — thoát nhiệt so với thành phố, bản thân cáp treo (dài nhất thế giới) cũng là 1 trải nghiệm riêng.</li>
+      <li>Trọn gói 1 điểm đến nhưng nhiều hoạt động: cáp treo, Làng Pháp, vườn hoa, công viên giải trí Fantasy Park, buffet trưa — đủ cho cả gia đình nhiều lứa tuổi trong 1 ngày.</li>
+      <li>Vé được đặt trước giúp khách khỏi xếp hàng — 1 review khen cụ thể việc này ("no lining up required for entry").</li>
+      <li>Nhược điểm khách hay nhắc: rất đông vào giữa ngày — tour bán chạy thường thiết kế khởi hành sớm để tránh đông.</li>
+    </ul>
+  </div>
+
+  <h2><span class="num">3</span>Đèo Hải Vân — trải nghiệm + cá nhân hoá cao nhất</h2>
+  <div class="card">
+    <p><b>Giá:</b> $56–75/khách cho tour riêng bằng xe máy/ô tô một chiều Đà Nẵng–Huế hoặc Đà Nẵng–Hội An.</p>
+    <p><b>Vì sao bán nhiều:</b></p>
+    <ul>
+      <li>Đây là tour có mức độ cá nhân hoá cao nhất trong top 5 — khách đi cùng 1 rider/driver riêng suốt hành trình, không ghép đoàn lớn, nên tỷ lệ khách nhớ tên và viết review cảm ơn đích danh rất cao (xem hồ sơ Le Family Riders).</li>
+      <li>Cảnh biển-núi dọc đèo được đánh giá là một trong những cung đường đẹp nhất Việt Nam — bản thân hành trình di chuyển đã là điểm tham quan, không chỉ là "đi từ A đến B".</li>
+      <li>Kết hợp nhiều điểm dừng nhỏ (làng chài, thác nước tắm suối, ăn trưa hải sản) biến chuyến di chuyển thành 1 tour trọn ngày đầy nội dung.</li>
+      <li>Có tùy chọn theo phương tiện (xe máy tự trải nghiệm lái/ngồi sau vs ô tô riêng) và theo tuyến (Đà Nẵng–Huế hoặc Đà Nẵng–Hội An) — tiện cho khách đang di chuyển giữa các thành phố, không phải tour "đi về trong ngày" thuần tham quan.</li>
+    </ul>
+  </div>
+
+  <h2><span class="num">4</span>Bán đảo Sơn Trà — thiên nhiên gần thành phố nhất</h2>
+  <div class="card">
+    <p><b>Giá:</b> $27–45/khách, có bản buổi sáng và buổi chiều.</p>
+    <p><b>Vì sao bán nhiều:</b></p>
+    <ul>
+      <li>Chỉ cách trung tâm Đà Nẵng ~10km nhưng có rừng nguyên sinh, chùa Linh Ứng, tượng Phật Bà Quan Âm cao nhất Việt Nam và quần thể Voọc chà vá chân nâu quý hiếm — hiếm có thành phố nào có thiên nhiên hoang dã gần trung tâm như vậy.</li>
+      <li>Phù hợp cho cả tour nửa ngày ngắn (khách ít thời gian) và tour sinh thái chuyên sâu (khách quan tâm động vật hoang dã, xem hồ sơ Next Continent hợp tác với InterContinental Danang cho đúng điểm này).</li>
+      <li>Có góc "sống ảo" (tượng Phật Bà, view toàn cảnh vịnh Đà Nẵng) lẫn góc trải nghiệm thiên nhiên thật — phục vụ được cả khách chỉ muốn chụp ảnh và khách muốn tìm hiểu sâu.</li>
+    </ul>
+  </div>
+
+  <h2><span class="num">5</span>Cù Lao Chàm — bán được nhiều nhưng rủi ro trải nghiệm cao nhất</h2>
+  <div class="card">
+    <p><b>Giá:</b> $39–45/khách, gồm di chuyển, HDV, dụng cụ lặn, ăn trưa.</p>
+    <p><b>Vì sao bán nhiều — nhưng có giới hạn rõ:</b></p>
+    <ul>
+      <li>Là lựa chọn "biển đảo" duy nhất trong top 5 — khách muốn đổi không khí khỏi tham quan văn hoá/tâm linh sẽ chọn tour này.</li>
+      <li>Giá trọn gói rõ ràng (di chuyển + thiết bị + ăn trưa) giúp khách dễ so sánh giá trị.</li>
+      <li><span class="badge inferred">rủi ro</span> Đây là tour duy nhất trong top 5 có rating dao động thấp hơn hẳn (3.3–3.7/5 ở một số listing, so với 4.8–5.0 của 4 tour còn lại) — phụ thuộc thời tiết/độ trong của biển, không kiểm soát được như các điểm tham quan cố định trên đất liền. Review tiêu cực thường nhắc "biển không đẹp như hình", "sóng lớn không lặn được".</li>
+    </ul>
+  </div>
+
+  <h2><span class="num">6</span>Phân khúc khách chung của cả 5 tour</h2>
+  <div class="card">
+    <p>Cả 5 tour đều nhắm vào <b>khách đại trà lần đầu đến Đà Nẵng</b> (không phải khách chuyên/lặp lại) — nhóm này ưu tiên: đi được nhiều điểm iconic trong ít ngày, giá rõ ràng dễ so sánh, không cần thể lực đặc biệt, có thể đi theo gia đình nhiều lứa tuổi. Đây là "danh sách phải-đến" hơn là trải nghiệm ngách — khác hẳn phân khúc birder/nhà nghiên cứu của Next Continent hay khách sang trọng thuần của Venus Travel.</p>
+    <p>4/5 tour có giá phổ biến trong khoảng <b>$21–65/khách</b> — vùng giá "cận biên quyết định nhanh" (khách không cần suy nghĩ nhiều, đặt ngay khi thấy hợp lý), chỉ tour Hải Vân Pass cá nhân hoá cao mới vượt lên $56–75 nhờ giá trị trải nghiệm riêng biệt/1-1.</p>
+  </div>
+
+  <h2><span class="num">7</span>Gợi ý thiết kế tour cho Ello</h2>
+  <div class="card">
+    <ul>
+      <li><b>Ưu tiên combo icon + hiệu suất/giá:</b> thiết kế tour ghép 2-3 điểm iconic (kiểu Ngũ Hành Sơn + Hội An) thay vì bán từng điểm riêng — đây là công thức bán chạy nhất trong dữ liệu thu thập được.</li>
+      <li><b>Bán trải nghiệm di chuyển, không chỉ điểm đến:</b> với các tuyến dài (kiểu Hải Vân Pass), thiết kế điểm dừng nhỏ dọc đường (làng chài, quán ven biển, view đẹp) để bản thân hành trình trở thành nội dung, không phải khoảng chết giữa 2 điểm.</li>
+      <li><b>Đặt tên và làm nổi bật HDV/driver theo cá nhân:</b> mọi tour bán chạy trong dữ liệu đều có khách nhớ tên riêng HDV và viết review cảm ơn đích danh — Ello nên chủ động khuyến khích HDV giới thiệu bản thân/nickname dễ nhớ ngay từ đầu tour, và có cơ chế nhắc khách review kèm tên HDV.</li>
+      <li><b>Giải quyết đúng nỗi lo lớn nhất của khách:</b> vé đặt trước để không phải xếp hàng, giá trọn gói rõ ràng (ăn trưa/vé vào cổng/nước uống) để khách không lo phụ phí ẩn — cả hai đều được review nhắc đến như điểm cộng cụ thể.</li>
+      <li><b>Thiết kế khởi hành sớm cho các điểm đông khách:</b> Bà Nà Hills/Ngũ Hành Sơn đều bị phàn nàn về đông đúc giữa ngày — tour khởi hành sớm (6-7h) là lợi thế cạnh tranh có thể quảng bá rõ trong tên/mô tả tour.</li>
+      <li><b>Tránh phụ thuộc hoàn toàn vào 1 yếu tố ngoài kiểm soát:</b> case Cù Lao Chàm cho thấy tour phụ thuộc thời tiết/tự nhiên (biển, sóng) có rating không ổn định — nếu Ello làm tour biển/lặn, cần có kịch bản B rõ ràng khi điều kiện không thuận lợi (đổi điểm, hoàn tiền phần hoạt động không thực hiện được) để không mất điểm review.</li>
+      <li><b>Có phiên bản "chuyên sâu" bên cạnh phiên bản phổ thông:</b> Sơn Trà cho thấy cùng 1 địa điểm có thể bán cho cả khách đi nhanh (nửa ngày, chụp ảnh) và khách muốn trải nghiệm sâu (sinh thái, động vật hoang dã) — Ello có thể thiết kế 2 gói giá khác nhau trên cùng 1 điểm đến để phục vụ 2 phân khúc bằng 1 sản phẩm lõi.</li>
+    </ul>
+  </div>
+
+  <h2><span class="num">8</span>Nguồn</h2>
+  <div class="card">
+    <ul class="src-list">
+      <li>dacotours.com — bộ đếm "Sold X tours" công khai trên từng sản phẩm</li>
+      <li>Hồ sơ Venus Travel, Le Family Riders, Next Continent, Dacotours — xem trang phân tích đối thủ (next-continent-wip.html)</li>
+      <li>TripAdvisor: review Ba Na Hills/Golden Bridge (Tommy Dao Tours — Dream771162 07/2026, Tracey C 05/2026, LynneDarwin 05/2026), Marble Mountains, Cham Island — tổng hợp qua nhiều listing khác nhau</li>
+    </ul>
+  </div>
+
+  <footer>
+    Trang nháp — dữ liệu tổng hợp từ các trang phân tích đối thủ trong cùng thư mục.
+  </footer>
+
+</div>
+</body>
+</html>

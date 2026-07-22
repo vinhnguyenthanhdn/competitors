@@ -9,7 +9,8 @@
     {href:"review-hdv-doi-thu.html", icon:"i-chat", label:"Review HDV đối thủ"},
     {href:"so-sanh-gia-tour.html", icon:"i-dollar", label:"Tổng quan giá tour"},
     {href:"toan-bo-tour-hdv.html", icon:"i-note", label:"Toàn bộ tour / HDV"},
-    {href:"next-continent-wip.html", icon:"i-search", label:"Đối thủ ngách (WIP)"}
+    {href:"next-continent-wip.html", icon:"i-search", label:"Đối thủ ngách (WIP)"},
+    {href:"top-tour-danang-thiet-ke-cho-ello.html", icon:"i-dollar", label:"Top tour &amp; gợi ý (WIP)"}
   ];
 
   var current = location.pathname.split("/").pop() || "index.html";
