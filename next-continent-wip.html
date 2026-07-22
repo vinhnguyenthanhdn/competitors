@@ -30,7 +30,7 @@
       linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 40%, #f4f8fb 100%);
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:920px; margin:0 auto; padding:32px 20px 80px;}
+  .wrap{max-width:1180px; margin:0 auto; padding:32px 20px 80px;}
   a{color:var(--orange-dark); text-decoration:none; border-bottom:1px solid var(--orange-soft);}
   a:hover{border-bottom-color:var(--orange-dark);}
 
@@ -87,7 +87,11 @@
   th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--border);}
   th{font-size:.76rem; text-transform:uppercase; letter-spacing:.03em; color:var(--text-muted); font-weight:700;}
   tr:last-child td{border-bottom:none;}
-  td.num{text-align:right; font-weight:600;}
+  td.num{text-align:right; font-weight:600; white-space:nowrap;}
+  .compare-table table{font-size:.85rem;}
+  .compare-table td:first-child{font-weight:700;}
+  .compare-table td:nth-child(3), .compare-table td:nth-child(4){white-space:nowrap;}
+  .compare-table th:nth-child(3), .compare-table th:nth-child(4){white-space:nowrap;}
 
   .badge{
     display:inline-flex; align-items:center; gap:6px; font-size:.74rem; font-weight:700;
@@ -144,12 +148,77 @@
     <span class="eyebrow">Đối thủ ngách · chưa có trong báo cáo chính</span>
     <h1>Đối thủ ngách</h1>
     <p class="subtitle">Các đối thủ ở mảng tour/HDV tại Đà Nẵng và khu vực lân cận, nằm ngoài 6 cái tên trong báo cáo chính (Ong Vò Vẽ, Klook, ToursByLocals, WithLocals, GuruWalk, OneGuide).</p>
-    <ul style="margin:0 0 8px;">
-      <li><a href="#next-continent"><b>Next Continent Tours</b></a> — ecotourism ngách chim/bò sát/photography, Đà Nẵng, mô hình chính quy (TNHH, 10-24 nhân sự) sống bằng kênh B2B resort 5 sao.</li>
-      <li><a href="#le-family-riders"><b>Le Family Riders</b></a> — motorbike tour Huế–Hội An–Đà Nẵng, mô hình phi chính quy (không văn phòng, không có pháp nhân đăng ký) nhưng 10.172 review, #2/442 hoạt động ở Huế.</li>
-      <li><a href="#cum-operator-otato"><b>Cụm operator tour riêng qua TripAdvisor</b></a> — 7 công ty tại Hội An/Đà Nẵng (Venus Travel, Dacotours, Simply Vietnam Travel, Easy Rider Tour via Hai Van Pass, Tommy Dao Tours, Hoi An Private Car, Local Buddy Tours), tổng ~27.000 review, cùng phân khúc "thuê HDV/tour riêng" mà Ello đang cạnh tranh trực tiếp.</li>
-    </ul>
   </header>
+
+  <div class="card compare-table" style="overflow-x:auto;">
+    <table>
+      <tr><th>Tên</th><th>Loại hình</th><th>Trụ sở</th><th>Hoạt động từ</th><th>Kênh chính</th><th>Quy mô</th><th>Review/traffic</th><th>Doanh thu</th></tr>
+      <tr>
+        <td><a href="#next-continent">Next Continent Tours</a></td>
+        <td>Ecotourism ngách (TNHH)</td><td>Đà Nẵng</td><td class="num">2023</td>
+        <td>B2B resort 5 sao + trực tiếp</td><td class="num">10–24 nhân sự</td>
+        <td class="num">47 review TA · 138 organic/tháng</td>
+        <td class="num">hàng trăm nghìn $/năm*</td>
+      </tr>
+      <tr>
+        <td><a href="#le-family-riders">Le Family Riders</a></td>
+        <td>Motorbike gia đình (phi chính quy)</td><td>Huế</td><td class="num">~2013</td>
+        <td>Tiếp cận trực tiếp tại điểm du lịch + OTA</td><td class="num">gia đình + hàng chục rider cộng tác</td>
+        <td class="num">10.172 review TA · 0 organic</td>
+        <td class="num">$250k–650k/năm*</td>
+      </tr>
+      <tr>
+        <td><a href="#venus-travel">Venus Travel</a></td>
+        <td>DMC/travel agency</td><td>Hội An + Đà Nẵng</td><td class="num">~2015–2017</td>
+        <td>OTA (TripAdvisor/Viator/GetYourGuide)</td><td class="num">chưa xác nhận</td>
+        <td class="num">10.361 review TA · 448 organic/tháng</td>
+        <td class="num">chưa ước tính</td>
+      </tr>
+      <tr>
+        <td><a href="#dacotours">Dacotours</a></td>
+        <td>TNHH MTV</td><td>Đà Nẵng</td><td class="num">2012</td>
+        <td>OTA + website riêng (bán trực tiếp)</td><td class="num">10–24 nhân sự (TopCV)</td>
+        <td class="num">20.000+ review tự nhận · 829 organic/tháng</td>
+        <td class="num">cao nhất trong nhóm*</td>
+      </tr>
+      <tr>
+        <td><a href="#simply-vietnam-travel">Simply Vietnam Travel</a></td>
+        <td>Travel agency</td><td>Đà Nẵng</td><td class="num">2016</td>
+        <td>OTA + website riêng</td><td class="num">13 nhân sự (team page)</td>
+        <td class="num">4.188 review TA · 50 organic/tháng</td>
+        <td class="num">chưa ước tính</td>
+      </tr>
+      <tr>
+        <td>Tommy Dao Tours</td>
+        <td>Travel agency (tên theo người)</td><td>Hội An</td><td class="num">2015</td>
+        <td>OTA</td><td class="num">chưa xác nhận</td>
+        <td class="num">1.817 review TA</td>
+        <td class="num">chưa ước tính</td>
+      </tr>
+      <tr>
+        <td>Easy Rider Tour via Hai Van Pass</td>
+        <td>Motorbike (tên dạng cá nhân)</td><td>Hội An</td><td class="num">2018</td>
+        <td>OTA</td><td class="num">chưa xác nhận</td>
+        <td class="num">1.855 review TA</td>
+        <td class="num">chưa ước tính</td>
+      </tr>
+      <tr>
+        <td>Hoi An Private Car</td>
+        <td>Travel agency</td><td>Hội An</td><td class="num">2014</td>
+        <td>OTA</td><td class="num">chưa xác nhận</td>
+        <td class="num">1.189 review TA</td>
+        <td class="num">chưa ước tính</td>
+      </tr>
+      <tr>
+        <td>Local Buddy Tours – Danang City</td>
+        <td>Travel agency</td><td>Đà Nẵng</td><td class="num">2017</td>
+        <td>OTA</td><td class="num">chưa xác nhận</td>
+        <td class="num">313 review TA</td>
+        <td class="num">chưa ước tính</td>
+      </tr>
+    </table>
+    <p style="margin-top:10px; font-size:.8rem; color:var(--text-muted);">* Doanh thu là suy luận nhiều góc nhìn, không phải số công khai xác nhận — xem chi tiết ở từng mục bên dưới. Review TA = tổng review TripAdvisor gắn với operator (không chỉ 1 sản phẩm).</p>
+  </div>
 
   <section id="next-continent">
   <div class="eyebrow" style="margin-top:8px;">Công ty 1</div>
@@ -381,16 +450,159 @@
     <p>Tên "Easy Rider Tour via Hai Van Pass" lặp lại đúng công thức đặt tên đã thấy ở "Mister T Easy Rider" (889 review, xuất hiện cùng trang sản phẩm với Le Family Riders) — "Easy Rider" là một chuẩn đặt tên phổ biến cho cả một nhóm operator motorbike độc lập trên tuyến Huế-Đà Nẵng-Hội An, không phải một thương hiệu duy nhất.</p>
   </div>
 
-  <h2><span class="num">3</span>Đọc nhanh cho Ello</h2>
+  <h2 id="venus-travel"><span class="num">3</span>Venus Travel — hồ sơ chi tiết</h2>
+  <div class="card">
+    <div class="grid2">
+      <div class="stat"><div class="label">Trụ sở</div><div class="value" style="font-size:.95rem;">429A Cửa Đại, Hội An + 14 An Nhơn 10, Đà Nẵng</div></div>
+      <div class="stat"><div class="label">Tự nhận kinh nghiệm</div><div class="value" style="font-size:1rem;">10+ năm, thành lập 2015</div></div>
+      <div class="stat"><div class="label">TripAdvisor — tổng review</div><div class="value">10.361 <small>4.9/5</small></div></div>
+      <div class="stat"><div class="label">Organic traffic web riêng</div><div class="value">448 <small>/tháng, $70</small></div></div>
+    </div>
+    <p style="margin-top:14px;"><span class="badge inferred">chưa xác nhận</span> Có 1 pháp nhân "CÔNG TY TNHH VENUS TRAVEL" trên TopCV nhưng trụ sở tại Nha Trang — khác địa điểm với Venus Travel Hội An đang xét, nên không thể xác nhận đây là cùng một thực thể. Trang "About Us" tự mô tả là "brainchild của một nhóm bạn bè làm du lịch hơn 10 năm", không nêu tên pháp nhân cụ thể.</p>
+  </div>
+
+  <h3>Sản phẩm — 13 tour trên TripAdvisor, danh mục web riêng vươn ra toàn quốc</h3>
+  <div class="card">
+    <table>
+      <tr><th>Tour (top theo review)</th><th>Giá</th><th>Review TA</th></tr>
+      <tr><td>Bana Hills – Golden Bridge Deluxe Small group</td><td class="num">$21</td><td class="num">3.100</td></tr>
+      <tr><td>Morning Small group Marble Mountains – Am Phu Cave – Monkey Mountain</td><td class="num">$21–22</td><td class="num">1.719</td></tr>
+      <tr><td>Marble Mountains – Am Phu Cave – Monkey Mountain Sunset</td><td class="num">$21–22</td><td class="num">847</td></tr>
+      <tr><td>Amazing My Son Sunset Deluxe Small Group</td><td class="num">$22</td><td class="num">517</td></tr>
+      <tr><td>My Son Sanctuary Luxury Trip</td><td class="num">$22</td><td class="num">612</td></tr>
+      <tr><td>Hue Imperial City – Hai Van Pass Small Group</td><td class="num">$38</td><td class="num">556</td></tr>
+      <tr><td>Private Tour to Ba Na Hills – Golden Bridge</td><td class="num">$62</td><td class="num">202</td></tr>
+      <tr><td>+ 6 tour khác (Coconut Jungle, Hoi An Countryside, Lady Buddha combo...)</td><td class="num">$24–120</td><td class="num">~1.700</td></tr>
+    </table>
+    <p>Tổng review trên 13 sản phẩm cộng lại xấp xỉ con số 10.361 tự công bố ở trang tổng — không có khoảng hụt lớn như Next Continent/Le Family Riders, nghĩa là gần như toàn bộ khách đều đặt qua đúng sản phẩm có theo dõi trên TripAdvisor/Viator, ít khách đặt "ngoài luồng" qua email trực tiếp. Website riêng (venusvietnamtravel.com) có danh mục rộng hơn nhiều — cả tour Hạ Long, Sa Pa, TP.HCM — vượt ra ngoài Trung Bộ, phục vụ khách inbound toàn quốc dưới hình thức tour trọn gói/MICE.</p>
+  </div>
+
+  <h3>Đội ngũ &amp; cách vận hành</h3>
+  <div class="card">
+    <p>Trang Careers trên venusvietnamtravel.com có cấu trúc lọc đầy đủ theo địa điểm (Đà Nẵng/Hội An), loại việc (Marketing/Sale/Executive/Tour Guide) và mức lương — hạ tầng tuyển dụng bài bản — nhưng tại thời điểm kiểm tra hiển thị "No job listings found" (không có vị trí nào đang mở).</p>
+    <p>Review nhắc tên nhiều guide khác nhau: <b>Anna</b> (review 5 sao, tháng 6/2026 — khen chăm sóc gia đình có trẻ nhỏ, chủ động chụp ảnh) và <b>Sherlock</b> (review tiêu cực — hối khách đi nhanh vì "còn tour buổi chiều khác", giữ luôn vé khiến khách không lấy được audio guide). Review tiêu cực về Sherlock hé lộ một rủi ro vận hành: guide bị xếp nhiều tour trong 1 ngày → chạy vội, giảm chất lượng trải nghiệm — dấu hiệu quy mô lớn nhưng đội guide có thể không tăng kịp theo khối lượng khách.</p>
+  </div>
+
+  <h3>Traffic &amp; chính sách thanh toán</h3>
+  <div class="card">
+    <div class="finding">
+      <div class="head">Web riêng không phải kênh đặt tour chính — cùng mẫu hình Next Continent</div>
+      <p style="margin:0;">Top trang có traffic của venusvietnamtravel.com là 2 bài blog hướng dẫn (Sơn Trà Peninsula, chợ Bến Thành), không phải trang tour. Toàn bộ 10.361 review thực chất tích lũy qua TripAdvisor/Viator, không phải qua web riêng.</p>
+    </div>
+    <p><b>Thanh toán:</b> chuyển khoản ngân hàng, link thanh toán bảo mật để đặt cọc, PayPal, thẻ Visa/Mastercard qua cổng 9Pay (phụ phí 3,5%), VTC Pay. Quy trình: gửi link đặt cọc → nhận cọc → xác nhận booking.</p>
+  </div>
+
+  <h3>Doanh thu — suy luận từ nhiều góc nhìn</h3>
+  <div class="card">
+    <p><b>Góc 1 — quy đổi từ review:</b> 10.361 review tích lũy qua ~9–11 năm (từ 2015/2017), trung bình ~1.000–1.150 review/năm. Ở tỷ lệ khách để lại review 15–30%, suy ra khoảng <b>3.300–6.700 khách/năm</b>.</p>
+    <p><b>Góc 2 — giá bán bình quân theo trọng số danh mục:</b> 3 sản phẩm bán nhiều review nhất (Bana Hills, Marble Mountains sáng, Marble Mountains chiều — cộng lại 5.666 review, hơn nửa tổng) đều có giá chỉ $21–22/khách — rẻ hơn hẳn so với định vị "luxury" mà công ty tự nhận. Giá bình quân trọng số ước ~$25–30/khách.</p>
+    <p><b>Ước tính gộp:</b> 3.300–6.700 khách/năm × $25–30/khách ≈ <b>$85.000–200.000/năm</b> doanh thu gộp — thấp hơn hẳn Le Family Riders/Dacotours dù review TripAdvisor cao nhất trong cụm, vì đơn giá bán rẻ hơn nhiều. <span class="badge inferred">suy luận</span> không phải số xác nhận.</p>
+  </div>
+
+  <h2 id="dacotours"><span class="num">4</span>Dacotours — hồ sơ chi tiết</h2>
+  <div class="card">
+    <div class="grid2">
+      <div class="stat"><div class="label">Pháp nhân</div><div class="value" style="font-size:.95rem;">CÔNG TY TNHH MTV TM &amp; DV DU LỊCH XỨ ĐÀ</div></div>
+      <div class="stat"><div class="label">Mã số thuế</div><div class="value" style="font-size:1rem;">0401497124</div></div>
+      <div class="stat"><div class="label">Hoạt động từ</div><div class="value" style="font-size:1rem;">2012</div></div>
+      <div class="stat"><div class="label">Quy mô nhân sự (TopCV)</div><div class="value">10–24 <small>người</small></div></div>
+    </div>
+    <p style="margin-top:14px;">Địa chỉ 195 Đặng Vũ Hỷ, An Hải Đông, Đà Nẵng. Tự nhận "No.1 Tour Operator in Da Nang City" và ">20.000 review" trên TripAdvisor + Google gộp lại; đoạt Travelers' Choice 2023 và 2025; có badge "Meets animal welfare guidelines" trên TripAdvisor. Nhận cả dịch vụ MICE, tổ chức sự kiện, tiệc cưới ngoài tour cá nhân/gia đình thông thường.</p>
+  </div>
+
+  <h3>Sản phẩm — bộ đếm "Sold X tours" công khai, bằng chứng doanh thu trực tiếp</h3>
+  <div class="card">
+    <table>
+      <tr><th>Tour</th><th>Giá (sau giảm)</th><th>Đã bán</th></tr>
+      <tr><td>Marble Mountains &amp; Hoi An Ancient Town Sunset Group Tour</td><td class="num">$39</td><td class="num">19.087</td></tr>
+      <tr><td>Marble Mountain, Hoi An Basket Boat Ride &amp; Old Town Tour</td><td class="num">$47</td><td class="num">17.765</td></tr>
+      <tr><td>Golden Bridge &amp; Ba Na Hills, Group Tour with Lunch Buffet</td><td class="num">$65</td><td class="num">10.734</td></tr>
+      <tr><td>Golden Bridge &amp; Ba Na Hills Small Group Tour, No Lunch</td><td class="num">$61</td><td class="num">9.780</td></tr>
+      <tr><td>Linh Ung Pagoda, Lady Buddha, Marble Mountains &amp; Am Phu Cave (Afternoon)</td><td class="num">$34</td><td class="num">7.564</td></tr>
+      <tr><td>Coconut Forest, Hoi An Basket Boat &amp; Ancient Town Daily Group Tour</td><td class="num">$39</td><td class="num">7.450</td></tr>
+      <tr><td>Lady Buddha, Linh Ung Pagoda, Marble Mountain &amp; Hoi An Daily Group Tour</td><td class="num">$45</td><td class="num">6.835</td></tr>
+      <tr><td>Linh Ung Pagoda, Lady Buddha, Marble Mountains &amp; Am Phu Cave (Morning)</td><td class="num">$34</td><td class="num">6.582</td></tr>
+      <tr><td>Epic Cham Island Snorkeling Daily Group Tour</td><td class="num">$45</td><td class="num">5.370</td></tr>
+      <tr><td>Unique Hue City Tour from Da Nang by Train via Hai Van Pass</td><td class="num">$69</td><td class="num">5.218</td></tr>
+    </table>
+    <p style="margin-top:8px;"><b>Tổng riêng 10 sản phẩm mẫu: ~96.400 tour đã bán</b> — đây là bộ đếm doanh số thật hiển thị công khai trên trang sản phẩm (dạng "Sold X tours"), không phải suy luận qua review. Trang chủ còn liệt kê nhiều sản phẩm khác chưa có bộ đếm hiển thị (Cham Island full day, Hoi An Countryside...), nên tổng thực tế cao hơn số này.</p>
+    <p>Trên TripAdvisor, Dacotours có tối thiểu 5+ sản phẩm riêng theo dõi (Full Day Golden Bridge 2.680 review, Marble Mountains Sunset Ingroup 705, Monkey Mountain-Lady Buddha-Marble Mountains 316, Hue Citadel by Train 509, Hue City Small Group 421) — tổng review TripAdvisor 7.338, thấp hơn hẳn tổng "Sold" trên web riêng, xác nhận phần lớn khách Dacotours đặt trực tiếp qua web riêng chứ không qua OTA.</p>
+  </div>
+
+  <h3>Đội ngũ &amp; tuyển dụng</h3>
+  <div class="card">
+    <p>TopCV xác nhận quy mô 10–24 nhân sự. Đang tuyển nhiều vị trí tại thời điểm kiểm tra trên TopCV/JobsGo: Kế toán điều hành, Hướng dẫn viên du lịch quốc tế biết tiếng Anh — cho thấy nhu cầu mở rộng nhân sự vận hành liên tục, không phải tuyển 1 lần.</p>
+    <p>Review nhắc tên guide "<b>Tim</b>" (khen nhiệt tình, hiểu biết) tại Marble Mountains — cùng mẫu hình cá nhân hoá theo tên guide như các operator khác trong cụm.</p>
+  </div>
+
+  <h3>Traffic &amp; chính sách thanh toán</h3>
+  <div class="card">
+    <div class="finding">
+      <div class="head">SEO nhắm đúng từ khoá booking-intent — khác hẳn Venus Travel/Next Continent</div>
+      <p style="margin:0;">829 organic/tháng, $127 traffic value — tăng từ ~200 lên hơn 800 trong 4 tháng gần nhất. Xếp hạng #1 từ khoá "da nang tours", #2 "da nang travel agency" — đây là operator duy nhất trong nhóm có SEO nhắm đúng ý định đặt tour, không chỉ nội dung blog thông tin. Trang chủ (dacotours.com) tự nó cũng nhận traffic (26% tổng organic), khác các site còn lại chỉ có blog nhận traffic.</p>
+    </div>
+    <p><b>Thanh toán:</b> đầy đủ nhất trong cụm — cổng thanh toán SSL nhận Visa/Mastercard/Amex/JCB/PayPal; chuyển khoản ngân hàng trong/ngoài nước; tiền mặt (VND/EUR/USD) trả cho nhân viên bán/HDV/tại văn phòng Đà Nẵng; e-wallet Momo/ZaloPay/ViettelPay. Đặt qua website riêng yêu cầu trả 100% online (giống TripAdvisor/GetYourGuide/Airbnb); đặt trực tiếp qua liên hệ thì chỉ cần đặt cọc.</p>
+    <p><b>Chính sách hoàn tiền:</b> huỷ ≥7 ngày trước khởi hành hoàn 100%; huỷ 3–6 ngày hoàn 50%; huỷ &lt;48h hoặc không đến (no-show) mất cọc, không hoàn.</p>
+  </div>
+
+  <h3>Doanh thu — bằng chứng mạnh nhất trong toàn bộ các case</h3>
+  <div class="card">
+    <p><b>Góc 1 — bộ đếm "Sold" trực tiếp:</b> 10 sản phẩm mẫu = ~96.400 tour đã bán. Trải trên 14 năm hoạt động (từ 2012) ≈ trung bình <b>~6.900 tour/năm chỉ từ 10 sản phẩm này</b> — trong khi thực tế công ty có nhiều hơn 10 sản phẩm.</p>
+    <p><b>Góc 2 — giá bán bình quân trọng số:</b> 2 sản phẩm bán nhiều nhất ($39 và $47) chiếm gần 40% tổng lượt bán mẫu → giá bình quân trọng số ước ~$45/khách.</p>
+    <p><b>Ước tính gộp (chỉ từ 10 sản phẩm mẫu, chưa tính toàn danh mục):</b> ~6.900 tour/năm × $45/khách ≈ <b>$310.000/năm</b> — và đây là mức sàn, vì chưa gồm các sản phẩm khác chưa có bộ đếm hiển thị, dịch vụ MICE/sự kiện, hay kênh OTA riêng (7.338 review TripAdvisor cho thấy vẫn có thêm khách qua kênh này).</p>
+    <p><b>Kết luận:</b> Dacotours nhiều khả năng là operator có doanh thu cao nhất trong toàn bộ các case đã phân tích tới nay (kể cả so với Le Family Riders), nhờ kết hợp: 14 năm tích lũy, danh mục sản phẩm lớn, kênh bán đa dạng (web riêng SEO tốt + OTA + MICE), và hạ tầng thanh toán/vận hành chính quy nhất trong cụm. <span class="badge inferred">suy luận</span> quy đổi từ bộ đếm công khai, không phải báo cáo tài chính.</p>
+  </div>
+
+  <h2 id="simply-vietnam-travel"><span class="num">5</span>Simply Vietnam Travel — hồ sơ chi tiết</h2>
+  <div class="card">
+    <div class="grid2">
+      <div class="stat"><div class="label">Trụ sở</div><div class="value" style="font-size:.95rem;">291/2 Lê Văn Hiến, Đà Nẵng</div></div>
+      <div class="stat"><div class="label">Hoạt động từ</div><div class="value" style="font-size:1rem;">2016</div></div>
+      <div class="stat"><div class="label">TripAdvisor — tổng review</div><div class="value">4.188 <small>4.9/5, #23/887 Hội An</small></div></div>
+      <div class="stat"><div class="label">Organic traffic web riêng</div><div class="value">50 <small>/tháng, $4,1</small></div></div>
+    </div>
+    <p style="margin-top:14px;">Đoạt Travelers' Choice 2 năm liên tiếp (2025 và 2026). Tại thời điểm kiểm tra, trang TripAdvisor hiển thị "Booking unavailable on Tripadvisor" — sản phẩm hiện không đặt được trực tiếp qua TripAdvisor/Viator, khác với Venus Travel/Dacotours vẫn có nút "Reserve" hoạt động.</p>
+  </div>
+
+  <h3>Sản phẩm — 59 tour trên website riêng, đa dạng loại hình hơn cả Venus Travel</h3>
+  <div class="card">
+    <p>Trang <code>/tours/</code> hiển thị "Showing 1–12 of <b>59 results</b>", lọc theo 8 loại hình: Activity, Car Rental with Driver, Experiences, Group Tour, Private Tour, Rail Tour, River Cruise, Shuttle Bus — danh mục loại hình rộng hơn hẳn Venus Travel/Dacotours (chỉ tập trung tour tham quan). Giá dao động $17–141/khách, phổ biến nhất quanh $27–39 cho tour nửa ngày/1 ngày (Marble Mountains, Cham Island, Golden Bridge).</p>
+    <p>Trên TripAdvisor, top sản phẩm theo review: Hoi An/Da Nang Ba Na Hills small group (283), My Son Unesco &amp; Phở Making (229), My Son Sunset Boat Trip (221), Marble mountain group tour (222) — các sản phẩm này cộng lại chưa tới 1.000 review, phần còn lại (~3.200 review, hơn 3/4 tổng) nằm ở trang tổng — tức đến từ khách đặt các sản phẩm không còn hiển thị công khai hoặc đặt trực tiếp, tương tự mẫu hình Le Family Riders.</p>
+  </div>
+
+  <h3>Đội ngũ — xác nhận đầy đủ theo tên</h3>
+  <div class="card">
+    <div class="finding">
+      <div class="head">13 nhân sự có tên/nickname cụ thể — không cần suy luận qua bracket TopCV</div>
+      <p style="margin:0;">Trang "Our Team" liệt kê: 1 Manager (Nguyen Thi), 1 Tour Operator (Huy — "Turtle"), 1 Customer Relations Manager (Hien), 9 Tour Guide (Bảo "Ronald", Lee, Quyên "Queen", Bảo "Paul", Thủy "Daisy", Tuấn "Misa", Tin, Linh-Lin — 2 người tên "Bảo" phân biệt bằng nickname), 3 Driver (Hưng, Hào, Tinh). Đặt nickname tiếng Anh cho guide là cách chủ động giúp khách quốc tế dễ nhớ tên — cùng mục đích cá nhân hoá đã thấy ở Le Family Riders, nhưng làm có chủ đích thay vì tự phát.</p>
+    </div>
+    <p><span class="badge inferred">chưa khớp</span> Review khách lại nhắc tên guide <b>Mike</b> và <b>Casper</b> — không có trong danh sách "Our Team" — cho thấy trang team có thể đã lỗi thời hoặc chưa cập nhật hết đội ngũ thực tế, đội guide thật lớn hơn 9 người niêm yết.</p>
+  </div>
+
+  <h3>Traffic &amp; chính sách thanh toán</h3>
+  <div class="card">
+    <p><b>Traffic:</b> 50 organic/tháng — nhỏ nhất trong 3 operator xét chi tiết, nhưng trang có traffic nhiều nhất là <code>/tours/</code> (41%) — ít nhưng đúng trang booking, khác Next Continent/Venus Travel (traffic chỉ rơi vào blog thông tin).</p>
+    <p><span class="badge inferred">chưa xác nhận</span> Không tìm được trang chính sách huỷ/thanh toán riêng của công ty này (link cancellation-policy trên site bị lỗi 404 tại thời điểm kiểm tra) — không dùng số liệu của các công ty khác trùng tên "Simply Vietnam" để tránh gán nhầm.</p>
+  </div>
+
+  <h3>Doanh thu — suy luận từ nhiều góc nhìn</h3>
+  <div class="card">
+    <p><b>Góc 1 — quy đổi từ review:</b> 4.188 review qua ~10 năm (từ 2016), trung bình ~420 review/năm. Ở tỷ lệ 15–30%, suy ra khoảng <b>1.400–2.800 khách/năm</b>.</p>
+    <p><b>Góc 2 — giá bán bình quân theo catalog 59 sản phẩm:</b> phổ biến nhất quanh $27–39/khách cho tour nửa ngày/1 ngày, một số cao hơn ($99–141) cho tour trọn ngày/kết hợp — giá bình quân trọng số ước ~$35–40/khách.</p>
+    <p><b>Ước tính gộp:</b> 1.400–2.800 khách/năm × $35–40/khách ≈ <b>$50.000–110.000/năm</b> — nhỏ nhất trong 3 operator xét chi tiết, phù hợp với quy mô nhân sự nhỏ nhất (13 người xác nhận) và việc hiện không bán được qua TripAdvisor/Viator (có thể đang chuyển hướng bán trực tiếp qua web riêng với catalog 59 sản phẩm). <span class="badge inferred">suy luận</span> không phải số xác nhận.</p>
+  </div>
+
+  <h2><span class="num">6</span>Đọc nhanh cho Ello</h2>
   <div class="card">
     <ul>
       <li>TripAdvisor Experience/Viator là kênh phân phối có sẵn hàng chục nghìn review tích lũy của nhiều operator cùng lúc — khó cạnh tranh thuần bằng số lượng review khi tham gia sau.</li>
       <li>Yếu tố tạo review/lòng tin lặp lại ở mọi quy mô (gia đình nhỏ tới công ty có văn phòng) là kết nối cá nhân giữa khách và guide/driver theo tên riêng, không phải quy mô công ty hay ngân sách marketing.</li>
+      <li>Dacotours là case khác biệt trong nhóm: vừa có bộ đếm doanh số minh bạch, vừa có SEO nhắm đúng booking-intent — benchmark trực tiếp nhất nếu Ello muốn phát triển kênh web riêng thay vì chỉ sống nhờ OTA.</li>
       <li>Đây là bằng chứng cho thấy đối thủ thật trong mảng "thuê HDV" của Ello không chỉ là 6 platform marketplace đã phân tích, mà còn là hàng chục operator/agency nhỏ bán qua OTA — cần rà thêm có hệ thống hơn (theo review count bất thường) thay vì chỉ theo tên thương hiệu lớn.</li>
     </ul>
   </div>
 
-  <h2><span class="num">4</span>Nguồn</h2>
+  <h2><span class="num">7</span>Nguồn</h2>
   <div class="card">
     <ul class="src-list">
       <li>tripadvisor.com/AttractionProductReview-g298082-d19597153 — Hoi An/Da Nang Ba Na Hills small group → Simply Vietnam Travel</li>
@@ -403,8 +615,11 @@
       <li>tripadvisor.com/AttractionProductReview-g298085-d17687577 — Morning Small group Marble Mountains → Venus Travel</li>
       <li>tripadvisor.com/AttractionProductReview-g298085-d18833802 — Easy Rider Motorbike Tour via Hai Van Pass → Easy Rider Tour via Hai Van Pass</li>
       <li>tripadvisor.com/AttractionProductReview-g298085-d24851876 — Full Day Golden Bridge &amp; Ba Na Hills Small Group → Dacotours</li>
+      <li>venusvietnamtravel.com (about-us, daily-group-tours, careers) + Ahrefs Traffic Checker</li>
+      <li>dacotours.com (home, tours) + Ahrefs Traffic Checker; masothue mã số thuế 0401497124; TopCV (dacotours-co-ltd/130486); JobsGo tin tuyển dụng</li>
+      <li>simplyvietnamtravel.com (our-team) + Ahrefs Traffic Checker</li>
     </ul>
-    <p style="margin-top:10px;"><b>Chưa xác nhận:</b> pháp nhân/mã số thuế từng operator, website riêng và traffic, quy mô nhân sự, có bán qua GetYourGuide/Klook/Airbnb ngoài TripAdvisor/Viator không.</p>
+    <p style="margin-top:10px;"><b>Chưa xác nhận:</b> pháp nhân/mã số thuế của Venus Travel, Tommy Dao Tours, Hoi An Private Car, Local Buddy Tours, Easy Rider Tour via Hai Van Pass; có bán qua GetYourGuide/Klook/Airbnb ngoài TripAdvisor/Viator không (đã xác nhận riêng Venus Travel/Dacotours/Simply Vietnam Travel có mặt trên GetYourGuide).</p>
   </div>
   </section>
 
