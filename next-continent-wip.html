@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[WIP] Đối thủ ngách — chưa có trong báo cáo chính</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+  :root{
+    --bg-1:#eaf5ff; --bg-2:#f7fbff;
+    --surface:#ffffff; --border:#dfe9f2;
+    --text:#132234; --text-muted:#54687c; --text-faint:#8093a4;
+    --orange:#F37120; --orange-dark:#c9560f; --orange-soft:#fff1e6;
+    --pink:#E84068; --pink-soft:#fbdde4;
+    --teal:#00D0A0; --teal-soft:#d2f7ec;
+    --green:#3ca866; --green-soft:#e0f4e6;
+    --purple:#9050D8; --purple-soft:#eee1fb;
+    --amber:#c98a12; --amber-soft:#fdf3d6;
+    --radius-lg:18px; --radius-md:12px;
+    --shadow:0 1px 2px rgba(19,34,52,.04), 0 10px 28px -14px rgba(19,34,52,.14);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  body{
+    margin:0; font-family:'Be Vietnam Pro','Inter',system-ui,sans-serif;
+    color:var(--text); line-height:1.7; font-size:16px;
+    background:
+      radial-gradient(1200px 700px at 15% -10%, #f2f9ff 0%, transparent 60%),
+      radial-gradient(1000px 600px at 100% 0%, #fff3e8 0%, transparent 55%),
+      linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 40%, #f4f8fb 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:32px 20px 80px;}
+  a{color:var(--orange-dark); text-decoration:none; border-bottom:1px solid var(--orange-soft);}
+  a:hover{border-bottom-color:var(--orange-dark);}
+
+  .wip-banner{
+    display:flex; gap:12px; align-items:flex-start;
+    background:var(--amber-soft); border:1px solid #f0dfa0; color:#5c470a;
+    border-radius:var(--radius-md); padding:14px 18px; margin-bottom:28px;
+    font-size:.92rem;
+  }
+  .wip-banner b{color:#3d3005;}
+
+  header.page{margin-bottom:8px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.76rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--orange-dark); background:var(--orange-soft);
+    padding:5px 12px; border-radius:999px; margin-bottom:14px;
+  }
+  h1{font-size:1.9rem; font-weight:800; letter-spacing:-.01em; margin:0 0 6px;}
+  .subtitle{color:var(--text-muted); font-size:1rem; margin:0 0 28px;}
+
+  h2{
+    font-size:1.15rem; font-weight:800; margin:40px 0 14px;
+    padding-top:6px; border-top:1px solid var(--border);
+    display:flex; align-items:center; gap:10px;
+  }
+  h2:first-of-type{border-top:none; padding-top:0;}
+  h2 .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:26px; height:26px; border-radius:8px; font-size:.8rem;
+    background:var(--orange); color:#fff; flex:none;
+  }
+  h3{font-size:.98rem; font-weight:700; margin:22px 0 8px; color:var(--text);}
+  p{margin:0 0 12px;}
+  ul{margin:0 0 14px; padding-left:22px;}
+  li{margin-bottom:6px;}
+
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    padding:20px 22px; margin-bottom:16px; box-shadow:var(--shadow);
+  }
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:640px){.grid2{grid-template-columns:1fr;}}
+
+  .stat{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:14px 16px;
+  }
+  .stat .label{font-size:.76rem; color:var(--text-muted); font-weight:600; margin-bottom:4px;}
+  .stat .value{font-size:1.3rem; font-weight:800;}
+  .stat .value small{font-size:.7rem; font-weight:600; color:var(--text-faint);}
+
+  table{width:100%; border-collapse:collapse; font-size:.9rem; margin-bottom:16px;}
+  th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--border);}
+  th{font-size:.76rem; text-transform:uppercase; letter-spacing:.03em; color:var(--text-muted); font-weight:700;}
+  tr:last-child td{border-bottom:none;}
+  td.num{text-align:right; font-weight:600;}
+
+  .badge{
+    display:inline-flex; align-items:center; gap:6px; font-size:.74rem; font-weight:700;
+    padding:3px 10px; border-radius:999px; margin-right:6px;
+  }
+  .badge.verified{background:var(--green-soft); color:#1f5c37;}
+  .badge.inferred{background:var(--amber-soft); color:#5c470a;}
+  .badge.ruled-out{background:var(--pink-soft); color:#8a1f3d;}
+
+  .finding{border-left:3px solid var(--orange); padding-left:14px; margin-bottom:18px;}
+  .finding .head{font-weight:700; margin-bottom:4px;}
+
+  .timeline{position:relative; margin:0 0 20px; padding-left:26px;}
+  .timeline::before{content:"";position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:var(--border);}
+  .tl-item{position:relative; margin-bottom:18px;}
+  .tl-item::before{
+    content:""; position:absolute; left:-26px; top:4px; width:11px; height:11px;
+    border-radius:50%; background:var(--orange); border:2px solid #fff; box-shadow:0 0 0 1px var(--orange);
+  }
+  .tl-date{font-size:.76rem; font-weight:700; color:var(--orange-dark); text-transform:uppercase; letter-spacing:.02em;}
+  .tl-text{font-size:.92rem; margin-top:2px;}
+
+  .src-list{font-size:.84rem; color:var(--text-muted);}
+  .src-list li{margin-bottom:4px;}
+
+  footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.8rem; color:var(--text-faint);}
+
+</style>
+</head>
+<body>
+<script src="nav.js"></script>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.8 8.4A8.6 8.6 0 0 1 8 19l-5 1 1.4-4.2A8.4 8.4 0 1 1 21 11.5Z"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.4-5-3.4s-5 1.4-5 3.2S9.2 9.5 12 10s5 1.5 5 3.3-2.2 3.2-5 3.2-5-1.5-5-3.4"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M4 4h13l3 3v13H4Z"/><path d="M9 9h7M9 13h7M9 17h4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  </defs>
+</svg>
+<div class="wrap">
+<div class="wip-banner">
+    <div>🚧</div>
+    <div>
+      <b>WIP — nháp, chưa đưa vào báo cáo chính thức.</b>
+      Trang này gom kết quả điều tra riêng từng công ty đối thủ ngách không nằm trong 6 cái tên
+      của báo cáo chính, chưa qua bước chuẩn hoá/format như <code>index.html</code>. Doanh thu ở mọi
+      công ty đều là suy luận, không có số chính xác công khai. Cần review trước khi merge vào
+      báo cáo chung hoặc <code>ello-competitor-analysis/</code>.
+    </div>
+  </div>
+
+  <header class="page">
+    <span class="eyebrow">Đối thủ ngách · chưa có trong báo cáo chính</span>
+    <h1>Đối thủ ngách</h1>
+    <p class="subtitle">Các đối thủ ở mảng tour/HDV tại Đà Nẵng và khu vực lân cận, nằm ngoài 6 cái tên trong báo cáo chính (Ong Vò Vẽ, Klook, ToursByLocals, WithLocals, GuruWalk, OneGuide).</p>
+    <ul style="margin:0 0 8px;">
+      <li><a href="#next-continent"><b>Next Continent Tours</b></a> — ecotourism ngách chim/bò sát/photography, Đà Nẵng, mô hình chính quy (TNHH, 10-24 nhân sự) sống bằng kênh B2B resort 5 sao.</li>
+      <li><a href="#le-family-riders"><b>Le Family Riders</b></a> — motorbike tour Huế–Hội An–Đà Nẵng, mô hình phi chính quy (không văn phòng, không có pháp nhân đăng ký) nhưng 10.172 review, #2/442 hoạt động ở Huế.</li>
+    </ul>
+  </header>
+
+  <section id="next-continent">
+  <div class="eyebrow" style="margin-top:8px;">Công ty 1</div>
+  <h1 style="font-size:1.4rem;">Next Continent Tours</h1>
+  <p class="subtitle" style="margin-bottom:16px;">nextcontinenttours.com — công ty ecotourism ngách chim/bò sát/photography thiên nhiên, Đà Nẵng.</p>
+
+  <h2><span class="num">1</span>Hồ sơ công ty</h2>
+  <div class="card">
+    <div class="grid2">
+      <div class="stat"><div class="label">Pháp nhân</div><div class="value" style="font-size:1rem;">CÔNG TY TNHH NEXT CONTINENT</div></div>
+      <div class="stat"><div class="label">Mã số thuế</div><div class="value" style="font-size:1rem;">0402214876</div></div>
+      <div class="stat"><div class="label">Thành lập</div><div class="value" style="font-size:1rem;">15/11/2023</div></div>
+      <div class="stat"><div class="label">Quy mô nhân sự (TopCV tự khai)</div><div class="value">10–24 <small>người</small></div></div>
+    </div>
+    <p style="margin-top:14px;">Đại diện pháp luật: Nguyễn Thị Phương Trinh. Địa chỉ: 146/51 Phan Văn Định, Liên Chiểu, Đà Nẵng. Giấy phép kinh doanh lữ hành quốc tế: 48-404/2023/CDLQGVN-GPLHQT. Tự nhận là công ty ecotourism <b>do phụ nữ Việt Nam sở hữu</b>. <span class="badge verified">verified</span></p>
+  </div>
+
+  <h2><span class="num">2</span>Sản phẩm — không cạnh tranh trực tiếp mảng "thuê HDV"</h2>
+  <div class="card">
+    <p>Đây là tour ngách <b>chim (birding) / bò sát-lưỡng cư ban đêm (herping) / thú-primate / photography thiên nhiên</b>, phạm vi <b>toàn quốc</b> (không chỉ Đà Nẵng): Bạch Mã, Cát Tiên, Hà Nội, Huế, Hội An, Đà Lạt, TP.HCM, Mekong Delta...</p>
+    <ul>
+      <li><b>60 trang tour riêng biệt</b> đếm được trong filter "All Wildlife Tours" (8 trang, 7×8 + 4) — công ty tự nhận "gần 100 curated wildlife experiences".</li>
+      <li>Giá: $60/khách (tour riêng 4–6h) đến $140+/khách (full-day); có gói custom multi-day 15–25 ngày, giá trị mỗi booking có thể $2.000–10.000+/nhóm nhỏ.</li>
+      <li>Danh mục: Birding, Herping, Mammal/Primate Watching, Spotlighting ban đêm, Cultural Experiences, Butterfly, Custom/Tailor-made.</li>
+    </ul>
+    <p><span class="badge ruled-out">không trùng phân khúc Ello</span> Khách mục tiêu là birder/nhà nghiên cứu/photographer chuyên sâu quốc tế sẵn sàng trả giá cao cho tour sâu, khác hẳn khách "thuê HDV phổ thông" của Ello.</p>
+  </div>
+
+  <h2><span class="num">3</span>Traffic — organic search gần như không liên quan đến tour</h2>
+  <div class="card">
+    <table>
+      <tr><th>Chỉ số</th><th>Giá trị</th><th>Nguồn</th></tr>
+      <tr><td>Tổng traffic/tháng (mọi nguồn)</td><td class="num">~6.000 visit <span style="color:var(--green);font-weight:700;">(+48% MoM)</span></td><td>SimilarWeb</td></tr>
+      <tr><td>Organic search traffic/tháng</td><td class="num">138 visit ($32 traffic value)</td><td>Ahrefs</td></tr>
+      <tr><td>Top quốc gia (SimilarWeb, tổng traffic)</td><td class="num">US 47,6% · VN 36,9% · AU 15,6%</td><td>SimilarWeb</td></tr>
+      <tr><td>Kênh traffic chính</td><td class="num">Display → Direct → Mail</td><td>SimilarWeb</td></tr>
+    </table>
+    <div class="finding">
+      <div class="head">96% organic traffic là 2 bài blog, không phải trang tour</div>
+      <p style="margin:0;">
+        <code>/marble-mountains-da-nang-travel-guide/</code> (64%) và
+        <code>/wild-camping-in-vietnams-central-highlands.../</code> (32%) —
+        top keyword là "marble mountain", "camping spots", không có từ khoá booking-intent.
+        <b>Không trang tour nào lọt top organic pages</b> → traffic tới trang booking qua Google ≈ 0.
+      </p>
+    </div>
+    <p><b>Kết luận:</b> model "traffic × conversion rate" không dùng được cho site này — 98% traffic không phải organic search, và phần organic có cũng không liên quan tour. Site không SEO theo từ khoá "thuê HDV/birding tour Đà Nẵng", nên không cạnh tranh với Ello ở kênh tìm kiếm.</p>
+  </div>
+
+  <h2><span class="num">4</span>Kênh phân phối — đã loại trừ OTA, xác nhận B2B resort</h2>
+  <div class="card">
+    <p><span class="badge ruled-out">đã loại trừ</span> Không có listing trên <b>Viator, GetYourGuide, Klook, Airbnb Experiences</b> — 100% không bán qua OTA lớn.</p>
+    <div class="finding">
+      <div class="head">Kênh chính thật: đối tác nature-experience của InterContinental Danang Sun Peninsula Resort</div>
+      <p style="margin:0 0 8px;">Công bố chính thức, ra mắt <b>31/3/2026</b>. 4 sản phẩm: Resort Ecowalk (free), Jungle Hike to Banyan Tree (fee), <b>Son Tra Wildlife Expedition</b> (fee — tour "half-day từ InterContinental" xuất hiện trong review khách), Children's Beach Exploration (free). Khách đặt qua concierge resort, không qua web Next Continent.</p>
+      <p style="margin:0;">Chưa xác minh được resort/khách sạn 5 sao khác có hợp tác tương tự hay không — <span class="badge inferred">cần check thêm</span> (Fusion, Naman, Hyatt Regency, Four Seasons/Nam Hai...).</p>
+    </div>
+    <p>Next Continent tự nhận "<b>running daily tours</b>" — quy mô vận hành thực tế cao hơn hẳn con số review công khai gợi ý.</p>
+  </div>
+
+  <h2><span class="num">5</span>Tín hiệu tăng trưởng nhân sự</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">21/08/2025</div>
+      <div class="tl-text">Chào nhân viên mới — Khánh Mai, Administrative Support Officer (xử lý booking, điều phối tour, logistics).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">31/03/2026</div>
+      <div class="tl-text">Ra mắt partnership nature-experience với InterContinental Danang Sun Peninsula Resort.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Tháng 07/2026</div>
+      <div class="tl-text">Đăng tuyển <b>Tour Operations Officer</b> (Hội An/Đà Nẵng) — file JD upload <code>/wp-content/uploads/2026/07/</code>, xác nhận tin đăng đúng tháng 7/2026.</div>
+    </div>
+  </div>
+  <p style="margin-top:-6px;">Thời điểm tuyển dụng khớp với thời điểm partnership resort ra mắt — phù hợp với việc mở rộng đội vận hành để đáp ứng khối lượng tour tăng thêm từ kênh này.</p>
+
+  <h2><span class="num">6</span>Doanh thu — suy luận, không có số công khai</h2>
+  <div class="card">
+    <p><span class="badge verified">verified</span> Tra mã số thuế 0402214876 trên masothue.com: <b>không có vốn điều lệ / doanh thu công khai</b> — Việt Nam không bắt buộc TNHH nhỏ công bố báo cáo tài chính ra công chúng.</p>
+    <p>Quy mô 10–24 nhân sự đặt ra một mức sàn: chi phí lương tối thiểu cho ngần ấy người tại Đà Nẵng đã vào khoảng <b>$70.000–120.000/năm</b>, chưa kể văn phòng, marketing và duy trì giấy phép lữ hành quốc tế — tức doanh thu thực tế phải cao hơn mức này.</p>
+    <p>47 review TripAdvisor không đại diện cho quy mô khách thật: khách chính là birder/nhà nghiên cứu đặt tour riêng đa ngày, nhóm này thường viết "trip report" trên site riêng (mục <i>Trip Reports</i>) hoặc chia sẻ qua mạng eBird/iNaturalist hơn là để review trên TripAdvisor; khách qua concierge resort cũng thường review dưới tên resort hoặc không review.</p>
+    <p><b>Ước tính:</b> doanh thu nhiều khả năng ở mức <b>hàng trăm nghìn USD/năm</b> — đủ nuôi bộ máy 10-24 nhân sự và tài trợ định kỳ cho ENV/Go East Primate Centre. <span class="badge inferred">suy luận</span> chưa có số xác nhận; các dữ kiện còn thiếu để thu hẹp khoảng: số lượng resort partner khác ngoài InterContinental, tần suất tour thực tế/tuần, giá gói bán qua concierge.</p>
+  </div>
+
+  <h2><span class="num">7</span>Đọc nhanh cho Ello</h2>
+  <div class="card">
+    <ul>
+      <li>Không cạnh tranh trực tiếp acquisition với Ello — Next Continent không SEO/OTA cho tour, sống bằng kênh B2B resort + repeat/referral trong giới birder.</li>
+      <li>Mô hình "đối tác nature-experience của resort 5 sao" là kênh Ello hiện chưa khai thác — khách quốc tế chi tiêu cao, concierge đặt trực tiếp, không cần khách tự tìm online.</li>
+      <li>Case study đáng tham khảo cho hướng "B2B2C qua khách sạn" nếu Ello muốn mở kênh ngoài search/organic.</li>
+    </ul>
+  </div>
+
+  <h2><span class="num">8</span>Nguồn &amp; việc còn cần làm</h2>
+  <div class="card">
+    <ul class="src-list">
+      <li>nextcontinenttours.com (browse-tours, about, career-opportunities, meet-our-team, testimonials-reviews, conservation-programs)</li>
+      <li>TripAdvisor: Attraction_Review-g298085-d28913321 — 4.9/5, 47 review, #76/925 hoạt động Đà Nẵng</li>
+      <li>SimilarWeb + Ahrefs Traffic Checker (nextcontinenttours.com)</li>
+      <li>masothue.com/0402214876-cong-ty-tnhh-next-continent</li>
+      <li>TopCV — hồ sơ công ty, quy mô nhân sự</li>
+      <li>danang.intercontinental.com/experiences/nature/ + bài PR "InterContinental Danang Launches Exciting New Nature Experiences"</li>
+      <li>Facebook: facebook.com/nextcontinenttours — 3.790 like, 258 đang nói về</li>
+    </ul>
+    <p style="margin-top:10px;"><b>Chưa xác nhận:</b> danh sách đầy đủ team (mới thấy 1/10-24 người), có resort 5 sao khác hợp tác không, tần suất tour thực/tuần, có nhận outbound/wholesale từ agency nước ngoài không.</p>
+  </div>
+  </section>
+
+  <section id="le-family-riders" style="margin-top:56px; padding-top:24px; border-top:3px solid var(--border);">
+  <div class="eyebrow">Công ty 2</div>
+  <h1 style="font-size:1.4rem;">Le Family Riders</h1>
+  <p class="subtitle" style="margin-bottom:16px;">lefamilyriders.com — motorbike tour gia đình, Huế – Hội An – Đà Nẵng. Một listing tour ("Hue to Hoi An Top Gear") có <b>3.486+ review</b>, gấp ~5 lần bất kỳ listing nào khác cùng nhóm tour Đà Nẵng trên TripAdvisor.</p>
+
+  <h2><span class="num">1</span>Hồ sơ — mô hình phi chính quy, không tìm được pháp nhân</h2>
+  <div class="card">
+    <div class="grid2">
+      <div class="stat"><div class="label">Địa chỉ</div><div class="value" style="font-size:1rem;">78 Tuệ Tĩnh, Thuận Hoá, Huế</div></div>
+      <div class="stat"><div class="label">Kinh nghiệm tự nhận</div><div class="value" style="font-size:1rem;">~10 năm</div></div>
+      <div class="stat"><div class="label">TripAdvisor — tổng review</div><div class="value">10.172 <small>5.0/5</small></div></div>
+      <div class="stat"><div class="label">Xếp hạng</div><div class="value" style="font-size:1rem;">#2/442 hoạt động ở Huế</div></div>
+    </div>
+    <p style="margin-top:14px;"><span class="badge ruled-out">không tìm được</span> Search mã số thuế theo địa chỉ/tên công ty trên masothue.com — <b>không ra kết quả</b>. Website tự mô tả: "We do not have any office other than the address... Send an e-mail directly to us is the best way you can book". Nhiều khả năng đây là hộ kinh doanh gia đình/cá thể, không phải TNHH — khác hẳn mô hình chính quy của Next Continent. Facebook page (lefamilyriders.official.community) chỉ ~800 follower — không tương xứng quy mô review.</p>
+  </div>
+
+  <h2><span class="num">2</span>Sản phẩm — 8 tour, phạm vi rộng hơn tên gọi</h2>
+  <div class="card">
+    <p>Không chỉ tuyến Huế–Hội An như tên tour phổ biến nhất, danh mục thực tế trải dài tới DMZ, Hồ Chí Minh Trail, Khe Sanh, Phong Nha, Đồng Hới:</p>
+    <table>
+      <tr><th>Tour</th><th>Giá</th><th>Thời gian</th></tr>
+      <tr><td>Hue City Tour by Motorbike</td><td class="num">$20/khách</td><td class="num">—</td></tr>
+      <tr><td>Hue – Hoi An (hoặc ngược lại)</td><td class="num">$59/khách</td><td class="num">1 ngày</td></tr>
+      <tr><td>Hue – P'rao – Hoi An</td><td class="num">$190/khách</td><td class="num">2N1Đ</td></tr>
+      <tr><td>Hue – Cua Tung – Khe Sanh – Prao – Hoi An</td><td class="num">$280/khách</td><td class="num">4N3Đ</td></tr>
+      <tr><td>Hue – DMZ – Ho Chi Minh Trail – Hoi An</td><td class="num">$285/khách</td><td class="num">3 ngày</td></tr>
+      <tr><td>Hue – DMZ – HCM Trail – Khe Sanh – Phong Nha – Dong Hoi</td><td class="num">$345/khách</td><td class="num">3 ngày</td></tr>
+      <tr><td>Hue City Tour / Hue-Hoi An by Car</td><td class="num">theo yêu cầu</td><td class="num">—</td></tr>
+    </table>
+    <p>Review nhắc tên nhiều rider khác nhau trong cùng 1 tour (vd "Vu, Cuong và Nuoc") → có <b>đội rider thuê/cộng tác</b> ngoài gia đình gốc, không phải chỉ 1 nhóm nhỏ chạy toàn bộ khối lượng.</p>
+  </div>
+
+  <h2><span class="num">3</span>Cơ chế tạo ra 10.000+ review — bán hàng trực tiếp tại điểm du lịch, chốt qua uy tín online</h2>
+  <div class="card">
+    <p>Nhiều review mô tả cùng một kịch bản gặp gỡ: thành viên gia đình (thường là "Lui") <b>chủ động tiếp cận khách du lịch ngay tại Đại Nội Huế</b> — điểm đến đông khách nhất thành phố — trò chuyện, giới thiệu tour, đưa danh thiếp, đôi khi gợi ý luôn một quán cà phê gần đó. Khách về khách sạn tra cứu, thấy thông tin khớp và rating cực cao trên TripAdvisor, rồi mới đặt tour qua email/WhatsApp vài ngày sau — không đặt/trả tiền ngay tại chỗ.</p>
+    <div class="finding">
+      <div class="head">Chốt bằng con người tại điểm chạm cao nhất, xác nhận bằng uy tín tích lũy trên OTA</div>
+      <p style="margin:0;">Mô hình này giải quyết đúng rào cản lớn nhất của khách du lịch nước ngoài: sợ lừa đảo khi đặt tour từ người lạ gặp trên phố. Số lượng review khổng lồ (được xây trong gần 10 năm) đóng vai trò xác nhận độ tin cậy ngay khi khách tra cứu, khiến quyết định đặt tour trở nên an toàn dù mới quen qua vài phút ngoài đường.</p>
+    </div>
+    <p>Mỗi tour đều có các khoảnh khắc dễ chia sẻ (tắm suối, ghé làng chài, gặp khỉ, ăn trưa bên biển) và khách luôn nhớ tên riêng của rider dẫn đoàn (Vu, Cuong, Nuoc, Tony, Michael, Lui...) — sự gắn kết cá nhân này là động lực khiến khách chủ động quay lại viết review cảm ơn đích danh, thay vì chỉ đánh giá chung chung.</p>
+    <p>Website có mục <b>"Lovely Diary"</b> — thư viện ảnh khách theo từng quốc gia (Anh, Úc, Bỉ, Brazil, Canada, Đan Mạch, Hà Lan, Ý, Hàn Quốc...), đóng vai trò như một "bức tường minh chứng" theo quốc tịch, giúp khách mới thuộc quốc gia nào cũng thấy có người đồng hương từng trải nghiệm và hài lòng.</p>
+  </div>
+
+  <h2><span class="num">4</span>Traffic — kênh online gần như không tồn tại</h2>
+  <div class="card">
+    <div class="finding">
+      <div class="head">Ahrefs: lefamilyriders.com — 0 organic traffic, $0 traffic value</div>
+      <p style="margin:0;">Toàn bộ khối lượng khách đến từ tiếp cận trực tiếp ngoài đời (mục 3) và uy tín tích lũy trên TripAdvisor/Viator, không qua SEO hay quảng cáo online. Facebook page (lefamilyriders.official.community) chỉ ~800 follower — không tương xứng quy mô review, xác nhận kênh chính không nằm ở mạng xã hội.</p>
+    </div>
+  </div>
+
+  <h2><span class="num">5</span>Doanh thu — suy luận từ nhiều góc nhìn</h2>
+  <div class="card">
+    <p><b>Góc 1 — quy đổi từ tổng review theo thời gian hoạt động:</b> 10.172 review TripAdvisor tích lũy qua ~10 năm hoạt động, trung bình hơn 1.000 review/năm. Với tỷ lệ khách để lại review cho tour riêng có hướng dẫn thường 15–30%, suy ra khoảng <b>3.000–7.000 khách/năm</b>.</p>
+    <p><b>Góc 2 — tách kênh đặt tour qua cơ cấu review:</b> trong 10.172 review, chỉ 3.486+14 = ~3.500 review (~34%) gắn với 2 sản phẩm có thể đặt qua Viator/TripAdvisor Experiences; ~6.660 review còn lại (~66%) nằm ở trang tổng — tức đến từ khách đặt thẳng qua email/WhatsApp, kênh mà chính website đề xuất là "cách tốt nhất để đặt". Phần lớn doanh thu vì vậy không bị các nền tảng OTA khấu trừ hoa hồng (thường 20–30%).</p>
+    <p><b>Góc 3 — chênh lệch giá theo kênh:</b> cùng 1 tour 1 ngày Hue–Hoi An giá $59/khách trên website riêng nhưng $75/khách trên Viator (~+27%) — phần chênh bù cho hoa hồng OTA, cho thấy giá thực nhận dao động theo tỷ trọng kênh bán.</p>
+    <p><b>Góc 4 — cơ cấu chi phí:</b> không thuê văn phòng, không có đội ngũ lương cố định — vận hành theo rider trả theo chuyến, biên lợi nhuận/khách nhiều khả năng cao hơn hẳn mô hình chính quy có văn phòng + nhân sự cố định.</p>
+    <p><b>Ước tính gộp:</b> 3.000–7.000 khách/năm × giá bình quân theo trọng số danh mục (phần lớn là gói 1 ngày $59–75, thiểu số gói nhiều ngày $190–345, bình quân ước ~$70–100/khách) → doanh thu gộp khoảng <b>$250.000–650.000/năm</b>. <span class="badge inferred">suy luận</span> không phải số xác nhận — hộ kinh doanh cá thể tại Việt Nam không có nghĩa vụ công khai doanh thu.</p>
+    <p>Đối chiếu bối cảnh: cùng trang sản phẩm trên Viator xuất hiện các đối thủ cùng phân khúc như "Hai Van Pass Back Roads Motorbike Tour with Mister T Easy Rider" (889 review) — xác nhận nhu cầu motorbike tour cá nhân hoá tuyến Huế–Đà Nẵng là một ngách có quy mô thật, Le Family Riders chỉ là đối thủ lớn nhất trong nhóm này chứ không phải hiện tượng đơn lẻ.</p>
+  </div>
+
+  <h2><span class="num">6</span>Đọc nhanh cho Ello</h2>
+  <div class="card">
+    <ul>
+      <li>Danh tiếng tích lũy trên OTA (TripAdvisor/Viator) quan trọng hơn website riêng hay quy mô nhân sự chính quy ở mảng tour riêng/motorbike — đối lập với mô hình B2B resort của Next Continent.</li>
+      <li>Kênh tiếp cận khách chính không nằm trên bất kỳ công cụ đo traffic/mạng xã hội chuẩn nào — mà là con người tiếp cận trực tiếp tại điểm du lịch đông khách nhất, chốt bằng uy tín online.</li>
+      <li>Rà theo review count bất thường trên TripAdvisor (không chỉ theo tên thương hiệu/website) là cách hiệu quả để phát hiện thêm các đối thủ dạng gia đình/cá thể tương tự trong khu vực Huế-Hội An-Đà Nẵng.</li>
+    </ul>
+  </div>
+
+  <h2><span class="num">7</span>Nguồn</h2>
+  <div class="card">
+    <ul class="src-list">
+      <li>tripadvisor.com/Attraction_Review-g293926-d2647558 — "Le Family Rider", 10.172 review, #2/442 hoạt động Huế</li>
+      <li>viator.com/tours/Hue/Hue-to-Hoi-An-Top-Gear-with-Lefamily-Riders-Tours — giá, hoa hồng kênh OTA, hoạt động từ 10/2019</li>
+      <li>lefamilyriders.com (home, tour-search, lovely-diary)</li>
+      <li>Ahrefs Traffic Checker (lefamilyriders.com)</li>
+      <li>facebook.com/lefamilyriders.official.community — ~800 follower</li>
+    </ul>
+    <p style="margin-top:10px;"><b>Chưa xác nhận:</b> loại hình pháp lý thật (hộ kinh doanh? cá nhân?), số rider/cộng tác viên thực tế, có bán qua GetYourGuide/Klook/Airbnb không, quy mô đội xe.</p>
+  </div>
+  </section>
+
+  <footer>
+    Trang nháp, chưa merge vào <code>index.html</code> hay <code>ello-competitor-analysis/</code>.
+  </footer>
+
+</div>
+</body>
+</html>
